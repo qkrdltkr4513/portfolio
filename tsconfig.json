@@ -18,8 +18,10 @@
     "baseUrl": ".",
     "paths": {
       "@src/*": ["src/*"],
-      "@components/*": ["components/*"],
-      "@core/*": ["core/*"]
+      "@components/*": ["src/components/*"],
+      "@core/*": ["src/core/*"],
+      "@assets/*": ["public/assets/*"],
+      "@styles/*": ["styles/*"]
     },
     "types": ["react", "@emotion/react/types/css-prop"]
   },
