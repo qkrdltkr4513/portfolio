@@ -20,7 +20,8 @@
       "@src/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@core/*": ["src/core/*"],
-      "@assets/*": ["public/assets/*"]
+      "@assets/*": ["public/assets/*"],
+      "@styles/*": ["styles/*"]
     },
     "types": ["react", "@emotion/react/types/css-prop"]
   },
