@@ -1,7 +1,12 @@
 /node_modules
+/.pnp
+.pnp.js
+
+/coverage
 
 /.next/
 /out/
+/.next
 
 /build
 /dist
