@@ -23,10 +23,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
-<<<<<<< HEAD
     "framer-motion": "^7.1.0",
-=======
->>>>>>> feature/setup
     "lodash": "^4.17.21",
     "next": "12.2.3",
     "prettier": "^2.7.1",

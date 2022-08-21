@@ -1,17 +1,8 @@
 {
-<<<<<<< HEAD
   "singleQuote": true,
   "semi": true,
   "useTabs": false,
   "tabWidth": 2,
   "trailingComma": "all",
   "printWidth": 100
-=======
-    "singleQuote": true,
-    "semi": true,
-    "useTabs": false,
-    "tabWidth": 2,
-    "trailingComma": "all",
-    "printWidth": 100
->>>>>>> feature/setup
 }
