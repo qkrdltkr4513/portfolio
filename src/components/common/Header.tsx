@@ -19,14 +19,14 @@ const innerStyle = () => css`
 
 const titleStyle = () => css`
   display: block;
-  color: ${themes.color.White};
+  color: ${themes.colors.White};
   ${themes.fontSize.Title2};
   ${themes.fontWeight.SemiBold};
 `;
 
 const contactMeStyle = () => css`
   display: block;
-  color: ${themes.color.White};
+  color: ${themes.colors.White};
   ${themes.fontSize.Body2};
   ${themes.fontWeight.Regular};
 `;

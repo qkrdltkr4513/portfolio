@@ -10,7 +10,7 @@ const wrapperStyle = () => css`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  background-color: ${themes.color['Black/90']};
+  background-color: ${themes.colors['Black/90']};
 `;
 
 const innerStyle = () => css`
