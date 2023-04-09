@@ -1,5 +1,7 @@
 import { css, Global } from '@emotion/react';
 import emotionReset from 'emotion-reset';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
 
 const styles = css`
   @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
