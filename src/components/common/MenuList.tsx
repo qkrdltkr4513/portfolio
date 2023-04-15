@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
 import { uniqueId } from 'lodash';
 import { CONSTANTS_MENU_LIST } from '@core/constants';
-import { GlobalMenuListProps } from '@core/types';
+import { CommonMenuListProps } from '@core/types';
 
 import { themes } from '@styles/themes';
 
@@ -31,7 +31,7 @@ const MenuList = () => {
     [pathname],
   );
 
-  const onClickMenuItem = (item: GlobalMenuListProps) => {
+  const onClickMenuItem = (item: CommonMenuListProps) => {
     const { path } = item;
     push(path);
   };
