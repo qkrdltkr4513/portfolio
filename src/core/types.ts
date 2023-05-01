@@ -11,3 +11,33 @@ export interface CommonButtonProps {
   className?: string;
   onClick: () => void;
 }
+
+export interface CommonContentsProps {
+  children: React.ReactNode;
+}
+
+export interface CommonGridBoxProps {
+  rows?: number;
+  columns?: number;
+  children: React.ReactNode;
+  className?: string;
+}
+
+export type CommonGridCardType = 'SMALL' | 'MEDIUM' | 'LARGE' | 'FULL';
+
+export interface CommonGridCardSizeProps {
+  [key: string]: CommonGridCardType;
+}
+
+export interface CommonGridCardProps {
+  type: CommonGridCardType;
+  height?: number;
+  columnSize: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+export interface CommonCardprops {
+  children: React.ReactNode;
+  className?: string;
+}
