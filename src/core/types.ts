@@ -37,7 +37,8 @@ export interface CommonGridCardProps {
   className?: string;
 }
 
-export interface CommonCardprops {
+export interface CommonCardProps {
+  width?: number;
   children: React.ReactNode;
   className?: string;
 }
