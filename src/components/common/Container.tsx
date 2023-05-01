@@ -9,8 +9,9 @@ const wrapperStyle = () => css`
   display: flex;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   flex-direction: column;
-  background-color: ${themes.colors['Gray/15']};
+  background-color: ${themes.colors['Gray/14']};
 `;
 
 const innerStyle = () => css`
