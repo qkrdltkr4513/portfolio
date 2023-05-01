@@ -8,8 +8,12 @@ const wrapperStyle = (rows: number, columns: number) => css`
   gap: 30px 30px;
 `;
 
-const GridBox = ({ rows = 2, columns = 4, children }: CommonGridBoxProps) => {
-  return <div css={wrapperStyle(rows, columns)}>{children}</div>;
+const GridBox = ({ rows = 2, columns = 4, children, className }: CommonGridBoxProps) => {
+  return (
+    <div css={wrapperStyle(rows, columns)} className={className}>
+      {children}
+    </div>
+  );
 };
 
 export default GridBox;
