@@ -12,7 +12,7 @@ export interface CommonButtonProps {
   onClick: () => void;
 }
 
-export interface CommonContentsProps {
+export interface CommonBodyProps {
   children: React.ReactNode;
 }
 
@@ -41,4 +41,14 @@ export interface CommonCardProps {
   width?: number;
   children: React.ReactNode;
   className?: string;
+}
+
+export interface CommonTitleProps {
+  name?: string;
+  main: string;
+  sub?: string;
+}
+
+export interface CommonContentProps {
+  content: string;
 }
