@@ -18,7 +18,7 @@ const wrapperStyle = () => css`
 const itemStyle = (isActive: boolean) => css`
   display: block;
   color: ${isActive ? themes.colors['Yellow'] : themes.colors.White};
-  ${themes.fontSize.Body3};
+  ${themes.fontSize.Body1};
   ${themes.fontWeight.Medium};
   cursor: pointer;
 `;

@@ -47,6 +47,8 @@ export interface ThemesProps {
     Orange: string; // 주황
     Skyblue: string; // 하늘색
     Red: string; // 빨강
+    Title: string; // 제목에 사용되고 옅은 노랑
+    Contents: string; // sub title과 내용에 사용
   };
 
   // 글씨 두께
@@ -61,9 +63,12 @@ export interface ThemesProps {
   // 글씨 크기
   fontSize: {
     Title: string;
+    MainTitle: string;
     SubTitle: string;
     H1: string;
     H2: string;
+    H3: string;
+    H4: string;
     Body1: string;
     Body2: string;
     Body3: string;
@@ -119,6 +124,8 @@ export const themes: ThemesProps = {
     Orange: '#FF8200', // 주황
     Skyblue: '#00DCFF', // 하늘색
     Red: '#FF1E1E', // 빨강
+    Title: '#FFC552', // 제목에 사용되고 옅은 노랑
+    Contents: '#D9D5C9', // sub title과 내용에 사용
   },
 
   // 글씨 두께
@@ -132,12 +139,15 @@ export const themes: ThemesProps = {
 
   // 글씨 크기
   fontSize: {
-    Title: 'font-size: 20px line-height: 20px;',
-    SubTitle: 'font-size: 18px line-height: 18px;',
-    H1: 'font-size: 16px line-height: 16px;',
-    H2: 'font-size: 15px line-height: 15px;',
-    Body1: 'font-size: 14px line-height: 14px;',
-    Body2: 'font-size: 12px line-height: 12px;',
-    Body3: 'font-size: 10px line-height: 10px;',
+    Title: 'font-size: 28px; line-height: 28px;',
+    MainTitle: 'font-size: 24px; line-height: 24px;',
+    SubTitle: 'font-size: 20px; line-height: 20px;',
+    H1: 'font-size: 18px; line-height: 18px;',
+    H2: 'font-size: 17px; line-height: 17px;',
+    H3: 'font-size: 16px; line-height: 16px;',
+    H4: 'font-size: 15px; line-height: 15px;',
+    Body1: 'font-size: 14px; line-height: 14px;',
+    Body2: 'font-size: 12px; line-height: 12px;',
+    Body3: 'font-size: 10px; line-height: 10px;',
   },
 };
