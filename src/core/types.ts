@@ -1,3 +1,4 @@
+import * as icons from '@assets/icons';
 export interface CommonMenuListProps {
   name: string;
   path: string;
@@ -37,8 +38,18 @@ export interface CommonGridCardProps {
   className?: string;
 }
 
+export type PositionType = 'LEFT_TOP' | 'LEFT_BOTTOM' | 'RIGHT_TOP' | 'RIGHT_BOTTOM';
+export interface CommonPositionProps {
+  LEFT_TOP: PositionType;
+  LEFT_BOTTOM: PositionType;
+  RIGHT_TOP: PositionType;
+  RIGHT_BOTTOM: PositionType;
+}
+
 export interface CommonCardProps {
   width?: number;
+  imageName?: string;
+  imagePosition?: PositionType;
   children: React.ReactNode;
   className?: string;
 }
@@ -51,4 +62,15 @@ export interface CommonTitleProps {
 
 export interface CommonContentProps {
   content: string;
+}
+
+export type CommonIconType = keyof typeof icons;
+
+export interface CommonIconProps {
+  name: CommonIconType;
+  rotate?: number;
+  width: number;
+  height: number;
+  color: string;
+  className?: string;
 }
