@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { css } from '@emotion/react';
+import MotionCardWrapper from '@components/motion/MotionCardWrapper';
 import { CommonGridCardProps, CommonGridCardType } from '@core/types';
 import { themes } from '@styles/themes';
 
@@ -22,10 +23,11 @@ const GridCard = ({ type, height, columnSize, children, className }: CommonGridC
   useEffect(() => {
     console.log('card item mounted');
   }, []);
+
   return (
-    <div css={wrapperStyle(type, columnSize, height)} className={className}>
+    <MotionCardWrapper css={wrapperStyle(type, columnSize, height)} className={className}>
       <div css={innerStyle()}>{children}</div>
-    </div>
+    </MotionCardWrapper>
   );
 };
 

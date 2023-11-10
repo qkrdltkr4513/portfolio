@@ -1,4 +1,6 @@
 import { css } from '@emotion/react';
+import { motion } from 'framer-motion';
+import MotionCardWrapper from '@components/motion/MotionCardWrapper';
 import { CommonCardProps } from '@core/types';
 import { themes } from '@styles/themes';
 
@@ -14,9 +16,11 @@ const innerStyle = () => css`
 
 const Card = ({ width = 400, children, className }: CommonCardProps) => {
   return (
-    <div css={wrapperStyle(width)} className={className}>
-      <div css={innerStyle()}>{children}</div>
-    </div>
+    <MotionCardWrapper>
+      <div css={wrapperStyle(width)} className={className}>
+        <div css={innerStyle()}>{children}</div>
+      </div>
+    </MotionCardWrapper>
   );
 };
 
