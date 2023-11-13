@@ -68,9 +68,26 @@ export type CommonIconType = keyof typeof icons;
 
 export interface CommonIconProps {
   name: CommonIconType;
+  isFixStroke?: boolean;
+  strokeWidth?: number;
   rotate?: number;
   width: number;
   height: number;
-  color: string;
+  color?: string;
   className?: string;
+}
+
+export interface CommonTextProps {
+  size: string;
+  weight: string;
+  color: string;
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export type CommonLevelType = 'MAIN' | 'SUB';
+
+export interface CommonLevelTypeProps {
+  MAIN: CommonLevelType;
+  SUB: CommonLevelType;
 }
