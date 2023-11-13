@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { css } from '@emotion/react';
 import { CommonIconProps, CommonIconType } from '@core/types';
-import * as icons from '@assets/icons';
+import * as svg from '@assets/icons';
 import { themes } from '@styles/themes';
 
 interface IconProps {
@@ -9,47 +9,55 @@ interface IconProps {
 }
 
 const IconBoxStyle = ({
+  isFixStroke,
+  strokeWidth,
   rotate,
   width,
   height,
   color,
-}: Pick<CommonIconProps, 'rotate' | 'width' | 'height' | 'color'>) => css`
+}: Pick<
+  CommonIconProps,
+  'isFixStroke' | 'strokeWidth' | 'rotate' | 'width' | 'height' | 'color'
+>) => css`
   display: flex;
   justify-content: center;
   align-items: center;
 
   transform: rotate(${rotate}deg);
   svg {
-    width: ${width};
-    height: ${height};
+    width: ${width}px;
+    height: ${height}px;
 
     path,
-    circle,
-    g > rect {
-      fill: ${color};
+    circle {
+      stroke: ${color};
+      ${isFixStroke &&
+      css`
+        stroke-width: ${strokeWidth || 1};
+        vector-effect: non-scaling-stroke;
+      `}
     }
   }
 `;
 
+const viewBox = '0 0 24 24';
+const SVGIcon = ({ name }: IconProps) => React.createElement(svg[name], { viewBox });
+
 const Icon = ({
   name,
+  isFixStroke,
+  strokeWidth = 1,
   rotate = 0,
   width,
   height,
   color = themes.colors['Gray/01'],
   className,
 }: CommonIconProps) => {
-  const SVGIcon = useCallback(
-    ({ name }: IconProps) => {
-      const viewBox = '0 0 16 16';
-
-      return React.createElement(icons[name], { viewBox });
-    },
-    [name],
-  );
-
   return (
-    <div css={IconBoxStyle({ rotate, width, height, color })} className={className}>
+    <div
+      css={IconBoxStyle({ isFixStroke, strokeWidth, rotate, width, height, color })}
+      className={className}
+    >
       <SVGIcon name={name} />
     </div>
   );

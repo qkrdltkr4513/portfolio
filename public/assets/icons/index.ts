@@ -1,2 +1,3 @@
 import icTest from './ic-test.svg';
-export { icTest };
+import icCircleArrow from './ic-circle-arrow.svg';
+export { icTest, icCircleArrow };
