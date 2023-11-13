@@ -45,7 +45,7 @@ const Container = ({ children }: ContainerProps) => {
 
   return (
     <div css={wrapperStyle()}>
-      <motion.div
+      {/* <motion.div
         ref={ref}
         css={pointerStyle()}
         animate={{ x, y }}
@@ -57,7 +57,7 @@ const Container = ({ children }: ContainerProps) => {
         }}
       >
         <span />
-      </motion.div>
+      </motion.div> */}
       <div css={innerStyle()}>{children}</div>
     </div>
   );

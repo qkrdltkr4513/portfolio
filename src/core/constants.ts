@@ -3,7 +3,7 @@ import {
   CommonMenuListProps,
   CommonGridCardSizeProps,
   CommonPositionProps,
-  PositionType,
+  CommonLevelTypeProps,
 } from '@core/types';
 
 // Header에 표시되는 메뉴 리스트.
@@ -34,4 +34,10 @@ export const COMMON_POSITION_TYPES: CommonPositionProps = {
   LEFT_BOTTOM: 'LEFT_BOTTOM',
   RIGHT_TOP: 'RIGHT_TOP',
   RIGHT_BOTTOM: 'RIGHT_BOTTOM',
+};
+
+// LEVEL Type
+export const COMMON_LEVEL_TYPES: CommonLevelTypeProps = {
+  MAIN: 'MAIN',
+  SUB: 'SUB',
 };

@@ -14,7 +14,7 @@ const wrapperStyle = (type: CommonButtonType) => {
 };
 
 const innerStyle = () => css`
-  padding: 10px 20px;
+  padding: 10px 14px;
 `;
 
 const textStyle = (type: CommonButtonType) => {

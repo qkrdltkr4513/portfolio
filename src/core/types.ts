@@ -1,4 +1,6 @@
 import * as icons from '@assets/icons';
+import { ImageProps } from 'next/image';
+import { ThemesProps } from '@styles/themes';
 export interface CommonMenuListProps {
   name: string;
   path: string;
@@ -32,31 +34,35 @@ export interface CommonGridCardSizeProps {
 
 export interface CommonGridCardProps {
   type: CommonGridCardType;
+  useMotion?: boolean;
   height?: number;
   columnSize: string;
   children: React.ReactNode;
   className?: string;
 }
 
-export type PositionType = 'LEFT_TOP' | 'LEFT_BOTTOM' | 'RIGHT_TOP' | 'RIGHT_BOTTOM';
+export type CommonPositionType = 'LEFT_TOP' | 'LEFT_BOTTOM' | 'RIGHT_TOP' | 'RIGHT_BOTTOM';
 export interface CommonPositionProps {
-  LEFT_TOP: PositionType;
-  LEFT_BOTTOM: PositionType;
-  RIGHT_TOP: PositionType;
-  RIGHT_BOTTOM: PositionType;
+  LEFT_TOP: CommonPositionType;
+  LEFT_BOTTOM: CommonPositionType;
+  RIGHT_TOP: CommonPositionType;
+  RIGHT_BOTTOM: CommonPositionType;
 }
 
 export interface CommonCardProps {
+  useMotion?: boolean;
   width?: number;
-  imageName?: string;
-  imagePosition?: PositionType;
+  // imageName?: string;
+  imageName?: ImageProps['src'];
+  imagePosition?: CommonPositionType;
+  isCircleImage?: boolean;
   children: React.ReactNode;
   className?: string;
 }
 
-export interface CommonTitleProps {
+export interface CommonArticleTitleProps {
   name?: string;
-  main: string;
+  main?: string;
   sub?: string;
 }
 
