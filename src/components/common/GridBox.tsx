@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { CommonGridBoxProps } from '@core/types';
+import { CommonGridBoxProps } from '@core/common/types';
 
 const wrapperStyle = (rows: number, columns: number) => css`
   display: grid;

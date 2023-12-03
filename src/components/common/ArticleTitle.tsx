@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { CommonTitleProps } from '@core/types';
+import { CommonArticleTitleProps } from '@core/common/types';
 import { themes } from '@styles/themes';
 
 const wrapperStyle = () => css`
@@ -38,14 +38,16 @@ const subTitleStyle = () => css`
   ${themes.fontWeight.Normal};
 `;
 
-const Title = ({ name, main, sub }: CommonTitleProps) => (
+const ArticleTitle = ({ name, main, sub }: CommonArticleTitleProps) => (
   <div css={wrapperStyle()}>
     <span css={nameStyle()}>{name}</span>
-    <div css={boxStyle()}>
-      <span css={mainTitleStyle()}>{main}</span>
-      <span css={subTitleStyle()}>{sub}</span>
-    </div>
+    {main && sub && (
+      <div css={boxStyle()}>
+        <span css={mainTitleStyle()}>{main}</span>
+        <span css={subTitleStyle()}>{sub}</span>
+      </div>
+    )}
   </div>
 );
 
-export default Title;
+export default ArticleTitle;

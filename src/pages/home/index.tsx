@@ -1,7 +1,7 @@
 import Body from '@components/common/Body';
 import GridBox from '@components/common/GridBox';
-import GridCard from '@src/components/common/GridCard';
-import { COMMON_CARD_SIZE_TYPES } from '@core/constants';
+import GridCard from '@components/common/GridCard';
+import { COMMON_CARD_SIZE_TYPES } from '@core/common/constants';
 
 const Home = () => {
   return (

@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
-import Title from '@components/common/Title';
+import ArticleTitle from '@components/common/ArticleTitle';
 import Content from '@components/common/Content';
-import { CommonTitleProps, CommonContentProps } from '@src/core/types';
+import { CommonArticleTitleProps, CommonContentProps } from '@core/common/types';
 
-type ArticleProps = CommonTitleProps & CommonContentProps;
+type ArticleProps = CommonArticleTitleProps & CommonContentProps;
 
 const wrapperStyle = () => css`
   display: flex;
@@ -13,7 +13,7 @@ const wrapperStyle = () => css`
 
 const Article = ({ name, main, sub, content }: ArticleProps) => (
   <div css={wrapperStyle()}>
-    <Title name={name} main={main} sub={sub} />
+    <ArticleTitle name={name} main={main} sub={sub} />
     <Content content={content} />
   </div>
 );
