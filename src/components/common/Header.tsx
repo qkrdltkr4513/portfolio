@@ -4,16 +4,21 @@ import MenuList from '@components/common/MenuList';
 import Button from '@components/common/Button';
 
 const wrapperStyle = () => css`
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   width: 100%;
   height: 60px;
+  z-index: 10;
+  background-color: ${themes.colors['Gray/14']};
 `;
 
 const innerStyle = () => css`
   display: flex;
   width: 100%;
   flex-direction: row;
-  padding: 10px 0;
+  padding: 10px 20px;
   justify-content: space-between;
   align-items: center;
 `;

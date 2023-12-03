@@ -8,13 +8,13 @@ type ArticleProps = CommonArticleTitleProps & CommonContentProps;
 const wrapperStyle = () => css`
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 `;
 
 const Article = ({ name, main, sub, content }: ArticleProps) => (
   <div css={wrapperStyle()}>
     <ArticleTitle name={name} main={main} sub={sub} />
-    <Content content={content} />
+    {content && <Content content={content} />}
   </div>
 );
 
