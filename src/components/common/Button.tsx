@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { COMMON_BUTTON_TYPES } from '@src/core/constants';
-import { CommonButtonProps, CommonButtonType } from '@src/core/types';
+import { COMMON_BUTTON_TYPES } from '@core/common/constants';
+import { CommonButtonProps, CommonButtonType } from '@core/common/types';
 import { themes } from '@styles/themes';
 
 const wrapperStyle = (type: CommonButtonType) => {

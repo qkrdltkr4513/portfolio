@@ -1,8 +1,8 @@
 import Image, { ImageProps } from 'next/image';
 import { css } from '@emotion/react';
 import MotionCardWrapper from '@components/motion/MotionCardWrapper';
-import { CommonCardProps, CommonPositionType } from '@core/types';
-import { COMMON_POSITION_TYPES } from '@core/constants';
+import { CommonCardProps, CommonPositionType } from '@core/common/types';
+import { COMMON_POSITION_TYPES } from '@core/common/constants';
 import { themes } from '@styles/themes';
 
 const { LEFT_TOP, RIGHT_TOP, LEFT_BOTTOM, RIGHT_BOTTOM } = COMMON_POSITION_TYPES;

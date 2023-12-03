@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { CommonArticleTitleProps } from '@core/types';
+import { CommonArticleTitleProps } from '@core/common/types';
 import { themes } from '@styles/themes';
 
 const wrapperStyle = () => css`
