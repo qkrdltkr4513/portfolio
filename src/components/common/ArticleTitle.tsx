@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { CommonArticleTitleProps } from '@core/common/types';
+import { CommonArticleTitleProps } from '@core/types';
 import { themes } from '@styles/themes';
 
 const wrapperStyle = () => css`
@@ -28,7 +28,7 @@ const mainTitleStyle = () => css`
   display: flex;
   color: ${themes.colors.Title};
   ${themes.fontSize.MainTitle};
-  ${themes.fontWeight.Bold};
+  ${themes.fontWeight.Medium};
 `;
 
 const subTitleStyle = () => css`

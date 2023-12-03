@@ -1,6 +1,6 @@
 import * as icons from '@assets/icons';
 import { ImageProps } from 'next/image';
-
+import { ThemesProps } from '@styles/themes';
 export interface CommonMenuListProps {
   name: string;
   path: string;
@@ -67,7 +67,7 @@ export interface CommonArticleTitleProps {
 }
 
 export interface CommonContentProps {
-  content?: string;
+  content: string;
 }
 
 export type CommonIconType = keyof typeof icons;
@@ -96,16 +96,4 @@ export type CommonLevelType = 'MAIN' | 'SUB';
 export interface CommonLevelTypeProps {
   MAIN: CommonLevelType;
   SUB: CommonLevelType;
-}
-
-export interface ExternalTypeProps {
-  name: string;
-  type: 'link' | 'file';
-  url?: string;
-}
-
-export interface CommonExternalLinkProps extends Omit<ExternalTypeProps, 'url'> {
-  isFirst?: boolean;
-  isLast?: boolean;
-  onClick: () => void;
 }
