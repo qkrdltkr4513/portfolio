@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { css } from '@emotion/react';
 import MotionCardWrapper from '@components/motion/MotionCardWrapper';
-import { CommonGridCardProps, CommonGridCardType } from '@core/types';
+import { CommonGridCardProps, CommonGridCardType } from '@core/common/types';
 import { themes } from '@styles/themes';
 
 const wrapperStyle = (type: CommonGridCardType, columnSize: string, height?: number) => css`

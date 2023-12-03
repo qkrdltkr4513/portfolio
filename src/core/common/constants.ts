@@ -4,7 +4,8 @@ import {
   CommonGridCardSizeProps,
   CommonPositionProps,
   CommonLevelTypeProps,
-} from '@core/types';
+  ExternalTypeProps,
+} from '@core/common/types';
 
 // Header에 표시되는 메뉴 리스트.
 export const CONSTANTS_MENU_LIST: CommonMenuListProps[] = [
@@ -41,3 +42,11 @@ export const COMMON_LEVEL_TYPES: CommonLevelTypeProps = {
   MAIN: 'MAIN',
   SUB: 'SUB',
 };
+
+// External Link
+export const EXTERNAL_LINK_LIST: ExternalTypeProps[] = [
+  { name: 'Buildit', type: 'link', url: 'https://buildit.kr' },
+  { name: 'StageFive', type: 'link', url: 'https://www.stagefive.com' },
+  { name: 'Nc Soft', type: 'link', url: 'https://www.ncsoft.com' },
+  { name: 'File', type: 'file', url: '' },
+];
