@@ -67,7 +67,7 @@ export interface CommonArticleTitleProps {
 }
 
 export interface CommonContentProps {
-  content: string;
+  content?: string;
 }
 
 export type CommonIconType = keyof typeof icons;

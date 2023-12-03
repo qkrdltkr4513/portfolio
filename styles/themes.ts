@@ -140,8 +140,8 @@ export const themes: ThemesProps = {
   // 글씨 크기
   fontSize: {
     Title: 'font-size: 28px; line-height: 28px;',
-    MainTitle: 'font-size: 24px; line-height: 24px;',
-    SubTitle: 'font-size: 20px; line-height: 20px;',
+    MainTitle: 'font-size: 22px; line-height: 22px;',
+    SubTitle: 'font-size: 12px; line-height: 12px;',
     H1: 'font-size: 18px; line-height: 18px;',
     H2: 'font-size: 17px; line-height: 17px;',
     H3: 'font-size: 16px; line-height: 16px;',
