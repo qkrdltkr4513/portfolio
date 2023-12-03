@@ -3,11 +3,11 @@ import Card from '@components/common/Card';
 import Article from '@components/Article';
 import Text from '@components/common/Text';
 import Button from '@components/common/Button';
-import { COMMON_POSITION_TYPES } from '@core/constants';
+import ExternalLink from '@components/common/ExternalLink';
+import { COMMON_POSITION_TYPES, EXTERNAL_LINK_LIST } from '@core/common/constants';
 import { imgMyProfile } from '@assets/images';
 import { themes } from '@styles/themes';
-import ExternalLink from '@src/components/common/ExternalLink';
-import Icon from '@src/components/common/Icon';
+import { ExternalTypeProps } from '@core/common/types';
 
 const { LEFT_TOP } = COMMON_POSITION_TYPES;
 
@@ -48,6 +48,14 @@ const Resume = () => {
   // contact me 버튼 클릭시 호출한다.
   const onClickContactMe = () => {};
 
+  // 좌측 사이드바 하단에 표시되는 링크 클릭시 호출한다.
+  const onClickExternalLink = (item: ExternalTypeProps) => {
+    const { type, url } = item;
+
+    // TODO: 삭제 필요
+    console.log(type, url);
+  };
+
   return (
     <div css={wrapperStyle()}>
       <div css={cardBoxStyle()}>
@@ -74,7 +82,7 @@ const Resume = () => {
               weight={themes.fontWeight.Medium}
               color={themes.colors['White/09']}
             >
-              이메일 추가 필요
+              qkrdltkr4513@gmail.com
             </Text>
             <Text
               size={themes.fontSize.Body2}
@@ -89,8 +97,19 @@ const Resume = () => {
         </Card>
         <Card useMotion>
           <div css={cardContentsStyle()}>
-            <ExternalLink />
-            {/* <Icon name="icTest" width={20} height={20} /> */}
+            {EXTERNAL_LINK_LIST.map((item, index) => {
+              const { name, type } = item;
+              const isLast = EXTERNAL_LINK_LIST.length - 1 === index;
+              return (
+                <ExternalLink
+                  isFirst={index === 0}
+                  isLast={isLast}
+                  name={name}
+                  type={type}
+                  onClick={() => onClickExternalLink(item)}
+                />
+              );
+            })}
           </div>
         </Card>
       </div>
