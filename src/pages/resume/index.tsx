@@ -24,7 +24,6 @@ const leftBoxStyle = () => css`
 `;
 
 const cardListStyle = () => css`
-  // position: fixed;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -130,7 +129,10 @@ const Resume = () => {
         </div>
       </div>
       <div css={rightBoxStyle()}>
-        <Article name="본인소개" content="TODO: 간략한 본인소개" />
+        <Article
+          name="본인소개"
+          content="Front-End 개발을 즐거워하고 성장 욕구와 긍정적인 사고를 가진 개발자입니다."
+        />
         <div css={experienceBoxStyle()}>
           <Article
             name="경력사항"
