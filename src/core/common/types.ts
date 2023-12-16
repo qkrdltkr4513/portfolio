@@ -33,7 +33,6 @@ export interface CommonGridCardSizeProps {
 }
 
 export interface CommonGridCardProps {
-  type: CommonGridCardType;
   useMotion?: boolean;
   height?: number;
   columnSize: string;
@@ -84,9 +83,10 @@ export interface CommonIconProps {
 }
 
 export interface CommonTextProps {
-  size: string;
+  size?: string;
   weight: string;
   color: string;
+  textAlign?: string;
   children?: React.ReactNode;
   className?: string;
 }
