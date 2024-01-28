@@ -3,6 +3,12 @@ import { CommonBodyProps } from '@core/common/types';
 
 const wrapperStyle = () => css`
   padding: 60px 0 0;
+  @media (min-width: 1280px) {
+    width: 1200px;
+  }
+  @media (min-width: 1440px) {
+    width: 1400px;
+  }
 `;
 
 const Body = ({ children }: CommonBodyProps) => <div css={wrapperStyle()}>{children}</div>;

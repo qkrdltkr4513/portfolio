@@ -5,17 +5,20 @@ import { CommonGridCardProps } from '@core/common/types';
 import { themes } from '@styles/themes';
 
 const wrapperStyle = (columnSize: string, height?: number) => css`
-  display: inline-grid;
+  // display: inline-grid;
+  display: flex;
   ${height &&
   css`
     height: ${height}px;
   `}
   grid-column: ${columnSize};
+  align-items: center;
   background-color: ${themes.colors['White/02']};
   border-radius: 18px;
 `;
 
 const innerStyle = () => css`
+  width: 100%;
   padding: 20px;
 `;
 
