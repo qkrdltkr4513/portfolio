@@ -27,6 +27,7 @@ const cardListStyle = () => css`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  align-items: center;
   gap: 24px 0;
 `;
 

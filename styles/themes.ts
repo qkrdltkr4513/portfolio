@@ -80,6 +80,7 @@ export interface ThemesProps {
     ClampBody1: string;
     ClampBody2: string;
     ClampBody3: string;
+    ClampBody4: string;
   };
 }
 
@@ -161,10 +162,11 @@ export const themes: ThemesProps = {
     ClampTitle: 'font-size: clamp(26px, 18vw, 320px); line-height: 1;',
     ClampMainTitle: 'font-size: clamp(22px, 10vw, 30px); line-height: 1;',
     ClampSubTitle: 'font-size: clamp(20px, 9vw, 28px); line-height: 1;',
-    ClampH1: 'font-size: clamp(18px, 8vw, 26px); line-height: 1;',
-    ClampH2: 'font-size: clamp(16px, 6vw, 24px); line-height: 1;',
-    ClampBody1: 'font-size: clamp(14px, 4vw, 22px); line-height: 1;',
-    ClampBody2: 'font-size: clamp(12px, 3vw, 20px); line-height: 1;',
-    ClampBody3: 'font-size: clamp(10px, 2vw, 18px); line-height: 1;',
+    ClampH1: 'font-size: clamp(20px, 8vw, 26px); line-height: 1;',
+    ClampH2: 'font-size: clamp(18px, 6vw, 24px); line-height: 1;',
+    ClampBody1: 'font-size: clamp(16px, 4vw, 22px); line-height: 1.2;',
+    ClampBody2: 'font-size: clamp(14px, 3vw, 20px); line-height: 1.2;',
+    ClampBody3: 'font-size: clamp(12px, 2vw, 18px); line-height: 1.2;',
+    ClampBody4: 'font-size: clamp(10px, 2vw, 16px); line-height: 1.2;',
   },
 };
