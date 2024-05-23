@@ -9,7 +9,7 @@ const { LEFT_TOP, RIGHT_TOP, LEFT_BOTTOM, RIGHT_BOTTOM } = COMMON_POSITION_TYPES
 
 const wrapperStyle = (width: number) => css`
   width: ${width}px;
-  background-color: ${themes.colors['Gray/13']};
+  background-color: ${themes.colors.CardBackGround};
   border-radius: 16px;
 `;
 
