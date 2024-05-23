@@ -4,10 +4,10 @@ import Article from '@components/Article';
 import Text from '@components/common/Text';
 import Button from '@components/common/Button';
 import ExternalLink from '@components/common/ExternalLink';
-import { COMMON_POSITION_TYPES, EXTERNAL_LINK_LIST } from '@core/common/constants';
+import { COMMON_POSITION_TYPES, EXTERNAL_LINK_LIST } from '@core/constants';
 import { imgMyProfile } from '@assets/images';
 import { themes } from '@styles/themes';
-import { ExternalTypeProps } from '@core/common/types';
+import { ExternalTypeProps } from '@core/types';
 
 const { LEFT_TOP } = COMMON_POSITION_TYPES;
 

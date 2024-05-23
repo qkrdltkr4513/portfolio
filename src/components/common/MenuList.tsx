@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
 import { uniqueId } from 'lodash';
-import { CONSTANTS_MENU_LIST } from '@core/common/constants';
-import { CommonMenuListProps } from '@core/common/types';
+import { CONSTANTS_MENU_LIST } from '@core/constants';
+import { CommonMenuListProps } from '@core/types';
 
 import { themes } from '@styles/themes';
 

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import ArticleTitle from '@components/common/ArticleTitle';
 import Content from '@components/common/Content';
-import { CommonArticleTitleProps, CommonContentProps } from '@core/common/types';
+import { CommonArticleTitleProps, CommonContentProps } from '@core/types';
 
 type ArticleProps = CommonArticleTitleProps & CommonContentProps;
 

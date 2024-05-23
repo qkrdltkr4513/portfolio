@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { CommonTextProps } from '@core/common/types';
+import { CommonTextProps } from '@core/types';
 
 const textStyle = ({ size, weight, color, textAlign }: CommonTextProps) => css`
   display: block;

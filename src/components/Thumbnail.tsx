@@ -2,10 +2,10 @@ import { useCallback } from 'react';
 import Image, { ImageProps } from 'next/image';
 import { css } from '@emotion/react';
 import { themes } from '@styles/themes';
-import { ThumbnailProps } from '@core/common/types';
+import { ThumbnailProps } from '@core/types';
 import ExternalLink from '@components/common/ExternalLink';
 import Text from '@components/common/Text';
-import { THUMBNAIL_TYPE } from '@core/common/constants';
+import { THUMBNAIL_TYPE } from '@core/constants';
 
 const wrapperStyle = () => css`
   display: flex;
