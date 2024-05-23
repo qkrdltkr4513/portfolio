@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { css } from '@emotion/react';
 import MotionCardWrapper from '@components/motion/MotionCardWrapper';
-import { CommonGridCardProps } from '@core/common/types';
+import { CommonGridCardProps } from '@core/types';
 import { themes } from '@styles/themes';
 
 const wrapperStyle = (columnSize: string, height?: number) => css`
-  // display: inline-grid;
   display: flex;
   ${height &&
   css`
@@ -13,7 +12,6 @@ const wrapperStyle = (columnSize: string, height?: number) => css`
   `}
   grid-column: ${columnSize};
   align-items: center;
-  // background-color: ${themes.colors['White/02']};
   background-color: ${themes.colors.CardBackGround};
   border-radius: 18px;
 `;

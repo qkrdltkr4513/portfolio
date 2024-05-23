@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import Text from '@components/common/Text';
 import Icon from '@components/common/Icon';
-import { CommonExternalLinkProps } from '@core/common/types';
+import { CommonExternalLinkProps } from '@core/types';
 import { themes } from '@styles/themes';
 
 const wrapperStyle = (isLast: boolean) => css`

@@ -6,8 +6,7 @@ import {
   CommonLevelTypeProps,
 } from '@core/types';
 
-import { THUMBNAIL_TYPE } from '@core/common/constants';
-import { ThumbnailInfoProps } from '@core/common/types';
+import { ExternalTypeProps, ThumbnailInfoProps, ThumbnailType } from '@core/types';
 
 // Header에 표시되는 메뉴 리스트.
 export const CONSTANTS_MENU_LIST: CommonMenuListProps[] = [
@@ -15,7 +14,17 @@ export const CONSTANTS_MENU_LIST: CommonMenuListProps[] = [
   { name: 'Works', path: 'works' },
   { name: 'About', path: 'about' },
   { name: 'Resume', path: 'resume' },
+  { name: 'Dashbord', path: 'dashboard' },
 ];
+
+// Thumbnail Types
+export const THUMBNAIL_TYPE: { [key in ThumbnailType]: ThumbnailType } = {
+  ABOUT: 'ABOUT',
+  RESUME: 'RESUME',
+  WORK: 'WORK',
+  OTHER: 'OTHER',
+  HISTORY: 'HISTORY',
+};
 
 // Home 페이지에서 표시되는 카드 내부의 썸네일 컨텐츠
 export const THUMBNAIL_LIST: ThumbnailInfoProps[] = [
@@ -90,3 +99,11 @@ export const COMMON_LEVEL_TYPES: CommonLevelTypeProps = {
   MAIN: 'MAIN',
   SUB: 'SUB',
 };
+
+// External Link
+export const EXTERNAL_LINK_LIST: ExternalTypeProps[] = [
+  { name: 'Buildit', type: 'link', url: 'https://buildit.kr' },
+  { name: 'StageFive', type: 'link', url: 'https://www.stagefive.com' },
+  { name: 'Nc Soft', type: 'link', url: 'https://www.ncsoft.com' },
+  { name: 'File', type: 'file', url: '' },
+];

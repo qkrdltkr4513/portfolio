@@ -6,14 +6,12 @@ import GridBox from '@components/common/GridBox';
 import GridCard from '@components/common/GridCard';
 
 import { themes } from '@styles/themes';
-import { COMMON_CARD_SIZE_TYPES } from '@src/core/constants';
 
 const wrapperStyle = () => css`
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
-  // gap: 20px 0;
 `;
 
 const headerStyle = () => css`

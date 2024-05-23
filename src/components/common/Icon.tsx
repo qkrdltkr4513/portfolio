@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { CommonIconProps, CommonIconType } from '@core/common/types';
+import { CommonIconProps, CommonIconType } from '@core/types';
 import * as svg from '@assets/icons';
 import { themes } from '@styles/themes';
 
