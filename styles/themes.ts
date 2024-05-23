@@ -49,6 +49,7 @@ export interface ThemesProps {
     Red: string; // 빨강
     Title: string; // 제목에 사용되고 옅은 노랑
     Contents: string; // sub title과 내용에 사용
+    CardBackGround: string; // Only Card Component Background Color
   };
 
   // 글씨 두께
@@ -135,6 +136,7 @@ export const themes: ThemesProps = {
     Red: '#FF1E1E', // 빨강
     Title: '#FFC552', // 제목에 사용되고 옅은 노랑
     Contents: '#D9D5C9', // sub title과 내용에 사용
+    CardBackGround: '#333639', // Only Card Component Background Color
   },
 
   // 글씨 두께

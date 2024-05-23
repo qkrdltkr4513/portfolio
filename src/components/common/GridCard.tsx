@@ -13,12 +13,14 @@ const wrapperStyle = (columnSize: string, height?: number) => css`
   `}
   grid-column: ${columnSize};
   align-items: center;
-  background-color: ${themes.colors['White/02']};
+  // background-color: ${themes.colors['White/02']};
+  background-color: ${themes.colors.CardBackGround};
   border-radius: 18px;
 `;
 
 const innerStyle = () => css`
   width: 100%;
+  height: 100%;
   padding: 20px;
 `;
 
