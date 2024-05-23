@@ -1,5 +1,5 @@
 import * as icons from '@assets/icons';
-import { ImageProps } from 'next/image';
+import { ImageProps, StaticImageData } from 'next/image';
 
 export interface CommonMenuListProps {
   name: string;
@@ -108,4 +108,27 @@ export interface CommonExternalLinkProps extends Omit<ExternalTypeProps, 'url'> 
   isFirst?: boolean;
   isLast?: boolean;
   onClick: () => void;
+}
+
+export type ThumbnailType = 'ABOUT' | 'RESUME' | 'WORK' | 'HISTORY' | 'OTHER';
+
+export type PositionType = 'START' | 'CENTER' | 'END' | 'MIDDLE';
+
+export interface ThumbnailProps {
+  image?: {
+    name: StaticImageData;
+    width: number;
+    height: number;
+    isCircle?: boolean;
+    position?: PositionType;
+  };
+  textContent: React.ReactNode;
+  onClick: () => void;
+}
+
+export interface ThumbnailInfoProps {
+  type: ThumbnailType;
+  main: string;
+  sub: string;
+  target?: string;
 }

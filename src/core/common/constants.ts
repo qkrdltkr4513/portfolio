@@ -5,6 +5,7 @@ import {
   CommonPositionProps,
   CommonLevelTypeProps,
   ExternalTypeProps,
+  ThumbnailType,
 } from '@core/common/types';
 
 // Header에 표시되는 메뉴 리스트.
@@ -50,3 +51,12 @@ export const EXTERNAL_LINK_LIST: ExternalTypeProps[] = [
   { name: 'Nc Soft', type: 'link', url: 'https://www.ncsoft.com' },
   { name: 'File', type: 'file', url: '' },
 ];
+
+// Thumbnail Types
+export const THUMBNAIL_TYPE: { [key in ThumbnailType]: ThumbnailType } = {
+  ABOUT: 'ABOUT',
+  RESUME: 'RESUME',
+  WORK: 'WORK',
+  OTHER: 'OTHER',
+  HISTORY: 'HISTORY',
+};
