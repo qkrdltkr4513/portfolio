@@ -60,8 +60,14 @@ export const THUMBNAIL_LIST: ThumbnailInfoProps[] = [
   },
   {
     type: THUMBNAIL_TYPE.HISTORY,
+    main: 'WORK HISTORY',
+    sub: '프로젝트 이력',
+    target: '',
+  },
+  {
+    type: THUMBNAIL_TYPE.HISTORY,
     main: 'DASHBOARD',
-    sub: '프로젝트 경험',
+    sub: '프로젝트 통계',
     target: '',
   },
   {
