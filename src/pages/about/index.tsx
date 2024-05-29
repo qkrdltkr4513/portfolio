@@ -30,22 +30,45 @@ const contentsBoxStyle = () => css`
   flex-direction: column;
 `;
 
+const imageBoxStyle = () => css`
+  > div {
+    padding: 0;
+  }
+`;
+
+// 이미지 백그라운드 스타일
+const imageStyle = () => css`
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  background-image: url(/assets/images/img-about-background.png);
+  background-size: cover;
+  background-position: center bottom;
+  border-radius: 18px;
+`;
+
+// footer 스타일
 const footerStyle = () => css`
   display: flex;
   flex: 1;
   flex-direction: column;
 `;
 
+// 웰컴 스타일
 const welcomeBoxStyle = () => css`
   display: flex;
+  height: 100%;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   margin-top: 20px;
   gap: 20px 0;
 `;
 
+// 본인소개 스타일
 const introduceYourselfBoxStyle = () => css`
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 20px;
@@ -59,11 +82,12 @@ const introduceYourselfStyle = () => css`
   gap: 30px 0;
 `;
 
+// 경력사항 스타일
 const experienceBoxStyle = () => css`
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 20px 0;
 `;
 
@@ -99,15 +123,49 @@ const lineStyle = () => css`
   background-color: ${themes.colors.White};
 `;
 
+// 인적사항 스타일
 const personalInfomationBoxStyle = () => css`
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 20px 0;
 `;
 
 const personalInfomationStyle = () => css``;
+
+// 학력사항 스타일
+const academicBackgroundBoxStyle = () => css`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px 0;
+`;
+
+const academicBackgroundStyle = () => css``;
+
+// 취미활동
+const hobbyBoxStyle = () => css`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px 0;
+`;
+
+const hobbyStyle = () => css``;
+
+// 관심사
+const interestsBoxStyle = () => css`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px 0;
+`;
+
+const interestsStyle = () => css``;
 
 const EXPERIENCE_LIST = [
   { companyName: 'NC ITS', workType: 'Front-End', period: '2022.07 - 현재' },
@@ -180,7 +238,7 @@ const About = () => {
     });
   }, []);
 
-  // 개인정보 리스트
+  // 인적사항
   const PersonalInfomationList = useCallback(() => {
     return (
       <div css={personalInfomationStyle()}>
@@ -189,10 +247,7 @@ const About = () => {
           weight={themes.fontWeight.Medium}
           color={themes.colors['White/07']}
         >
-          {/* TODO: 인적사항부터 작업 필요 */}
-          {/* {personalInfoList.map(() => {
-            
-          })} */}
+          {/* TODO: 인적사항 리스트렌더링 작업 필요 */}
           이름: 박이삭
           <br />
           나이: 33세
@@ -202,6 +257,56 @@ const About = () => {
           생년월일: 1992.07.27
           <br />
           경력: 6년 8개월
+        </Text>
+      </div>
+    );
+  }, []);
+
+  // 학력사항
+  const AcademicBackgroundList = useCallback(() => {
+    return (
+      <div css={academicBackgroundStyle()}>
+        <Text
+          size={themes.fontSize.ClampBody4}
+          weight={themes.fontWeight.Medium}
+          color={themes.colors['White/07']}
+        >
+          {/* TODO: 학력사항 리스트렌더링 작업 필요 */}
+          상명대학교 컴퓨터소프트웨어공학과 졸업
+          <br />
+          (2011.03 ~ 2017.02)
+          <br />
+          <br />
+          아산고등학교 졸업
+          <br />
+          (2008.03 ~ 2011.02)
+          <br />
+        </Text>
+      </div>
+    );
+  }, []);
+
+  // 취미 활동
+  const HobbyList = useCallback(() => {
+    return (
+      <div css={hobbyStyle()}>
+        <Text
+          size={themes.fontSize.ClampBody4}
+          weight={themes.fontWeight.Medium}
+          color={themes.colors['White/07']}
+        >
+          {/* TODO: 취미활동 리스트렌더링 작업 필요 */}
+          {/* TODO: 내용 수정 또는 표시 유/무 생각 필요 */}
+          피겨스케이트
+          <br />
+          헬스
+          <br />
+          축구 / 풋살
+          <br />
+          게임
+          <br />
+          인테리어 구경
+          <br />
         </Text>
       </div>
     );
@@ -231,8 +336,8 @@ const About = () => {
       </motion.div>
       <div css={contentsBoxStyle()}>
         <GridBox>
-          <GridCard columnSize={'1 / 4'} height={280}>
-            이미지
+          <GridCard css={imageBoxStyle()} columnSize={'1 / 4'} height={280}>
+            <div css={imageStyle()} />
           </GridCard>
           <GridCard columnSize={'4 / 5'} height={280}>
             <div css={welcomeBoxStyle()}>
@@ -261,7 +366,7 @@ const About = () => {
               >
                 본인소개 😃
               </Text>
-              <div>{IntroduceYourselfList()}</div>
+              <IntroduceYourselfList />
             </div>
           </GridCard>
           <GridCard columnSize={'3 / 5'} height={280}>
@@ -285,14 +390,43 @@ const About = () => {
               >
                 인적사항 🤔
               </Text>
-              {PersonalInfomationList()}
+              <PersonalInfomationList />
             </div>
           </GridCard>
-          <GridCard columnSize={'2 / 4'} height={280}>
-            프로젝트 진행사항
+          <GridCard columnSize={'2 / 3'} height={280}>
+            <div css={academicBackgroundBoxStyle()}>
+              <Text
+                size={themes.fontSize.ClampH2}
+                weight={themes.fontWeight.Medium}
+                color={themes.colors['White/09']}
+              >
+                학력사항 🧑‍🎓
+              </Text>
+              <AcademicBackgroundList />
+            </div>
+          </GridCard>
+          <GridCard columnSize={'3 / 4'} height={280}>
+            <div css={hobbyBoxStyle()}>
+              <Text
+                size={themes.fontSize.ClampH2}
+                weight={themes.fontWeight.Medium}
+                color={themes.colors['White/09']}
+              >
+                취미활동 😙
+              </Text>
+              <HobbyList />
+            </div>
           </GridCard>
           <GridCard columnSize={'4 / 5'} height={280}>
-            이력사항
+            <div css={interestsBoxStyle()}>
+              <Text
+                size={themes.fontSize.ClampH2}
+                weight={themes.fontWeight.Medium}
+                color={themes.colors['White/09']}
+              >
+                관심사 👀
+              </Text>
+            </div>
           </GridCard>
         </GridBox>
       </div>
