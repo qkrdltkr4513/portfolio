@@ -1,9 +1,15 @@
 import { useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { css } from '@emotion/react';
+
+import { THUMBNAIL_TYPE } from '@core/constants';
+
 import Text from '@components/common/Text';
 import GridBox from '@components/common/GridBox';
 import GridCard from '@components/common/GridCard';
+import Thumbnail from '@components/Thumbnail';
+import ThumbnailContent from '@components/ThumbnailContent';
+import Icon from '@components/common/Icon';
 
 import { themes } from '@styles/themes';
 
@@ -156,16 +162,18 @@ const hobbyBoxStyle = () => css`
 
 const hobbyStyle = () => css``;
 
-// 관심사
-const interestsBoxStyle = () => css`
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px 0;
+// 더 자세히 알아보기
+const learnMoreAboutBoxStyle = () => css`
+  > div {
+    padding: 0;
+  }
 `;
 
-const interestsStyle = () => css``;
+const iconProfileBoxStyle = () => css`
+  display: flex;
+  justify-content: flex-start;
+  align-item: center;
+`;
 
 const EXPERIENCE_LIST = [
   { companyName: 'NC ITS', workType: 'Front-End', period: '2022.07 - 현재' },
@@ -417,23 +425,34 @@ const About = () => {
               <HobbyList />
             </div>
           </GridCard>
+          {/*  */}
           <GridCard columnSize={'4 / 5'} height={280}>
-            <div css={interestsBoxStyle()}>
-              <Text
-                size={themes.fontSize.ClampH2}
-                weight={themes.fontWeight.Medium}
-                color={themes.colors['White/09']}
-              >
-                관심사 👀
-              </Text>
-            </div>
+            <Thumbnail
+              css={learnMoreAboutBoxStyle()}
+              hasIcon={true}
+              textContent={
+                <>
+                  <div css={iconProfileBoxStyle()}>
+                    <Icon
+                      name="icProfile"
+                      width={90}
+                      height={100}
+                      rotate={0}
+                      color={themes.colors.White}
+                      isFixStroke
+                    />
+                  </div>
+                  <ThumbnailContent
+                    type={THUMBNAIL_TYPE.RESUME}
+                    main="LEARN MORE ABOUT ME"
+                    sub="See my resume 👀"
+                  />
+                </>
+              }
+              onClick={() => console.log(112313)}
+            />
           </GridCard>
         </GridBox>
-      </div>
-      <div css={footerStyle()}>
-        <div>페이스북</div>
-        <div>인스타그램</div>
-        <div>이메일</div>
       </div>
     </div>
   );
