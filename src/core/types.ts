@@ -185,7 +185,9 @@ export interface ThumbnailProps {
     isCircle?: boolean;
     position?: PositionType;
   };
+  hasIcon?: boolean;
   textContent: React.ReactNode;
+  className?: string;
   onClick: () => void;
 }
 

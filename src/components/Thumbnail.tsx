@@ -21,12 +21,12 @@ const innerStyle = () => css`
   height: 100%;
 `;
 
-const boxStyle = (image?: ThumbnailProps['image']) => css`
+const boxStyle = (image?: ThumbnailProps['image'], hasIcon?: ThumbnailProps['hasIcon']) => css`
   display: flex;
   width: 100%;
   height: 100%;
   flex-direction: column;
-  justify-content: ${image ? 'space-between;' : 'flex-end'};
+  justify-content: ${image || hasIcon ? 'space-between;' : 'flex-end'};
 `;
 
 const imageBoxStyle = (width: number, height: number) => css`
@@ -40,7 +40,7 @@ const circleImageStyle = (width: number, height: number) => css`
   border-radius: ${width / 2}px;
 `;
 
-const Thumbnail = ({ image, textContent, onClick }: ThumbnailProps) => {
+const Thumbnail = ({ image, hasIcon = false, textContent, className, onClick }: ThumbnailProps) => {
   const ThumbnailImage = useCallback(() => {
     if (!image) return <></>;
 
@@ -58,9 +58,9 @@ const Thumbnail = ({ image, textContent, onClick }: ThumbnailProps) => {
   }, [image]);
 
   return (
-    <div css={wrapperStyle()} onClick={onClick}>
+    <div css={wrapperStyle()} className={className} onClick={onClick}>
       <div css={innerStyle()}>
-        <div css={boxStyle(image)}>
+        <div css={boxStyle(image, hasIcon)}>
           <ThumbnailImage />
           {textContent}
         </div>

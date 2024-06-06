@@ -119,6 +119,12 @@ const Home = () => {
       </GridCard>
       <GridCard columnSize={'1 / 3'} height={305}>
         <Thumbnail
+          image={{
+            name: imgAustin,
+            width: 100,
+            height: 100,
+            isCircle: false,
+          }}
           textContent={
             <ThumbnailContent
               type={THUMBNAIL_LIST[6].type}
@@ -130,7 +136,16 @@ const Home = () => {
         />
       </GridCard>
       <GridCard columnSize={'3 / 5'} height={305}>
-        테스트 8
+        <Thumbnail
+          textContent={
+            <ThumbnailContent
+              type={THUMBNAIL_LIST[7].type}
+              main={THUMBNAIL_LIST[7].main}
+              sub={THUMBNAIL_LIST[7].sub}
+            />
+          }
+          onClick={() => console.log(112313)}
+        />
       </GridCard>
     </GridBox>
   );

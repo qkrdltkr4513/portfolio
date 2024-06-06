@@ -31,9 +31,10 @@ const IconBoxStyle = ({
     path,
     circle {
       stroke: ${color};
+      fill: ${color};
       ${isFixStroke &&
       css`
-        stroke-width: ${strokeWidth || 1};
+        stroke-width: ${strokeWidth || 0};
         vector-effect: non-scaling-stroke;
       `}
     }
@@ -46,7 +47,7 @@ const SVGIcon = ({ name }: IconProps) => React.createElement(svg[name], { viewBo
 const Icon = ({
   name,
   isFixStroke,
-  strokeWidth = 1,
+  strokeWidth = 0,
   rotate = 0,
   width,
   height,
