@@ -5,16 +5,16 @@ import { themes } from '@styles/themes';
 import Text from '@components/common/Text';
 
 type ChipItemType = {
-  key: string;
   name: string;
-  value: string;
+  tag: string;
+  active: boolean;
 };
 
 interface ChipProps {
-  key: string;
   name: string;
-  value: string;
-  onToggle: (item: ChipItemType, isActive: boolean) => void;
+  tag: string;
+  active: boolean;
+  onToggle: (item: Omit<ChipItemType, 'active'>, currentActiveStatus: boolean) => void;
 }
 
 const wrapperStyle = () => css`
@@ -32,12 +32,12 @@ const chipItemStyle = (isActive: boolean) => css`
   border: 2px solid ${themes.colors.CardBackGround};
 `;
 
-const Chip = ({ key, name, value, onToggle }: ChipProps) => {
-  const [isActive, setIsAcitve] = useState(false);
+const Chip = ({ name, tag, active, onToggle }: ChipProps) => {
+  const [isActive, setIsAcitve] = useState(active);
 
   // chip item을 클릭시 호출한다.
   const onClickChipItem = useCallback(
-    (item: ChipItemType) => {
+    (item: Omit<ChipItemType, 'active'>) => {
       setIsAcitve(!isActive);
       onToggle(item, isActive);
     },
@@ -46,7 +46,7 @@ const Chip = ({ key, name, value, onToggle }: ChipProps) => {
 
   return (
     <div css={wrapperStyle()}>
-      <div css={chipItemStyle(isActive)} onClick={() => onClickChipItem({ key, name, value })}>
+      <div css={chipItemStyle(isActive)} onClick={() => onClickChipItem({ name, tag })}>
         <Text
           textAlign="center"
           size={themes.fontSize.ClampBody3}
@@ -61,3 +61,4 @@ const Chip = ({ key, name, value, onToggle }: ChipProps) => {
 };
 
 export default Chip;
+export type { ChipItemType };
