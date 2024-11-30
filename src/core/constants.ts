@@ -8,13 +8,36 @@ import {
 
 import { ExternalTypeProps, ThumbnailInfoProps, ThumbnailType } from '@core/types';
 
+export const PAGE_INFOS = {
+  HOME: {
+    name: 'Home',
+    path: '/',
+  },
+  WORK: {
+    name: 'Works',
+    path: '/works',
+  },
+  ABOUT: {
+    name: 'About',
+    path: '/about',
+  },
+  RESUME: {
+    name: 'Resume',
+    path: '/resume',
+  },
+  DASHBOARD: {
+    name: 'Dashboard',
+    path: '/dashboard',
+  },
+};
+
 // Header에 표시되는 메뉴 리스트.
 export const CONSTANTS_MENU_LIST: CommonMenuListProps[] = [
-  { name: 'Home', path: '/' },
-  { name: 'Works', path: 'works' },
-  { name: 'About', path: 'about' },
-  { name: 'Resume', path: 'resume' },
-  { name: 'Dashbord', path: 'dashboard' },
+  { name: PAGE_INFOS.HOME.name, path: PAGE_INFOS.HOME.path },
+  { name: PAGE_INFOS.WORK.name, path: PAGE_INFOS.WORK.path },
+  { name: PAGE_INFOS.ABOUT.name, path: PAGE_INFOS.ABOUT.path },
+  { name: PAGE_INFOS.RESUME.name, path: PAGE_INFOS.RESUME.path },
+  { name: PAGE_INFOS.DASHBOARD.name, path: PAGE_INFOS.DASHBOARD.path },
 ];
 
 // Thumbnail Types
