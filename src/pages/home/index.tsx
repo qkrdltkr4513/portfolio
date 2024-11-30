@@ -10,7 +10,7 @@ import { imgAustin } from '@assets/images';
 const Home = () => {
   const router = useRouter();
 
-  //
+  // 전달 받은 URL로 페이지 이동한다.
   const moveToPage = (pageUrl: string) => {
     router.push(pageUrl);
   };
