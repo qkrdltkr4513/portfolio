@@ -1,13 +1,17 @@
 import { css } from '@emotion/react';
+
+import MotionBox from '@components/motion/MotionBox';
 import Card from '@components/common/Card';
 import Article from '@components/Article';
 import Text from '@components/common/Text';
 import Button from '@components/common/Button';
 import ExternalLink from '@components/common/ExternalLink';
+
+import { ExternalTypeProps } from '@core/types';
 import { COMMON_POSITION_TYPES, EXTERNAL_LINK_LIST } from '@core/constants';
+
 import { imgMyProfile } from '@assets/images';
 import { themes } from '@styles/themes';
-import { ExternalTypeProps } from '@core/types';
 
 const { LEFT_TOP } = COMMON_POSITION_TYPES;
 
@@ -74,7 +78,12 @@ const Resume = () => {
     <div css={wrapperStyle()}>
       <div css={leftBoxStyle()}>
         <div css={cardListStyle()}>
-          <Card useMotion imageName={imgMyProfile} imagePosition={LEFT_TOP} isCircleImage>
+          <Card
+            imageName={imgMyProfile}
+            imagePosition={LEFT_TOP}
+            motionType="FADE_IN_RIGHT"
+            isCircleImage
+          >
             <div css={cardContentsStyle()}>
               <Text
                 size={themes.fontSize.H1}
@@ -110,7 +119,7 @@ const Resume = () => {
             </div>
             <Button css={contactMeStyle()} text="Contact Me" onClick={onClickContactMe} />
           </Card>
-          <Card useMotion>
+          <Card>
             <div css={cardContentsStyle()}>
               {EXTERNAL_LINK_LIST.map((item, index) => {
                 const { name, type } = item;
@@ -129,7 +138,7 @@ const Resume = () => {
           </Card>
         </div>
       </div>
-      <div css={rightBoxStyle()}>
+      <MotionBox css={rightBoxStyle()} motionType="FADE_IN_RIGHT">
         <Article
           name="본인소개"
           content="Front-End 개발을 즐거워하고 성장 욕구와 긍정적인 사고를 가진 개발자입니다."
@@ -179,7 +188,7 @@ const Resume = () => {
           <Article main="하이런" sub="2014.02 - 2015.02" />
           <Article main="S.I.S" sub="2011.02 - 현재" />
         </div>
-      </div>
+      </MotionBox>
     </div>
   );
 };

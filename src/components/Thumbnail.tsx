@@ -5,7 +5,7 @@ import { themes } from '@styles/themes';
 import { ThumbnailProps } from '@core/types';
 import ExternalLink from '@components/common/ExternalLink';
 import Text from '@components/common/Text';
-import { THUMBNAIL_TYPE } from '@core/constants';
+import { THUMBNAIL_TYPES } from '@core/constants';
 
 const wrapperStyle = () => css`
   display: flex;

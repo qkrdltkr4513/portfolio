@@ -33,6 +33,7 @@ export interface CommonGridCardSizeProps {
 }
 
 export interface CommonGridCardProps {
+  motionType?: CommonMotionType;
   useMotion?: boolean;
   height?: number;
   columnSize: string;
@@ -41,6 +42,7 @@ export interface CommonGridCardProps {
 }
 
 export type CommonPositionType = 'LEFT_TOP' | 'LEFT_BOTTOM' | 'RIGHT_TOP' | 'RIGHT_BOTTOM';
+
 export interface CommonPositionProps {
   LEFT_TOP: CommonPositionType;
   LEFT_BOTTOM: CommonPositionType;
@@ -48,10 +50,14 @@ export interface CommonPositionProps {
   RIGHT_BOTTOM: CommonPositionType;
 }
 
+export type CommonMotionType = 'DEFAULT' | 'FADE_IN_UP' | 'FADE_IN_RIGHT';
+
 export interface CommonCardProps {
+  isFullCard?: boolean;
+  motionType?: CommonMotionType;
   useMotion?: boolean;
   width?: number;
-  // imageName?: string;
+  height?: number;
   imageName?: ImageProps['src'];
   imagePosition?: CommonPositionType;
   isCircleImage?: boolean;
@@ -66,7 +72,7 @@ export interface CommonArticleTitleProps {
 }
 
 export interface CommonContentProps {
-  content: string;
+  content?: string;
 }
 
 export type CommonIconType = keyof typeof icons;
@@ -173,7 +179,7 @@ export interface CommonExternalLinkProps extends Omit<ExternalTypeProps, 'url'> 
   onClick: () => void;
 }
 
-export type ThumbnailType = 'ABOUT' | 'RESUME' | 'WORK' | 'HISTORY' | 'OTHER';
+export type ThumbnailType = 'ABOUT' | 'RESUME' | 'WORK' | 'HISTORY' | 'OTHER' | 'PROJECT';
 
 export type PositionType = 'START' | 'CENTER' | 'END' | 'MIDDLE';
 
@@ -196,4 +202,13 @@ export interface ThumbnailInfoProps {
   main: string;
   sub: string;
   target?: string;
+}
+
+export interface WorkThumbnailProps {
+  imageName?: string;
+  workId: string;
+  tagNames: string[];
+  workName: string;
+  className?: string;
+  onClick: (workId: WorkThumbnailProps['workId'], workName: WorkThumbnailProps['workName']) => void;
 }

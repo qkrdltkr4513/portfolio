@@ -5,16 +5,22 @@ import { themes } from '@styles/themes';
 import Text from '@components/common/Text';
 import Icon from '@components/common/Icon';
 
-import { THUMBNAIL_TYPE } from '@core/constants';
-import { ThumbnailInfoProps } from '@core/types';
+import { THUMBNAIL_TYPES } from '@core/constants';
+import { ThumbnailInfoProps, ThumbnailType } from '@core/types';
 
-const wrapperStyle = () => css`
+const wrapperStyle = (type: ThumbnailType) => css`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: end;
   gap: 0px 30px;
-  margin-bottom: 20px;
+  ${type !== THUMBNAIL_TYPES.PROJECT
+    ? css`
+        margin-bottom: 20px;
+      `
+    : css`
+        margin-top: 30px;
+      `}
 `;
 
 const boxStyle = () => css`
@@ -24,10 +30,11 @@ const boxStyle = () => css`
 `;
 
 const ThumbnailContent = ({ type, main, sub }: ThumbnailInfoProps) => {
+  const { ABOUT, OTHER, PROJECT } = THUMBNAIL_TYPES;
   return (
-    <div css={wrapperStyle()}>
+    <div css={wrapperStyle(PROJECT)}>
       <div css={boxStyle()}>
-        {type === THUMBNAIL_TYPE.ABOUT ? (
+        {type === ABOUT ? (
           <>
             <Text
               size={themes.fontSize.Title}
@@ -44,7 +51,7 @@ const ThumbnailContent = ({ type, main, sub }: ThumbnailInfoProps) => {
               {sub}
             </Text>
           </>
-        ) : type === THUMBNAIL_TYPE.OTHER ? (
+        ) : type === OTHER ? (
           <>
             <Text
               size={themes.fontSize.MainTitle}
@@ -80,7 +87,9 @@ const ThumbnailContent = ({ type, main, sub }: ThumbnailInfoProps) => {
           </>
         )}
       </div>
-      <Icon name="icCircleArrow" width={28} height={28} rotate={0} color={themes.colors.White} />
+      {type !== PROJECT && (
+        <Icon name="icCircleArrow" width={28} height={28} rotate={0} color={themes.colors.White} />
+      )}
     </div>
   );
 };
