@@ -2,7 +2,7 @@ import { useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { css } from '@emotion/react';
 
-import { THUMBNAIL_TYPE } from '@core/constants';
+import { THUMBNAIL_TYPES } from '@core/constants';
 
 import Text from '@components/common/Text';
 import GridBox from '@components/common/GridBox';
@@ -31,6 +31,7 @@ const titleStyle = () => css`
 `;
 
 const contentsBoxStyle = () => css`
+  max-width: 1600px;
   display: flex;
   flex: 4;
   flex-direction: column;
@@ -179,7 +180,7 @@ const EXPERIENCE_LIST = [
   { companyName: 'NC ITS', workType: 'Front-End', period: '2022.07 - 현재' },
   { companyName: '스테이지파이브', workType: 'Front-End', period: '2021.01 - 2022.06' },
   { companyName: '빌드잇', workType: 'Front-End', period: '2019.04 - 2020.12' },
-  { companyName: '아토스', workType: 'Front-End', period: '2017.01 - 2018.12' },
+  // { companyName: '아토스', workType: 'Front-End', period: '2017.01 - 2018.12' },
 ];
 
 const About = () => {
@@ -264,7 +265,7 @@ const About = () => {
           <br />
           생년월일: 1992.07.27
           <br />
-          경력: 6년 8개월
+          경력: 5년 4개월
         </Text>
       </div>
     );
@@ -443,7 +444,7 @@ const About = () => {
                     />
                   </div>
                   <ThumbnailContent
-                    type={THUMBNAIL_TYPE.RESUME}
+                    type={THUMBNAIL_TYPES.RESUME}
                     main="LEARN MORE ABOUT ME"
                     sub="See my resume 👀"
                   />

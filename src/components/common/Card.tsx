@@ -1,22 +1,29 @@
 import Image, { ImageProps } from 'next/image';
 import { css } from '@emotion/react';
-import MotionCardWrapper from '@components/motion/MotionCardWrapper';
+import MotionBox from '@components/motion/MotionBox';
 import { CommonCardProps, CommonPositionType } from '@core/types';
 import { COMMON_POSITION_TYPES } from '@core/constants';
 import { themes } from '@styles/themes';
 
 const { LEFT_TOP, RIGHT_TOP, LEFT_BOTTOM, RIGHT_BOTTOM } = COMMON_POSITION_TYPES;
 
-const wrapperStyle = (width: number) => css`
+const wrapperStyle = (width: number, height?: number) => css`
   width: ${width}px;
+  ${height &&
+  css`
+    height: ${height}px;
+  `};
   background-color: ${themes.colors.CardBackGround};
   border-radius: 16px;
 `;
 
-const innerStyle = () => css`
+const innerStyle = (isFullCard: boolean) => css`
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  ${!isFullCard &&
+  css`
+    padding: 18px;
+  `};
   gap: 18px;
 `;
 
@@ -37,8 +44,11 @@ const circleBoxStyle = () => css`
 `;
 
 const Card = ({
-  useMotion = false,
+  isFullCard = false,
+  motionType,
+  useMotion = true,
   width = 400,
+  height,
   imageName,
   imagePosition,
   isCircleImage = false,
@@ -47,9 +57,9 @@ const Card = ({
 }: CommonCardProps) => {
   console.log(isCircleImage);
   return (
-    <MotionCardWrapper useMotion={useMotion}>
-      <div css={wrapperStyle(width)} className={className}>
-        <div css={innerStyle()}>
+    <MotionBox motionType={motionType} useMotion={useMotion}>
+      <div css={wrapperStyle(width, height)} className={className}>
+        <div css={innerStyle(isFullCard)}>
           {imageName && (imagePosition === LEFT_TOP || imagePosition === RIGHT_TOP) && (
             <div css={ImagePositionStyle(imagePosition, isCircleImage)}>
               <Image src={imageName} width="80" height="80" css={circleBoxStyle()} />
@@ -63,7 +73,7 @@ const Card = ({
           )}
         </div>
       </div>
-    </MotionCardWrapper>
+    </MotionBox>
   );
 };
 
