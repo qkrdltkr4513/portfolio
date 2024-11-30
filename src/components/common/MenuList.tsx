@@ -40,7 +40,7 @@ const MenuList = () => {
     <div css={wrapperStyle()}>
       {CONSTANTS_MENU_LIST.map((item) => {
         const { name, path } = item;
-        const isActive = currentMenu === path;
+        const isActive = currentMenu === path || pathname === path;
         return (
           <span
             css={itemStyle(isActive)}
