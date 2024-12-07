@@ -1,4 +1,5 @@
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
+import { uniqueId } from 'lodash';
 import Image from 'next/image';
 import { css } from '@emotion/react';
 import { themes } from '@styles/themes';
@@ -76,6 +77,7 @@ const WorkThumbnail = ({
         <div css={tagNameStyle()}>
           {tagNames.map((tagName) => (
             <Text
+              key={`${uniqueId()}`}
               size={themes.fontSize.Title}
               weight={themes.fontWeight.Medium}
               color={themes.colors.White}

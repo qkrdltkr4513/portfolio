@@ -1,5 +1,5 @@
-import { useEffect, useState, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState, useMemo, useCallback } from 'react';
+// import { motion } from 'framer-motion';
 import { css } from '@emotion/react';
 
 import MotionBox from '@components/motion/MotionBox';
@@ -9,10 +9,11 @@ import Card from '@components/common/Card';
 
 import { themes } from '@styles/themes';
 import { uniqueId } from 'lodash';
-import Thumbnail from '@src/components/Thumbnail';
-import ThumbnailContent from '@src/components/ThumbnailContent';
-import { PROJECT_THUMNAIL_LIST } from '@src/core/constants';
-import { imgAustin } from '@assets/images';
+// import Thumbnail from '@src/components/Thumbnail';
+// import ThumbnailContent from '@src/components/ThumbnailContent';
+import { PROJECT_THUMNAIL_LIST } from '@core/constants';
+import { WorkListItemProps } from '@core/types';
+// import { imgAustin } from '@assets/images';
 import WorkThumbnail from '@src/components/WorkThumbnail';
 
 const wrapperStyle = () => css`
@@ -85,42 +86,63 @@ const FILTER_LIST = [
 const Works = () => {
   const [filterList, setFilterList] = useState(FILTER_LIST);
 
-  // Filter Chip Item 토클시 호출한다.
-  const onToggleChip = (chipItem: Omit<ChipItemType, 'active'>, currentActiveStatus: boolean) => {
-    const { tag } = chipItem;
+  const workList = useMemo(() => {
+    let result: WorkListItemProps[] = [];
 
-    if (tag === 'All') {
-      setFilterList((prevState) => {
-        return prevState.map((item) => {
-          if (item.tag === 'All') item.active = true;
-          else item.active = false;
-          return item;
+    filterList.forEach((item) => {
+      const { name, tag, active } = item;
+
+      if (tag === 'All' && active) result = [...PROJECT_THUMNAIL_LIST];
+      else {
+        PROJECT_THUMNAIL_LIST.forEach((projectItem) => {
+          const { tagNames } = projectItem;
+          // 필터 기능
+          if ((tagNames.includes(tag) || tag === 'All') && active) {
+            result.push(projectItem);
+          }
         });
-      });
-    } else {
-      const activatedFilter = filterList.filter((item) => item.active === true);
+      }
+    });
+    return result;
+  }, [filterList]);
 
-      setFilterList((prevState) => {
-        if (filterList.length - 1 === activatedFilter.length + 1 && !currentActiveStatus) {
+  // Filter Chip Item 토클시 호출한다.
+  const onToggleChip = useCallback(
+    (chipItem: Omit<ChipItemType, 'active'>, currentActiveStatus: boolean) => {
+      const { tag } = chipItem;
+      if (tag === 'All') {
+        setFilterList((prevState) => {
           return prevState.map((item) => {
             if (item.tag === 'All') item.active = true;
             else item.active = false;
             return item;
           });
-        } else {
-          return prevState.map((item) => {
-            if (item.tag === tag) item.active = !currentActiveStatus;
-            if (item.tag === 'All') item.active = false;
-            return item;
-          });
-        }
-      });
-    }
-  };
+        });
+      } else {
+        setFilterList((prevState) => {
+          const activatedFilter = prevState.filter((item) => item.active === true);
+          const isActiveAll =
+            (filterList.length - 1 === activatedFilter.length && !currentActiveStatus) ||
+            activatedFilter.length === 0;
 
-  useEffect(() => {
-    console.log('mounted works');
-  }, []);
+          if (isActiveAll) {
+            return prevState.map((item) => {
+              if (item.tag === 'All') item.active = true;
+              else item.active = false;
+              return item;
+            });
+          } else {
+            return prevState.map((item) => {
+              if (item.tag === tag) item.active = !currentActiveStatus;
+              if (item.tag === 'All') item.active = false;
+              return item;
+            });
+          }
+        });
+      }
+    },
+    [filterList],
+  );
 
   return (
     <div css={wrapperStyle()}>
@@ -152,10 +174,10 @@ const Works = () => {
         </div>
       </MotionBox>
       <div css={workListBoxStyle()}>
-        {PROJECT_THUMNAIL_LIST.map((item) => {
+        {workList.map((item) => {
           const { imageName, workId, tagNames, workName } = item;
           return (
-            <Card motionType={'FADE_IN_UP'} isFullCard={true}>
+            <Card motionType={'FADE_IN_UP'} isFullCard={true} key={`${uniqueId()}`}>
               <WorkThumbnail
                 imageName={imageName}
                 workId={workId}

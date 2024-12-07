@@ -55,7 +55,7 @@ const Card = ({
   children,
   className,
 }: CommonCardProps) => {
-  console.log(isCircleImage);
+  // console.log(isCircleImage);
   return (
     <MotionBox motionType={motionType} useMotion={useMotion}>
       <div css={wrapperStyle(width, height)} className={className}>

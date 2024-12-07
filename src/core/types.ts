@@ -212,3 +212,7 @@ export interface WorkThumbnailProps {
   className?: string;
   onClick: (workId: WorkThumbnailProps['workId'], workName: WorkThumbnailProps['workName']) => void;
 }
+
+export interface WorkListItemProps extends Omit<WorkThumbnailProps, 'onClick'> {
+  target: string;
+}
