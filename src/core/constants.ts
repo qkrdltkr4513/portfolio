@@ -4,9 +4,11 @@ import {
   CommonGridCardSizeProps,
   CommonPositionProps,
   CommonLevelTypeProps,
+  ExternalTypeProps,
+  ThumbnailInfoProps,
+  ThumbnailType,
+  WorkListItemProps,
 } from '@core/types';
-
-import { ExternalTypeProps, ThumbnailInfoProps, ThumbnailType } from '@core/types';
 
 export const PAGE_INFOS = {
   HOME: {
@@ -103,7 +105,7 @@ export const THUMBNAIL_LIST: ThumbnailInfoProps[] = [
 ];
 
 // WORK 페이지에서 표시되는 프로젝트 요약 카드 리스트
-export const PROJECT_THUMNAIL_LIST = [
+export const PROJECT_THUMNAIL_LIST: WorkListItemProps[] = [
   {
     workId: '',
     imageName: 'img-austin',
