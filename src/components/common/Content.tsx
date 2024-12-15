@@ -10,8 +10,12 @@ const wrapperStyle = () => css`
   ${themes.fontWeight.Normal};
 `;
 
-const Content = ({ content }: CommonContentProps) => {
-  return <div css={wrapperStyle()}>{content}</div>;
+const Content = ({ content, className }: CommonContentProps) => {
+  return (
+    <div css={wrapperStyle()} className={className}>
+      {content}
+    </div>
+  );
 };
 
 export default Content;

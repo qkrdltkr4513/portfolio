@@ -2,8 +2,9 @@ import { css } from '@emotion/react';
 import { CommonBodyProps } from '@core/types';
 
 const wrapperStyle = () => css`
+  // width: 100%;
   padding: 60px 0 0;
-  width: 100%;
+  // width: 1280px;
   @media (min-width: 1280px) {
     // width: 1200px;
   }

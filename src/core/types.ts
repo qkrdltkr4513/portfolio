@@ -72,7 +72,8 @@ export interface CommonArticleTitleProps {
 }
 
 export interface CommonContentProps {
-  content?: string;
+  content?: React.ReactNode | string;
+  className?: string;
 }
 
 export type CommonIconType = keyof typeof icons;
@@ -183,6 +184,8 @@ export type ThumbnailType = 'ABOUT' | 'RESUME' | 'WORK' | 'HISTORY' | 'OTHER' | 
 
 export type PositionType = 'START' | 'CENTER' | 'END' | 'MIDDLE';
 
+export type VersionManageToolType = 'GIT' | 'SVN' | string;
+
 export interface ThumbnailProps {
   image?: {
     name: StaticImageData;
@@ -215,4 +218,14 @@ export interface WorkThumbnailProps {
 
 export interface WorkListItemProps extends Omit<WorkThumbnailProps, 'onClick'> {
   target: string;
+  skill: string;
+  introduction: string;
+  taskList: string[];
+  versionManage: VersionManageToolType;
+  period: string;
+  reference?: React.ReactNode;
+}
+
+export interface WorkDetailItemProps extends Pick<CommonContentProps, 'content'> {
+  title: string;
 }
