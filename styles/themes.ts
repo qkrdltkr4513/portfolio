@@ -168,7 +168,7 @@ export const themes: ThemesProps = {
     ClampH2: 'font-size: clamp(18px, 6vw, 24px); line-height: 1;',
     ClampBody1: 'font-size: clamp(16px, 4vw, 22px); line-height: 1.2;',
     ClampBody2: 'font-size: clamp(14px, 3vw, 20px); line-height: 1.2;',
-    ClampBody3: 'font-size: clamp(12px, 2vw, 18px); line-height: 1.2;',
-    ClampBody4: 'font-size: clamp(10px, 2vw, 16px); line-height: 1.2;',
+    ClampBody3: 'font-size: clamp(12px, 2vw, 18px); line-height: 1.4;',
+    ClampBody4: 'font-size: clamp(10px, 2vw, 16px); line-height: 1.4;',
   },
 };

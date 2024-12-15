@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo, useCallback } from 'react';
+import { useRouter } from 'next/router';
 // import { motion } from 'framer-motion';
 import { css } from '@emotion/react';
 
@@ -84,13 +85,17 @@ const FILTER_LIST = [
 // ];
 
 const Works = () => {
+  // hooks
+  const router = useRouter();
+
+  // inner state
   const [filterList, setFilterList] = useState(FILTER_LIST);
 
   const workList = useMemo(() => {
     let result: WorkListItemProps[] = [];
 
     filterList.forEach((item) => {
-      const { name, tag, active } = item;
+      const { tag, active } = item;
 
       if (tag === 'All' && active) result = [...PROJECT_THUMNAIL_LIST];
       else {
@@ -144,6 +149,12 @@ const Works = () => {
     [filterList],
   );
 
+  //
+  const moveToDetail = (_: string, id: string) => {
+    const workId = id;
+    router.push(`works/detail/${workId}`);
+  };
+
   return (
     <div css={wrapperStyle()}>
       <MotionBox css={headerStyle()} motionType={'FADE_IN_UP'}>
@@ -183,7 +194,7 @@ const Works = () => {
                 workId={workId}
                 tagNames={tagNames}
                 workName={workName}
-                onClick={() => console.log(111)}
+                onClick={moveToDetail}
               />
             </Card>
           );
