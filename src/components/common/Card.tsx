@@ -7,13 +7,13 @@ import { themes } from '@styles/themes';
 
 const { LEFT_TOP, RIGHT_TOP, LEFT_BOTTOM, RIGHT_BOTTOM } = COMMON_POSITION_TYPES;
 
-const wrapperStyle = (width: number, height?: number) => css`
+const wrapperStyle = (width: number, height?: number, isHoverAction?: boolean) => css`
   width: ${width}px;
   ${height &&
   css`
     height: ${height}px;
   `};
-  background-color: ${themes.colors.CardBackGround};
+  background-color: ${!isHoverAction && themes.colors.CardBackGround};
   border-radius: 16px;
 `;
 
@@ -45,6 +45,7 @@ const circleBoxStyle = () => css`
 
 const Card = ({
   isFullCard = false,
+  isHoverAction = false,
   motionType,
   useMotion = true,
   width = 400,
@@ -58,7 +59,7 @@ const Card = ({
   // console.log(isCircleImage);
   return (
     <MotionBox motionType={motionType} useMotion={useMotion}>
-      <div css={wrapperStyle(width, height)} className={className}>
+      <div css={wrapperStyle(width, height, isHoverAction)} className={className}>
         <div css={innerStyle(isFullCard)}>
           {imageName && (imagePosition === LEFT_TOP || imagePosition === RIGHT_TOP) && (
             <div css={ImagePositionStyle(imagePosition, isCircleImage)}>

@@ -63,6 +63,7 @@ export interface CommonCardProps {
   isCircleImage?: boolean;
   children: React.ReactNode;
   className?: string;
+  isHoverAction?: boolean;
 }
 
 export interface CommonArticleTitleProps {
