@@ -26,11 +26,6 @@ const itemStyle = (isActive: boolean) => css`
 const MenuList = () => {
   const { push, pathname } = useRouter();
 
-  const currentMenu = useMemo(
-    () => (pathname !== '/' ? pathname.replace('/', '') : pathname),
-    [pathname],
-  );
-
   const onClickMenuItem = (item: CommonMenuListProps) => {
     const { path } = item;
     push(path);
@@ -40,7 +35,14 @@ const MenuList = () => {
     <div css={wrapperStyle()}>
       {CONSTANTS_MENU_LIST.map((item) => {
         const { name, path } = item;
-        const isActive = currentMenu === path || pathname === path;
+
+        let isActive;
+        if (path !== '/') {
+          isActive = pathname === path || pathname.includes(path);
+        } else {
+          isActive = pathname === path;
+        }
+
         return (
           <span
             css={itemStyle(isActive)}

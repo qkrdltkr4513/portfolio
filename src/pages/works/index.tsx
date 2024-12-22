@@ -188,7 +188,7 @@ const Works = () => {
         {workList.map((item) => {
           const { imageName, workId, tagNames, workName } = item;
           return (
-            <Card motionType={'FADE_IN_UP'} isFullCard={true} key={`${uniqueId()}`}>
+            <Card motionType={'FADE_IN_UP'} isFullCard isHoverAction key={`${uniqueId()}`}>
               <WorkThumbnail
                 imageName={imageName}
                 workId={workId}

@@ -15,6 +15,8 @@ const wrapperStyle = () => css`
   cursor: pointer;
 
   border-radius: 16px;
+  background-color: ${themes.colors.CardBackGround};
+  border: 1px solid ${themes.colors.CardBackGround};
   :hover {
     transform: scale(1.1);
     transition: all 0.1s linear;
