@@ -6,10 +6,10 @@ const wrapperStyle = () => css`
   padding: 60px 0 0;
   // width: 1280px;
   @media (min-width: 1280px) {
-    // width: 1200px;
+    width: 1200px;
   }
   @media (min-width: 1440px) {
-    // width: 1400px;
+    width: 1400px;
   }
 `;
 
