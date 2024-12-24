@@ -118,8 +118,10 @@ export const PROJECT_THUMNAIL_LIST: WorkListItemProps[] = [
     introduction:
       'NSD, NCI 서비스와 이후에 추가될 ITSM 서비스를 하나의 관리자 서비스로 통합하여 관리 기능을 제공하는 서비스',
     taskList: [
-      'Module Federation 도입 검토 및 테스트',
-      'host app을 Next Federation으로 셋업',
+      '프로젝트의 공용 및 전체적인 내용 관리',
+      'Module Federation 도입 검토',
+      'Local 환경 테스트 및 Dev Ops 팀과 협업으로 서버환경 구축하여 테스트',
+      'host app, remote app을 Next Federation으로 셋업',
       '각각의 기존 서비스 관리자 기능을 하나의 container로 분리 및 remote app 셋업',
       'host app과 remote app 연결',
       '기획/디자인 리뷰 참여',
@@ -140,9 +142,11 @@ export const PROJECT_THUMNAIL_LIST: WorkListItemProps[] = [
     introduction:
       '게임, 인증, 거래소 등 회사에서 등록한 모든 서비스에 대한 장애를 옵스지니를 통해 구독하여 장애 발생시 서비스 담당자 및 해당 서비스를 구독한 사용자에게 SMS, 이메일, 푸시알림 채널을 통하여 장애를 전파하고 현재 장애 상태를 실시간으로 표시하는 서비스',
     taskList: [
-      '관리자 앱 프로젝트 셋업',
+      '프로젝트 셋업',
+      '프로젝트의 공용 및 전체적인 내용 관리',
+      'Atomic Design 패턴 도입 (atom, molcules 단위까지)',
       '공용 Layout 컴포넌트 개발',
-      '디자인 시스템으로 생성한 UI 컴포넌트로 프로젝트에 사용 될 공용 컴포넌트 개발',
+      '디자인 시스템으로 생성한 UI 컴포넌트로 프로젝트에 사용 될 공용 컴포넌트 개발(atom, molcules)',
       '로그인 페이지 개발',
       '관리자의 구독관리, 알림관리, 발송내역, 신고내역 페이지 개발',
       '디자이너와의 협업으로 Figma를 통하여 디자인 가이드 반영',
@@ -752,6 +756,6 @@ export const COMMON_LEVEL_TYPES: CommonLevelTypeProps = {
 export const EXTERNAL_LINK_LIST: ExternalTypeProps[] = [
   { name: 'Buildit', type: 'link', url: 'https://buildit.kr' },
   { name: 'StageFive', type: 'link', url: 'https://www.stagefive.com' },
-  { name: 'Nc Soft', type: 'link', url: 'https://www.ncsoft.com' },
+  { name: 'NC ITS', type: 'link', url: 'https://www.ncsoft.com' },
   { name: 'File', type: 'file', url: '' },
 ];

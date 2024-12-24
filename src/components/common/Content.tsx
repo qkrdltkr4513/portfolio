@@ -8,6 +8,7 @@ const wrapperStyle = () => css`
   color: ${themes.colors.Contents};
   ${themes.fontSize.H1};
   ${themes.fontWeight.Normal};
+  line-height: 24px;
 `;
 
 const Content = ({ content, className }: CommonContentProps) => {

@@ -42,8 +42,8 @@ const ArticleTitle = ({ name, main, sub }: CommonArticleTitleProps) => (
   <div css={wrapperStyle()}>
     <span css={nameStyle()}>{name}</span>
     <div css={boxStyle()}>
-      <span css={mainTitleStyle()}>{main}</span>
-      <span css={subTitleStyle()}>{sub}</span>
+      {main && <span css={mainTitleStyle()}>{main}</span>}
+      {sub && <span css={subTitleStyle()}>{sub}</span>}
     </div>
   </div>
 );
