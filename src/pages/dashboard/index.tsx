@@ -1,5 +1,8 @@
+import dynamic from 'next/dynamic';
 import GridBox from '@components/common/GridBox';
 import GridCard from '@components/common/GridCard';
+
+const DonutChart = dynamic(() => import('@components/common/DonutChart'), { ssr: false });
 
 const Dashboard = () => {
   return (
@@ -17,7 +20,8 @@ const Dashboard = () => {
         서비스별(웹, 모바일, 데스크탑) 경험 횟수 (파이 차트)
       </GridCard>
       <GridCard columnSize={'4 / 5'} height={400}>
-        회사별 경력 및 총 경력 (도넛차트)
+        {/* 회사별 경력 및 총 경력 (도넛차트) */}
+        <DonutChart />
       </GridCard>
     </GridBox>
   );
