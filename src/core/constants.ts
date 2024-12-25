@@ -754,8 +754,9 @@ export const COMMON_LEVEL_TYPES: CommonLevelTypeProps = {
 
 // External Link
 export const EXTERNAL_LINK_LIST: ExternalTypeProps[] = [
-  { name: 'Buildit', type: 'link', url: 'https://buildit.kr' },
-  { name: 'StageFive', type: 'link', url: 'https://www.stagefive.com' },
   { name: 'NC ITS', type: 'link', url: 'https://www.ncsoft.com' },
+  { name: 'StageFive', type: 'link', url: 'https://www.stagefive.com' },
+  { name: 'Buildit', type: 'link', url: 'https://buildit.kr' },
+  { name: 'Atos', type: 'link', url: 'https://www.atos.co.kr' },
   { name: 'File', type: 'file', url: '' },
 ];
