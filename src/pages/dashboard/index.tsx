@@ -43,9 +43,6 @@ const DONUT_CHART_CONFIG = {
     },
     plotOptions: {
       pie: {
-        // dataLabels: {
-        //   offset: 150,
-        // },
         donut: {
           labels: {
             show: true,
@@ -58,7 +55,6 @@ const DONUT_CHART_CONFIG = {
             total: {
               show: true,
               showAlways: true,
-              // label: '총 경력 8년 6개월',
               label: '8년 6개월',
               color: 'white',
             },
