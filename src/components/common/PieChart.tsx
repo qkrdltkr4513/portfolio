@@ -20,11 +20,11 @@ const wrapperStyle = () => css`
   }
 `;
 
-const DonutChart = ({ width, height, series, options, ...restProps }: ChartProps): JSX.Element => {
+const PieChart = ({ width, height, series, options, ...restProps }: ChartProps): JSX.Element => {
   return (
     <div css={wrapperStyle()}>
       <Chart
-        type="donut"
+        type="pie"
         width={width}
         height={height}
         options={options as ChartProps['options']}
@@ -35,4 +35,4 @@ const DonutChart = ({ width, height, series, options, ...restProps }: ChartProps
   );
 };
 
-export default DonutChart;
+export default PieChart;

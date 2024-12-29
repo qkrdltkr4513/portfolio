@@ -50,6 +50,11 @@ export interface ThemesProps {
     Title: string; // 제목에 사용되고 옅은 노랑
     Contents: string; // sub title과 내용에 사용
     CardBackGround: string; // Only Card Component Background Color
+    Next: string; // Next.js color
+    React: string; // React.js color
+    Vue: string; // Vue.js color
+    ReactNative: string; // React Native color
+    Typescript: string; // Typescript color
   };
 
   // 글씨 두께
@@ -137,6 +142,11 @@ export const themes: ThemesProps = {
     Title: '#FFC552', // 제목에 사용되고 옅은 노랑
     Contents: '#D9D5C9', // sub title과 내용에 사용
     CardBackGround: '#333639', // Only Card Component Background Color
+    Next: '#1f1f1f', // Next.js color
+    React: '#61dafb', // React.js color
+    Vue: '#42b883', // Vue.js color
+    ReactNative: '#087da4', // React Native color
+    Typescript: '#3178c6', // Typescript color
   },
 
   // 글씨 두께
