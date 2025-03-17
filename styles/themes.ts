@@ -55,6 +55,16 @@ export interface ThemesProps {
     Vue: string; // Vue.js color
     ReactNative: string; // React Native color
     Typescript: string; // Typescript color
+    Store: string; // Store lib color
+    DevOps: string; // Env or Dev Ops color
+    Framework: string; // Framework color
+    Style: string; // css style color
+    OtherLib: string;
+    ChartBlue: string;
+    ChartGreen: string;
+    ChartYellow: string;
+    ChartRed: string;
+    ChartPupple: string;
   };
 
   // 글씨 두께
@@ -147,6 +157,16 @@ export const themes: ThemesProps = {
     Vue: '#42b883', // Vue.js color
     ReactNative: '#087da4', // React Native color
     Typescript: '#3178c6', // Typescript color
+    Store: '#21ba45', // Store lib color
+    DevOps: '#f2c037', // Env or DevOps color
+    Framework: '#26A69A', // Framework color
+    Style: '#fc7484', // css style color
+    OtherLib: '#d64000',
+    ChartBlue: '#008ffb',
+    ChartGreen: '#00e397',
+    ChartYellow: '#feb219',
+    ChartRed: '#ff4561',
+    ChartPupple: '#785dd0',
   },
 
   // 글씨 두께
