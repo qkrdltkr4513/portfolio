@@ -7,23 +7,9 @@ import { css } from '@emotion/react';
 const wrapperStyle = (width: string, height: string) => css`
   width: ${width};
   height: ${height};
-
-  foreignObject {
-    height: 100%;
-  }
-
-  .apexcharts-datalabels-group {
-    text {
-      font-size: 16px;
-    }
-  }
-  .custom-tooltip {
-    padding: 6px;
-    font-size: 14px;
-  }
 `;
 
-const PieChart = ({
+const RangeBarChart = ({
   width = '100%',
   height = '100%',
   series,
@@ -33,7 +19,7 @@ const PieChart = ({
   return (
     <div css={wrapperStyle(width as string, height as string)}>
       <Chart
-        type="pie"
+        type="rangeBar"
         width="100%"
         height="100%"
         options={options as ChartProps['options']}
@@ -44,4 +30,4 @@ const PieChart = ({
   );
 };
 
-export default PieChart;
+export default RangeBarChart;
