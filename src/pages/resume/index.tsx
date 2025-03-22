@@ -1,13 +1,17 @@
 import { css } from '@emotion/react';
+
+import MotionBox from '@components/motion/MotionBox';
 import Card from '@components/common/Card';
 import Article from '@components/Article';
 import Text from '@components/common/Text';
 import Button from '@components/common/Button';
 import ExternalLink from '@components/common/ExternalLink';
-import { COMMON_POSITION_TYPES, EXTERNAL_LINK_LIST } from '@core/common/constants';
+
+import { ExternalTypeProps } from '@core/types';
+import { COMMON_POSITION_TYPES, EXTERNAL_LINK_LIST } from '@core/constants';
+
 import { imgMyProfile } from '@assets/images';
 import { themes } from '@styles/themes';
-import { ExternalTypeProps } from '@core/common/types';
 
 const { LEFT_TOP } = COMMON_POSITION_TYPES;
 
@@ -27,6 +31,7 @@ const cardListStyle = () => css`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  align-items: center;
   gap: 24px 0;
 `;
 
@@ -73,14 +78,19 @@ const Resume = () => {
     <div css={wrapperStyle()}>
       <div css={leftBoxStyle()}>
         <div css={cardListStyle()}>
-          <Card useMotion imageName={imgMyProfile} imagePosition={LEFT_TOP} isCircleImage>
+          <Card
+            imageName={imgMyProfile}
+            imagePosition={LEFT_TOP}
+            motionType="FADE_IN_RIGHT"
+            isCircleImage
+          >
             <div css={cardContentsStyle()}>
               <Text
                 size={themes.fontSize.H1}
                 weight={themes.fontWeight.SemiBold}
                 color={themes.colors['White/09']}
               >
-                Austin Park
+                박이삭
               </Text>
               <Text
                 size={themes.fontSize.H2}
@@ -96,7 +106,7 @@ const Resume = () => {
                 weight={themes.fontWeight.Medium}
                 color={themes.colors['White/09']}
               >
-                qkrdltkr4513@gmail.com
+                E-mail : qkrdltkr4513@gmail.com
               </Text>
               <Text
                 size={themes.fontSize.Body2}
@@ -104,12 +114,12 @@ const Resume = () => {
                 color={themes.colors['White/09']}
               >
                 {/* TODO: 내용 추가 필요 */}
-                TODO: 내용 추가 필요
+                Phone : 010.5629.0727
               </Text>
             </div>
             <Button css={contactMeStyle()} text="Contact Me" onClick={onClickContactMe} />
           </Card>
-          <Card useMotion>
+          <Card motionType="FADE_IN_RIGHT">
             <div css={cardContentsStyle()}>
               {EXTERNAL_LINK_LIST.map((item, index) => {
                 const { name, type } = item;
@@ -128,40 +138,62 @@ const Resume = () => {
           </Card>
         </div>
       </div>
-      <div css={rightBoxStyle()}>
+      <MotionBox css={rightBoxStyle()} motionType="FADE_IN_RIGHT">
         <Article
           name="본인소개"
-          content="Front-End 개발을 즐거워하고 성장 욕구와 긍정적인 사고를 가진 개발자입니다."
+          content={
+            <span>
+              Front-End 개발과 협업을 즐거워하고 성장 욕구와 긍정적인 사고를 가진 개발자입니다.
+            </span>
+          }
         />
         <div css={experienceBoxStyle()}>
           <Article
             name="경력사항"
-            main="NC SOFT"
+            main="NC ITS"
             sub="2022.07 - 재직중"
-            content="TODO: 간략하게 회사에서 한일"
+            content="사내 서비스를 제공하는 NC SOFT의 자회사로 전사에서 사용하는 사내 서비스 및 ITSM 서비스의 Web, App의 프론트엔드 부분을 담당하였고, 입사시 팀은 구성되어 있으나 개발하기 위해 필요한 협업 부분이 다소 많이 부족하다 생각되어 Git Flow, Git 정책, PR, 코드 컨벤션, 문서화 등 협업에 필요한 부분을 적극 도입 및 제안 하였으며 도입한 내용에 대해 리뷰 진행"
           />
           <Article
             main="스테이지파이브"
             sub="2021.01 - 2022.06"
-            content="TODO: 간략하게 회사에서 한일"
+            content="5G, 알뜰폰, 중고폰과 같은 MVNO와 MNO 서비스를 제공하는 B2C 카카오 자회사로 자사몰 및 자사서비스 그리고 프로모션 등 신규 개발 및 유지보수의 프론트엔드 부분을 담당하여 개발 진행"
           />
-          <Article main="빌드잇" sub="2019.04 - 2020.12" content="TODO: 간략하게 회사에서 한일" />
-          <Article main="아토스" sub="2017.01 - 2018.12" content="TODO: 간략하게 회사에서 한일" />
+          <Article
+            main="빌드잇"
+            sub="2019.04 - 2020.12"
+            content="IOT 제품 및 서비스를 제공하는 B2B, B2C 스타트업 회사로 외부 스마트빌딩 서비스, 자사 IOT 서비스의 Web(클라우드 플랫폼), App의 프론트엔드 부분을 담당하였고, 주로 사내에서 개발한 SDK를 통하여 제품 및 디바이스를 연결하고 차트를 통한 데이터 시각화를 중점적으로 개발 진행"
+          />
+          <Article
+            main="아토스"
+            sub="2017.01 - 2018.12"
+            content="SI 파견 업무를 수행하는 회사로 주로 외부 고객사로 파견 업무를 지원나가 ERP, MES 시스템 구축 및 운영업무를 진행하였고, 파견 업무가 종료되면 자사 커뮤니티 서비스 개발 진행"
+          />
         </div>
         <div>
-          <Article name="기술" content="안녕하세요" />
+          <Article
+            name="기술"
+            main="사용 가능 기술"
+            content="Next.js, React.js, React Native, Vue.js, Typescript, jQuery, Javascript, React Query, Redux, Recoil, MFA(Module Federation), ES6, AWS S3, HTML5, CSS3, Emotion, Styled Component, Stylus"
+          />
+          <Article main="협업툴" content="Git, SVN, Figma, Zeplin, Jira, Confluence" />
         </div>
         <div>
           <Article
             name="교육"
             main="러닛"
             sub="2019.01 - 2019.03"
-            content="React를 통한 Mini project"
+            content="미니 프로젝트를 통한 React.js"
+          />
+          <Article
+            main="투비소프트"
+            sub="2017.11 - 2017.11"
+            content="Nexacro Platform 개발자 교육"
           />
           <Article
             main="비트교육센터"
             sub="2016.05 - 2016.12"
-            content="Spring Framework MVC pattern"
+            content="Java Enterprise 고급 인력 양성"
           />
         </div>
         {/* TODO: 아래 항목 내용 추가 및 페이지 표시 위치 변경 필요 */}
@@ -178,7 +210,7 @@ const Resume = () => {
           <Article main="하이런" sub="2014.02 - 2015.02" />
           <Article main="S.I.S" sub="2011.02 - 현재" />
         </div>
-      </div>
+      </MotionBox>
     </div>
   );
 };

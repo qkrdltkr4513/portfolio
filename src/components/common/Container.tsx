@@ -14,11 +14,13 @@ const wrapperStyle = () => css`
   height: 100%;
   min-height: 100vh;
   flex-direction: column;
+  align-items: center;
   background-color: ${themes.colors['Gray/14']};
 `;
 
 const innerStyle = () => css`
-  padding: 20px 40px;
+  // width: 100%;
+  padding: 20px 0 40px;
 `;
 
 const pointerStyle = () => css`

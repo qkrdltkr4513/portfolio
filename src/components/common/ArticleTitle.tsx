@@ -41,12 +41,10 @@ const subTitleStyle = () => css`
 const ArticleTitle = ({ name, main, sub }: CommonArticleTitleProps) => (
   <div css={wrapperStyle()}>
     <span css={nameStyle()}>{name}</span>
-    {main && sub && (
-      <div css={boxStyle()}>
-        <span css={mainTitleStyle()}>{main}</span>
-        <span css={subTitleStyle()}>{sub}</span>
-      </div>
-    )}
+    <div css={boxStyle()}>
+      {main && <span css={mainTitleStyle()}>{main}</span>}
+      {sub && <span css={subTitleStyle()}>{sub}</span>}
+    </div>
   </div>
 );
 

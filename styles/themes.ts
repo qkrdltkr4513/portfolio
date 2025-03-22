@@ -49,6 +49,22 @@ export interface ThemesProps {
     Red: string; // 빨강
     Title: string; // 제목에 사용되고 옅은 노랑
     Contents: string; // sub title과 내용에 사용
+    CardBackGround: string; // Only Card Component Background Color
+    Next: string; // Next.js color
+    React: string; // React.js color
+    Vue: string; // Vue.js color
+    ReactNative: string; // React Native color
+    Typescript: string; // Typescript color
+    Store: string; // Store lib color
+    DevOps: string; // Env or Dev Ops color
+    Framework: string; // Framework color
+    Style: string; // css style color
+    OtherLib: string;
+    ChartBlue: string;
+    ChartGreen: string;
+    ChartYellow: string;
+    ChartRed: string;
+    ChartPupple: string;
   };
 
   // 글씨 두께
@@ -80,6 +96,7 @@ export interface ThemesProps {
     ClampBody1: string;
     ClampBody2: string;
     ClampBody3: string;
+    ClampBody4: string;
   };
 }
 
@@ -134,6 +151,22 @@ export const themes: ThemesProps = {
     Red: '#FF1E1E', // 빨강
     Title: '#FFC552', // 제목에 사용되고 옅은 노랑
     Contents: '#D9D5C9', // sub title과 내용에 사용
+    CardBackGround: '#333639', // Only Card Component Background Color
+    Next: '#1f1f1f', // Next.js color
+    React: '#61dafb', // React.js color
+    Vue: '#42b883', // Vue.js color
+    ReactNative: '#087da4', // React Native color
+    Typescript: '#3178c6', // Typescript color
+    Store: '#21ba45', // Store lib color
+    DevOps: '#f2c037', // Env or DevOps color
+    Framework: '#26A69A', // Framework color
+    Style: '#fc7484', // css style color
+    OtherLib: '#d64000',
+    ChartBlue: '#008ffb',
+    ChartGreen: '#00e397',
+    ChartYellow: '#feb219',
+    ChartRed: '#ff4561',
+    ChartPupple: '#785dd0',
   },
 
   // 글씨 두께
@@ -161,10 +194,11 @@ export const themes: ThemesProps = {
     ClampTitle: 'font-size: clamp(26px, 18vw, 320px); line-height: 1;',
     ClampMainTitle: 'font-size: clamp(22px, 10vw, 30px); line-height: 1;',
     ClampSubTitle: 'font-size: clamp(20px, 9vw, 28px); line-height: 1;',
-    ClampH1: 'font-size: clamp(18px, 8vw, 26px); line-height: 1;',
-    ClampH2: 'font-size: clamp(16px, 6vw, 24px); line-height: 1;',
-    ClampBody1: 'font-size: clamp(14px, 4vw, 22px); line-height: 1;',
-    ClampBody2: 'font-size: clamp(12px, 3vw, 20px); line-height: 1;',
-    ClampBody3: 'font-size: clamp(10px, 2vw, 18px); line-height: 1;',
+    ClampH1: 'font-size: clamp(20px, 8vw, 26px); line-height: 1;',
+    ClampH2: 'font-size: clamp(18px, 6vw, 24px); line-height: 1;',
+    ClampBody1: 'font-size: clamp(16px, 4vw, 22px); line-height: 1.2;',
+    ClampBody2: 'font-size: clamp(14px, 3vw, 20px); line-height: 1.2;',
+    ClampBody3: 'font-size: clamp(12px, 2vw, 18px); line-height: 1.4;',
+    ClampBody4: 'font-size: clamp(10px, 2vw, 16px); line-height: 1.4;',
   },
 };

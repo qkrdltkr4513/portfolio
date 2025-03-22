@@ -10,6 +10,7 @@ const wrapperStyle = () => css`
   display: flex;
   width: 100%;
   height: 60px;
+  justify-content: center;
   z-index: 10;
   background-color: ${themes.colors['Gray/14']};
 `;
@@ -17,10 +18,23 @@ const wrapperStyle = () => css`
 const innerStyle = () => css`
   display: flex;
   width: 100%;
+  max-width: 1400px;
   flex-direction: row;
   padding: 10px 20px;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1080px) {
+    max-width: 676px;
+  }
+
+  @media (max-width: 700px) {
+    justify-content: center;
+  }
+
+  @media (max-width: 550px) {
+    max-width: 550px;
+  }
 `;
 
 const titleStyle = () => css`
@@ -28,6 +42,10 @@ const titleStyle = () => css`
   color: ${themes.colors.White};
   ${themes.fontSize.Title};
   ${themes.fontWeight.SemiBold};
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 const contactMeStyle = () => css`
@@ -39,14 +57,14 @@ const contactMeStyle = () => css`
 
 const Header = () => {
   // contact me 버튼 클릭시 호출한다.
-  const onClickContactMe = () => {};
+  // const onClickContactMe = () => {};
 
   return (
     <div css={wrapperStyle()}>
       <div css={innerStyle()}>
         <span css={titleStyle()}>Portfolio</span>
         <MenuList />
-        <Button text="Contact Me" onClick={onClickContactMe} />
+        {/* <Button text="Contact Me" onClick={onClickContactMe} /> */}
         {/* <span css={contactMeStyle()}>Contact Me</span> */}
       </div>
     </div>

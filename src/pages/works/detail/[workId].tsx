@@ -1,0 +1,93 @@
+import React, { useEffect, useState, useCallback } from 'react';
+
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { themes } from '@styles/themes';
+
+import * as styles from '@pages/works/detail/detail.styles';
+
+import GridBox from '@components/common/GridBox';
+import GridCard from '@components/common/GridCard';
+import Text from '@components/common/Text';
+import MotionBox from '@components/motion/MotionBox';
+import Content from '@components/common/Content';
+import Article from '@components/Article';
+
+import { WorkListItemProps, WorkDetailItemProps } from '@core/types';
+import { PROJECT_THUMNAIL_LIST } from '@core/constants';
+
+const WorkDetail = () => {
+  const router = useRouter();
+
+  const [detailInfo, setDetailInfo] = useState<WorkListItemProps>();
+
+  const TextWithContent = useCallback(({ title, content }: WorkDetailItemProps) => {
+    return (
+      <div css={styles.textWithContentStyle()}>
+        <Text
+          size={themes.fontSize.ClampBody1}
+          weight={themes.fontWeight.Medium}
+          color={themes.colors['White/09']}
+        >
+          {title}
+        </Text>
+        <Content css={styles.contentStyle()} content={content} />
+      </div>
+    );
+  }, []);
+
+  // 담당 업무 리스트
+  const AssingedTask = useCallback(({ list }: { list: string[] }) => {
+    return (
+      <ul>
+        {list.map((item) => (
+          <li css={styles.assingedTaskStyle()}>{item}</li>
+        ))}
+      </ul>
+    );
+  }, []);
+
+  useEffect(() => {
+    const id = router.query.workId || window.history.state.as.split('/works/detail/')[1];
+    console.log(id);
+
+    PROJECT_THUMNAIL_LIST.forEach((item) => {
+      if (item.workId === id) setDetailInfo(item);
+    });
+  }, []);
+
+  return (
+    <div css={styles.wrapperStyle()}>
+      <div css={styles.innerStyle()}>
+        {detailInfo && (
+          <MotionBox css={styles.contentBoxStyle()} motionType="FADE_IN_UP">
+            <div css={styles.imageBoxStyle()}>
+              <Image
+                src={`/assets/images/${detailInfo.imageName}.png`}
+                width="700px"
+                height="525px"
+              />
+            </div>
+            <Text
+              size={themes.fontSize.ClampBody1}
+              weight={themes.fontWeight.Medium}
+              color={themes.colors['White/09']}
+            >
+              {detailInfo?.workName}
+            </Text>
+            <TextWithContent title="프로젝트 목적" content={detailInfo.introduction} />
+            <TextWithContent title="사용 기술" content={detailInfo.skill} />
+            <TextWithContent
+              title="담당 업무"
+              content={<AssingedTask list={detailInfo.taskList} />}
+            />
+            <TextWithContent title="형상 관리" content={detailInfo.versionManage} />
+            <TextWithContent title="프로젝트 기간" content={detailInfo.period} />
+          </MotionBox>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default React.memo(WorkDetail);

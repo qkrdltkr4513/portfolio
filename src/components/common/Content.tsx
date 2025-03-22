@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { CommonContentProps } from '@core/common/types';
+import { CommonContentProps } from '@core/types';
 import { themes } from '@styles/themes';
 
 const wrapperStyle = () => css`
@@ -8,10 +8,15 @@ const wrapperStyle = () => css`
   color: ${themes.colors.Contents};
   ${themes.fontSize.H1};
   ${themes.fontWeight.Normal};
+  line-height: 24px;
 `;
 
-const Content = ({ content }: CommonContentProps) => {
-  return <div css={wrapperStyle()}>{content}</div>;
+const Content = ({ content, className }: CommonContentProps) => {
+  return (
+    <div css={wrapperStyle()} className={className}>
+      {content}
+    </div>
+  );
 };
 
 export default Content;
