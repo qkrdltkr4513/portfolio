@@ -17,14 +17,14 @@ const Home = () => {
 
   return (
     <GridBox>
-      <GridCard columnSize={'1 / 3'} height={305}>
+      <GridCard
+        columnSize={'1 / 3'}
+        height={305}
+        isResizeHeight
+        imageName="img-main-about-me2"
+        onClick={() => moveToPage(PAGE_INFOS.ABOUT.path)}
+      >
         <Thumbnail
-          image={{
-            name: imgAustin,
-            width: 100,
-            height: 100,
-            isCircle: true,
-          }}
           textContent={
             <ThumbnailContent
               type={THUMBNAIL_LIST[0].type}
@@ -32,17 +32,16 @@ const Home = () => {
               sub={THUMBNAIL_LIST[0].sub}
             />
           }
-          onClick={() => moveToPage(PAGE_INFOS.ABOUT.path)}
         />
       </GridCard>
-      <GridCard columnSize={'3 / 4'} height={305}>
+      <GridCard
+        columnSize={'3 / 4'}
+        height={305}
+        isResizeHeight
+        imageName="img-main-resume"
+        onClick={() => moveToPage(PAGE_INFOS.RESUME.path)}
+      >
         <Thumbnail
-          image={{
-            name: imgAustin,
-            width: 100,
-            height: 100,
-            isCircle: false,
-          }}
           textContent={
             <ThumbnailContent
               type={THUMBNAIL_LIST[1].type}
@@ -50,17 +49,16 @@ const Home = () => {
               sub={THUMBNAIL_LIST[1].sub}
             />
           }
-          onClick={() => moveToPage(PAGE_INFOS.RESUME.path)}
         />
       </GridCard>
-      <GridCard columnSize={'4 / 5'} height={305}>
+      <GridCard
+        columnSize={'4 / 5'}
+        height={305}
+        isResizeHeight
+        imageName="img-main-commerce"
+        onClick={() => moveToPage(PAGE_INFOS.WORK.path)}
+      >
         <Thumbnail
-          image={{
-            name: imgAustin,
-            width: 100,
-            height: 100,
-            isCircle: false,
-          }}
           textContent={
             <ThumbnailContent
               type={THUMBNAIL_LIST[2].type}
@@ -68,17 +66,16 @@ const Home = () => {
               sub={THUMBNAIL_LIST[2].sub}
             />
           }
-          onClick={() => moveToPage(PAGE_INFOS.WORK.path)}
         />
       </GridCard>
-      <GridCard columnSize={'1 / 2'} height={305}>
+      <GridCard
+        columnSize={'1 / 2'}
+        height={305}
+        isResizeHeight
+        imageName="img-main-mobile-app"
+        onClick={() => moveToPage(PAGE_INFOS.WORK.path)}
+      >
         <Thumbnail
-          image={{
-            name: imgAustin,
-            width: 100,
-            height: 100,
-            isCircle: false,
-          }}
           textContent={
             <ThumbnailContent
               type={THUMBNAIL_LIST[3].type}
@@ -86,17 +83,16 @@ const Home = () => {
               sub={THUMBNAIL_LIST[3].sub}
             />
           }
-          onClick={() => moveToPage(PAGE_INFOS.WORK.path)}
         />
       </GridCard>
-      <GridCard columnSize={'2 / 3'} height={305}>
+      <GridCard
+        columnSize={'2 / 3'}
+        height={305}
+        isResizeHeight
+        imageName="img-main-smart-building"
+        onClick={() => moveToPage(PAGE_INFOS.WORK.path)}
+      >
         <Thumbnail
-          image={{
-            name: imgAustin,
-            width: 100,
-            height: 100,
-            isCircle: false,
-          }}
           textContent={
             <ThumbnailContent
               type={THUMBNAIL_LIST[4].type}
@@ -104,17 +100,16 @@ const Home = () => {
               sub={THUMBNAIL_LIST[4].sub}
             />
           }
-          onClick={() => moveToPage(PAGE_INFOS.WORK.path)}
         />
       </GridCard>
-      <GridCard columnSize={'3 / 5'} height={305}>
+      <GridCard
+        columnSize={'3 / 5'}
+        height={305}
+        isResizeHeight
+        imageName="img-main-all-project"
+        onClick={() => moveToPage(PAGE_INFOS.WORK.path)}
+      >
         <Thumbnail
-          image={{
-            name: imgAustin,
-            width: 100,
-            height: 100,
-            isCircle: false,
-          }}
           textContent={
             <ThumbnailContent
               type={THUMBNAIL_LIST[5].type}
@@ -122,17 +117,16 @@ const Home = () => {
               sub={THUMBNAIL_LIST[5].sub}
             />
           }
-          onClick={() => moveToPage(PAGE_INFOS.WORK.path)}
         />
       </GridCard>
-      <GridCard columnSize={'1 / 3'} height={305}>
+      <GridCard
+        columnSize={'1 / 3'}
+        height={305}
+        isResizeHeight
+        imageName="img-main-dashboard"
+        onClick={() => moveToPage(PAGE_INFOS.DASHBOARD.path)}
+      >
         <Thumbnail
-          image={{
-            name: imgAustin,
-            width: 100,
-            height: 100,
-            isCircle: false,
-          }}
           textContent={
             <ThumbnailContent
               type={THUMBNAIL_LIST[6].type}
@@ -140,10 +134,15 @@ const Home = () => {
               sub={THUMBNAIL_LIST[6].sub}
             />
           }
-          onClick={() => moveToPage(PAGE_INFOS.DASHBOARD.path)}
         />
       </GridCard>
-      <GridCard columnSize={'3 / 5'} height={305}>
+      <GridCard
+        columnSize={'3 / 5'}
+        height={305}
+        isResizeHeight
+        imageName="img-main-contact"
+        onClick={() => moveToPage(PAGE_INFOS.ABOUT.path)}
+      >
         <Thumbnail
           textContent={
             <ThumbnailContent
@@ -152,7 +151,6 @@ const Home = () => {
               sub={THUMBNAIL_LIST[7].sub}
             />
           }
-          onClick={() => moveToPage(PAGE_INFOS.ABOUT.path)}
         />
       </GridCard>
     </GridBox>
