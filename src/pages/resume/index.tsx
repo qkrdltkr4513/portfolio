@@ -119,7 +119,7 @@ const Resume = () => {
             </div>
             <Button css={contactMeStyle()} text="Contact Me" onClick={onClickContactMe} />
           </Card>
-          <Card>
+          <Card motionType="FADE_IN_RIGHT">
             <div css={cardContentsStyle()}>
               {EXTERNAL_LINK_LIST.map((item, index) => {
                 const { name, type } = item;

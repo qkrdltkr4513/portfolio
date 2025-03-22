@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { css } from '@emotion/react';
 
@@ -180,7 +180,7 @@ const EXPERIENCE_LIST = [
   { companyName: 'NC ITS', workType: 'Front-End', period: '2022.07 - 현재' },
   { companyName: '스테이지파이브', workType: 'Front-End', period: '2021.01 - 2022.06' },
   { companyName: '빌드잇', workType: 'Front-End', period: '2019.04 - 2020.12' },
-  // { companyName: '아토스', workType: 'Front-End', period: '2017.01 - 2018.12' },
+  // { companyName: '아토스', workType: 'SI / SM', period: '2017.01 - 2018.12' },
 ];
 
 const About = () => {
@@ -321,10 +321,6 @@ const About = () => {
     );
   }, []);
 
-  useEffect(() => {
-    console.log('mounted');
-  }, []);
-
   return (
     <div css={wrapperStyle()}>
       <motion.div
@@ -345,10 +341,10 @@ const About = () => {
       </motion.div>
       <div css={contentsBoxStyle()}>
         <GridBox>
-          <GridCard css={imageBoxStyle()} columnSize={'1 / 4'} height={280}>
+          <GridCard css={imageBoxStyle()} columnSize={'1 / 4'} height={280} isResizeHeight>
             <div css={imageStyle()} />
           </GridCard>
-          <GridCard columnSize={'4 / 5'} height={280}>
+          <GridCard columnSize={'4 / 5'} height={280} isResizeHeight>
             <div css={welcomeBoxStyle()}>
               <Text
                 size={themes.fontSize.ClampH2}
@@ -366,7 +362,7 @@ const About = () => {
               </Text>
             </div>
           </GridCard>
-          <GridCard columnSize={'1 / 3'} height={280}>
+          <GridCard columnSize={'1 / 3'} height={280} isResizeHeight>
             <div css={introduceYourselfBoxStyle()}>
               <Text
                 size={themes.fontSize.ClampH2}
@@ -378,7 +374,7 @@ const About = () => {
               <IntroduceYourselfList />
             </div>
           </GridCard>
-          <GridCard columnSize={'3 / 5'} height={280}>
+          <GridCard columnSize={'3 / 5'} height={280} isResizeHeight>
             <div css={experienceBoxStyle()}>
               <Text
                 size={themes.fontSize.ClampH2}
@@ -390,7 +386,7 @@ const About = () => {
               <div>{ExperienceList()}</div>
             </div>
           </GridCard>
-          <GridCard columnSize={'1 / 2'} height={280}>
+          <GridCard columnSize={'1 / 2'} height={280} isResizeHeight>
             <div css={personalInfomationBoxStyle()}>
               <Text
                 size={themes.fontSize.ClampH2}
@@ -402,7 +398,7 @@ const About = () => {
               <PersonalInfomationList />
             </div>
           </GridCard>
-          <GridCard columnSize={'2 / 3'} height={280}>
+          <GridCard columnSize={'2 / 3'} height={280} isResizeHeight>
             <div css={academicBackgroundBoxStyle()}>
               <Text
                 size={themes.fontSize.ClampH2}
@@ -414,7 +410,7 @@ const About = () => {
               <AcademicBackgroundList />
             </div>
           </GridCard>
-          <GridCard columnSize={'3 / 4'} height={280}>
+          <GridCard columnSize={'3 / 4'} height={280} isResizeHeight>
             <div css={hobbyBoxStyle()}>
               <Text
                 size={themes.fontSize.ClampH2}
@@ -427,7 +423,7 @@ const About = () => {
             </div>
           </GridCard>
           {/*  */}
-          <GridCard columnSize={'4 / 5'} height={280}>
+          <GridCard columnSize={'4 / 5'} height={280} isResizeHeight>
             <Thumbnail
               css={learnMoreAboutBoxStyle()}
               hasIcon={true}

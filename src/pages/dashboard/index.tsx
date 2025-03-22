@@ -15,12 +15,14 @@ import {
   RANGE_BAR_CHART_CONFIG,
   TREEMAP_CHART_CONFIG,
   TABLE_CONFIG,
+  COLUMN_CHART_CONFIG,
 } from '@core/config';
 
 const DonutChart = dynamic(() => import('@components/common/DonutChart'), { ssr: false });
 const PieChart = dynamic(() => import('@components/common/PieChart'), { ssr: false });
 const RangeBarChart = dynamic(() => import('@components/common/RangeBarChart'), { ssr: false });
 const TreeMapChart = dynamic(() => import('@components/common/TreeMapChart'), { ssr: false });
+const ColumnChart = dynamic(() => import('@components/common/ColumnChart'), { ssr: false });
 
 const Dashboard = () => {
   // donut chart
@@ -34,6 +36,9 @@ const Dashboard = () => {
 
   // range bar chart
   const [rangeBarChartConfig, setRangeBarChartConfig] = useState<ChartProps>();
+
+  //
+  const [columChartConfig, setColumnChartConfig] = useState<ChartProps>();
 
   // table
   const [tableConfig, setTableConfig] = useState<TableProps>();
@@ -56,7 +61,8 @@ const Dashboard = () => {
     // setRangeBarChartConfig(RANGE_BAR_CHART_CONFIG as unknown as ChartProps);
     setTimeout(() => {
       setRangeBarChartConfig(RANGE_BAR_CHART_CONFIG as unknown as ChartProps);
-    }, 100);
+    }, 300);
+    setColumnChartConfig(COLUMN_CHART_CONFIG as ChartProps);
     setDonutChartConfig(DONUT_CHART_CONFIG as ChartProps);
     setPieChartConfig(PIE_CHART_CONFIG as ChartProps);
     setTableConfig(TABLE_CONFIG as unknown as TableProps);
@@ -75,7 +81,18 @@ const Dashboard = () => {
           />
         )}
       </GridCard>
-      <GridCard columnSize={'3 / 4'} height={400}>
+      <GridCard columnSize={'3 / 5'} height={400}>
+        {/* 연도별 프로젝트 사용기술 기간 */}
+        {columChartConfig && (
+          <ColumnChart
+            width={columChartConfig?.width}
+            height={columChartConfig?.height}
+            series={columChartConfig.series}
+            options={columChartConfig.options}
+          />
+        )}
+      </GridCard>
+      <GridCard columnSize={'1 / 3'} height={400}>
         {treemapChartConfig && (
           <div css={styles.treemapChartBoxStyle()}>
             <TreeMapChart
@@ -104,7 +121,7 @@ const Dashboard = () => {
           </div>
         )}
       </GridCard>
-      <GridCard columnSize={'4 / 5'} height={400}>
+      <GridCard columnSize={'3 / 4'} height={400}>
         {/* 서비스별(웹, 모바일, 데스크탑) 경험 횟수 (파이 차트) */}
         {pieChartConfig && (
           <div css={styles.customTooltipBoxStyle()}>
@@ -117,18 +134,6 @@ const Dashboard = () => {
           </div>
         )}
       </GridCard>
-      <GridCard columnSize={'1 / 4'} height={400}>
-        {/* 프로젝트 경험 요약 (테이블){' '} */}
-        {tableConfig && (
-          <Table
-            title={tableConfig.title}
-            columns={tableConfig.columns}
-            dataSource={tableConfig.dataSource}
-            pagination={tableConfig.pagination as false}
-            scroll={tableConfig.scroll}
-          />
-        )}
-      </GridCard>
       <GridCard columnSize={'4 / 5'} height={400}>
         {/* 회사별 경력 및 총 경력 (도넛차트) */}
         {donutChartConfig && (
@@ -137,6 +142,18 @@ const Dashboard = () => {
             height={donutChartConfig?.height}
             series={donutChartConfig?.series}
             options={donutChartConfig?.options}
+          />
+        )}
+      </GridCard>
+      <GridCard columnSize={'1 / 5'} height={400}>
+        {/* 프로젝트 경험 요약 (테이블){' '} */}
+        {tableConfig && (
+          <Table
+            title={tableConfig.title}
+            columns={tableConfig.columns}
+            dataSource={tableConfig.dataSource}
+            pagination={tableConfig.pagination as false}
+            scroll={tableConfig.scroll}
           />
         )}
       </GridCard>
