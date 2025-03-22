@@ -36,9 +36,9 @@ export const PAGE_INFOS = {
 // Header에 표시되는 메뉴 리스트.
 export const CONSTANTS_MENU_LIST: CommonMenuListProps[] = [
   { name: PAGE_INFOS.HOME.name, path: PAGE_INFOS.HOME.path },
-  { name: PAGE_INFOS.WORK.name, path: PAGE_INFOS.WORK.path },
   { name: PAGE_INFOS.ABOUT.name, path: PAGE_INFOS.ABOUT.path },
   { name: PAGE_INFOS.RESUME.name, path: PAGE_INFOS.RESUME.path },
+  { name: PAGE_INFOS.WORK.name, path: PAGE_INFOS.WORK.path },
   { name: PAGE_INFOS.DASHBOARD.name, path: PAGE_INFOS.DASHBOARD.path },
 ];
 

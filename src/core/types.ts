@@ -34,11 +34,14 @@ export interface CommonGridCardSizeProps {
 
 export interface CommonGridCardProps {
   motionType?: CommonMotionType;
+  imageName?: string;
+  isResizeHeight?: boolean;
   useMotion?: boolean;
   height?: number;
   columnSize: string;
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
 export type CommonPositionType = 'LEFT_TOP' | 'LEFT_BOTTOM' | 'RIGHT_TOP' | 'RIGHT_BOTTOM';
@@ -198,7 +201,7 @@ export interface ThumbnailProps {
   hasIcon?: boolean;
   textContent: React.ReactNode;
   className?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export interface ThumbnailInfoProps {

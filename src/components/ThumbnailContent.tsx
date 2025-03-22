@@ -3,7 +3,6 @@ import { css } from '@emotion/react';
 import { themes } from '@styles/themes';
 
 import Text from '@components/common/Text';
-import Icon from '@components/common/Icon';
 
 import { THUMBNAIL_TYPES } from '@core/constants';
 import { ThumbnailInfoProps, ThumbnailType } from '@core/types';
@@ -37,14 +36,14 @@ const ThumbnailContent = ({ type, main, sub }: ThumbnailInfoProps) => {
         {type === ABOUT ? (
           <>
             <Text
-              size={themes.fontSize.Title}
+              size={themes.fontSize.ClampSubTitle}
               weight={themes.fontWeight.Medium}
               color={themes.colors.White}
             >
               {main}
             </Text>
             <Text
-              size={themes.fontSize.H1}
+              size={themes.fontSize.ClampBody4}
               weight={themes.fontWeight.Medium}
               color={themes.colors.Contents}
             >
@@ -54,14 +53,14 @@ const ThumbnailContent = ({ type, main, sub }: ThumbnailInfoProps) => {
         ) : type === OTHER ? (
           <>
             <Text
-              size={themes.fontSize.MainTitle}
+              size={themes.fontSize.ClampBody2}
               weight={themes.fontWeight.Medium}
               color={themes.colors.Contents}
             >
               {main}
             </Text>
             <Text
-              size={themes.fontSize.Title}
+              size={themes.fontSize.ClampSubTitle}
               weight={themes.fontWeight.Medium}
               color={themes.colors.White}
             >
@@ -71,14 +70,14 @@ const ThumbnailContent = ({ type, main, sub }: ThumbnailInfoProps) => {
         ) : (
           <>
             <Text
-              size={themes.fontSize.H2}
+              size={themes.fontSize.ClampBody4}
               weight={themes.fontWeight.Medium}
-              color={themes.colors.Contents}
+              color={themes.colors.White}
             >
               {main}
             </Text>
             <Text
-              size={themes.fontSize.MainTitle}
+              size={themes.fontSize.ClampBody2}
               weight={themes.fontWeight.Medium}
               color={themes.colors.White}
             >
@@ -87,9 +86,9 @@ const ThumbnailContent = ({ type, main, sub }: ThumbnailInfoProps) => {
           </>
         )}
       </div>
-      {type !== PROJECT && (
+      {/* {type !== PROJECT && (
         <Icon name="icCircleArrow" width={28} height={28} rotate={0} color={themes.colors.White} />
-      )}
+      )} */}
     </div>
   );
 };

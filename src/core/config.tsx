@@ -131,79 +131,79 @@ export const PIE_CHART_CONFIG = {
 };
 
 // 연도별 프로젝트 사용기술 기간
-// export const COLUMN_CHART_CONFIG = {
-//   width: '100%',
-//   height: '100%',
-//   series: [
-//     {
-//       name: 'Javascript',
-//       data: [3, 3, 0, 0, 0, 0, 0, 0, 0],
-//     },
-//     // {
-//     //   name: 'jQuery',
-//     //   data: [3, 3, 0, 0, 0, 0, 0, 0],
-//     // },
-//     {
-//       name: 'Typescript',
-//       data: [0, 0, 0, 2, 12, 12, 12, 12, 3],
-//     },
-//     {
-//       name: 'Vue',
-//       data: [0, 0, 5, 5, 2, 0, 0, 0, 0],
-//     },
-//     {
-//       name: 'React',
-//       data: [0, 0, 0, 0, 12, 12, 12, 12, 3],
-//     },
-//     {
-//       name: 'Next',
-//       data: [0, 0, 0, 0, 0, 8, 6, 12, 3],
-//     },
-//   ],
-//   options: {
-//     title: {
-//       text: '연도별 프로젝트 사용기술',
-//       align: 'left',
-//       style: {
-//         color: 'white',
-//         fontWeight: 500,
-//       },
-//     },
-//     chart: {
-//       stacked: true,
-//       // stackType: '100%',
-//       toolbar: {
-//         show: false,
-//       },
-//       zoom: {
-//         enabled: false,
-//       },
-//       // height: 50,
-//     },
-//     xaxis: {
-//       type: 'datetime',
-//       categories: ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
-//       labels: {
-//         style: {
-//           colors: 'white',
-//         },
-//       },
-//     },
-//     yaxis: {
-//       labels: {
-//         style: {
-//           colors: 'white',
-//         },
-//       },
-//     },
-//     legend: {
-//       position: 'bottom',
-//       labels: {
-//         colors: 'white',
-//       },
-//     },
-//   },
-// };
+export const COLUMN_CHART_CONFIG = {
+  width: '100%',
+  height: '100%',
+  series: [
+    {
+      name: 'Javascript',
+      data: [3, 3, 0, 0, 0, 0, 0, 0, 0],
+    },
+    // {
+    //   name: 'jQuery',
+    //   data: [3, 3, 0, 0, 0, 0, 0, 0],
+    // },
+    {
+      name: 'Typescript',
+      data: [0, 0, 0, 2, 12, 12, 12, 12, 3],
+    },
+    {
+      name: 'Vue',
+      data: [0, 0, 5, 5, 2, 0, 0, 0, 0],
+    },
+    {
+      name: 'React',
+      data: [0, 0, 0, 0, 12, 12, 12, 12, 3],
+    },
+    {
+      name: 'Next',
+      data: [0, 0, 0, 0, 0, 8, 6, 12, 3],
+    },
+  ],
+  options: {
+    title: {
+      text: '연도별 프로젝트 사용기술',
+      align: 'left',
+      style: {
+        color: 'white',
+        fontWeight: 500,
+      },
+    },
+    chart: {
+      stacked: true,
+      // stackType: '100%',
+      toolbar: {
+        show: false,
+      },
+      zoom: {
+        enabled: false,
+      },
+      // height: 50,
+    },
+    xaxis: {
+      type: 'datetime',
+      categories: ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+      labels: {
+        style: {
+          colors: 'white',
+        },
+      },
+    },
+    yaxis: {
+      labels: {
+        style: {
+          colors: 'white',
+        },
+      },
+    },
+    legend: {
+      position: 'bottom',
+      labels: {
+        colors: 'white',
+      },
+    },
+  },
+};
 
 // 연도별 프로젝트 사용기술
 export const RANGE_BAR_CHART_CONFIG = {
