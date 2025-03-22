@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { themes } from '@styles/themes';
 import MenuList from '@components/common/MenuList';
 import Button from '@components/common/Button';
+import Icon from './Icon';
 
 const wrapperStyle = () => css`
   position: fixed;
@@ -48,12 +49,21 @@ const titleStyle = () => css`
   }
 `;
 
-const contactMeStyle = () => css`
-  display: block;
-  color: ${themes.colors.White};
-  ${themes.fontSize.Body2};
-  ${themes.fontWeight.SemiBold};
-`;
+// const logoStyle = () => css`
+//   width: 100px;
+//   height: 50px;
+//   background-image: url(/assets/images/main/img-main-logo.png);
+//   background-size: contain;
+//   height: 50px;
+//   background-repeat: no-repeat;
+// `;
+
+// const contactMeStyle = () => css`
+//   display: block;
+//   color: ${themes.colors.White};
+//   ${themes.fontSize.Body2};
+//   ${themes.fontWeight.SemiBold};
+// `;
 
 const Header = () => {
   // contact me 버튼 클릭시 호출한다.
@@ -63,6 +73,7 @@ const Header = () => {
     <div css={wrapperStyle()}>
       <div css={innerStyle()}>
         <span css={titleStyle()}>Portfolio</span>
+        {/* <div css={logoStyle()} /> */}
         <MenuList />
         {/* <Button text="Contact Me" onClick={onClickContactMe} /> */}
         {/* <span css={contactMeStyle()}>Contact Me</span> */}
