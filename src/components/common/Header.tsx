@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { themes } from '@styles/themes';
 import MenuList from '@components/common/MenuList';
 import Button from '@components/common/Button';
+import Icon from './Icon';
 
 const wrapperStyle = () => css`
   position: fixed;
@@ -48,27 +49,13 @@ const titleStyle = () => css`
   }
 `;
 
-const contactMeStyle = () => css`
-  display: block;
-  color: ${themes.colors.White};
-  ${themes.fontSize.Body2};
-  ${themes.fontWeight.SemiBold};
-`;
-
-const Header = () => {
-  // contact me 버튼 클릭시 호출한다.
-  // const onClickContactMe = () => {};
-
-  return (
-    <div css={wrapperStyle()}>
-      <div css={innerStyle()}>
-        <span css={titleStyle()}>Portfolio</span>
-        <MenuList />
-        {/* <Button text="Contact Me" onClick={onClickContactMe} /> */}
-        {/* <span css={contactMeStyle()}>Contact Me</span> */}
-      </div>
+const Header = () => (
+  <div css={wrapperStyle()}>
+    <div css={innerStyle()}>
+      <span css={titleStyle()}>Portfolio</span>
+      <MenuList />
     </div>
-  );
-};
+  </div>
+);
 
 export default Header;

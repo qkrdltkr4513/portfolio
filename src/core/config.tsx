@@ -130,39 +130,25 @@ export const PIE_CHART_CONFIG = {
   },
 };
 
-// 연도별 프로젝트 사용기술 기간
-export const COLUMN_CHART_CONFIG = {
+// 연도별 수행한 프로젝트
+export const LINE_CHART_CONFIG = {
   width: '100%',
   height: '100%',
   series: [
     {
-      name: 'Javascript',
-      data: [3, 3, 0, 0, 0, 0, 0, 0, 0],
-    },
-    // {
-    //   name: 'jQuery',
-    //   data: [3, 3, 0, 0, 0, 0, 0, 0],
-    // },
-    {
-      name: 'Typescript',
-      data: [0, 0, 0, 2, 12, 12, 12, 12, 3],
+      name: '연도별 프로젝트',
+      type: 'column',
+      data: [3, 2, 3, 10, 4, 2, 2, 2, 0],
     },
     {
-      name: 'Vue',
-      data: [0, 0, 5, 5, 2, 0, 0, 0, 0],
-    },
-    {
-      name: 'React',
-      data: [0, 0, 0, 0, 12, 12, 12, 12, 3],
-    },
-    {
-      name: 'Next',
-      data: [0, 0, 0, 0, 0, 8, 6, 12, 3],
+      name: '누적 프로젝트',
+      type: 'line',
+      data: [3, 5, 8, 18, 22, 24, 26, 28, 28],
     },
   ],
   options: {
     title: {
-      text: '연도별 프로젝트 사용기술',
+      text: '연도별 수행 프로젝트',
       align: 'left',
       style: {
         color: 'white',
@@ -170,6 +156,7 @@ export const COLUMN_CHART_CONFIG = {
       },
     },
     chart: {
+      type: 'line',
       stacked: true,
       // stackType: '100%',
       toolbar: {
@@ -181,27 +168,58 @@ export const COLUMN_CHART_CONFIG = {
       // height: 50,
     },
     xaxis: {
-      type: 'datetime',
-      categories: ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+      // type: 'datetime',
+      // categories: ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
       labels: {
         style: {
           colors: 'white',
         },
       },
     },
-    yaxis: {
-      labels: {
-        style: {
-          colors: 'white',
+    yaxis: [
+      {
+        max: 12,
+        title: {
+          text: '진행 횟수',
+          style: {
+            color: 'white',
+            fontWeight: 500,
+          },
+        },
+        labels: {
+          style: {
+            colors: ['white'],
+          },
         },
       },
-    },
+      {
+        max: 30,
+        opposite: true,
+        title: {
+          offsetX: 5,
+          text: '누적 횟수',
+          style: {
+            color: 'white',
+            fontWeight: 500,
+          },
+        },
+        labels: {
+          style: {
+            colors: ['white'],
+          },
+        },
+      },
+    ],
     legend: {
       position: 'bottom',
       labels: {
         colors: 'white',
       },
     },
+    stroke: {
+      width: [0, 4],
+    },
+    labels: ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
   },
 };
 
@@ -351,7 +369,7 @@ export const RANGE_BAR_CHART_CONFIG = {
     },
     tooltip: {
       x: {
-        format: 'YYYY.MM',
+        format: 'yyyy.MM',
       },
       y: {
         formatter: (value: string | number) => {
@@ -505,12 +523,40 @@ export const TREEMAP_CHART_CONFIG = {
           y: 6,
         },
         {
-          x: 'React Native',
+          x: 'React Native(WebView 포함)',
           y: 6,
         },
         {
           x: 'Vue.js(WebView)',
           y: 9,
+        },
+        {
+          x: 'recoil',
+          y: 6,
+        },
+        {
+          x: 'vuex',
+          y: 12,
+        },
+        {
+          x: 'react-query',
+          y: 6,
+        },
+        {
+          x: 'DeepLink',
+          y: '6',
+        },
+        {
+          x: 'FCM',
+          y: 12,
+        },
+        {
+          x: 'BLE SDK',
+          y: 8,
+        },
+        {
+          x: 'MS Intune',
+          y: '2',
         },
       ],
     },
@@ -587,7 +633,7 @@ export const TREEMAP_CHART_CONFIG = {
   ],
   options: {
     title: {
-      text: '사용 및 경험사항',
+      text: '사용 및 경험',
       align: 'left',
       style: {
         color: 'white',
