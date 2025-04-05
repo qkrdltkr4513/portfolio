@@ -49,37 +49,13 @@ const titleStyle = () => css`
   }
 `;
 
-// const logoStyle = () => css`
-//   width: 100px;
-//   height: 50px;
-//   background-image: url(/assets/images/main/img-main-logo.png);
-//   background-size: contain;
-//   height: 50px;
-//   background-repeat: no-repeat;
-// `;
-
-// const contactMeStyle = () => css`
-//   display: block;
-//   color: ${themes.colors.White};
-//   ${themes.fontSize.Body2};
-//   ${themes.fontWeight.SemiBold};
-// `;
-
-const Header = () => {
-  // contact me 버튼 클릭시 호출한다.
-  // const onClickContactMe = () => {};
-
-  return (
-    <div css={wrapperStyle()}>
-      <div css={innerStyle()}>
-        <span css={titleStyle()}>Portfolio</span>
-        {/* <div css={logoStyle()} /> */}
-        <MenuList />
-        {/* <Button text="Contact Me" onClick={onClickContactMe} /> */}
-        {/* <span css={contactMeStyle()}>Contact Me</span> */}
-      </div>
+const Header = () => (
+  <div css={wrapperStyle()}>
+    <div css={innerStyle()}>
+      <span css={titleStyle()}>Portfolio</span>
+      <MenuList />
     </div>
-  );
-};
+  </div>
+);
 
 export default Header;

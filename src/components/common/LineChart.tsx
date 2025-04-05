@@ -13,7 +13,7 @@ const ColumnChart = ({ width, height, series, options, ...restProps }: ChartProp
   return (
     <div css={wrapperStyle()}>
       <Chart
-        type="bar"
+        type="line"
         width={width}
         height={height}
         series={series}
