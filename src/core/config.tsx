@@ -136,7 +136,7 @@ export const LINE_CHART_CONFIG = {
   height: '100%',
   series: [
     {
-      name: '수행한 프로젝트',
+      name: '연도별 프로젝트',
       type: 'column',
       data: [3, 2, 3, 10, 4, 2, 2, 2, 0],
     },
@@ -148,7 +148,7 @@ export const LINE_CHART_CONFIG = {
   ],
   options: {
     title: {
-      text: '연도별 수행한 프로젝트',
+      text: '연도별 수행 프로젝트',
       align: 'left',
       style: {
         color: 'white',
