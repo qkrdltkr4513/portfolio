@@ -18,10 +18,10 @@ const innerStyle = (isFirst: boolean) => css`
   padding: 20px 0;
   ${isFirst
     ? css`
-        padding: 0px 0px 20px;
+        padding: 0px 0px 10px;
       `
     : css`
-        padding: 20px 0;
+        padding: 10px 0;
       `}
 `;
 

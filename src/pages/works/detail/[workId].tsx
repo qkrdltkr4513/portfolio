@@ -41,7 +41,9 @@ const WorkDetail = () => {
     return (
       <ul>
         {list.map((item) => (
-          <li css={styles.assingedTaskStyle()}>{item}</li>
+          <li key={`list-${item}`} css={styles.assingedTaskStyle()}>
+            {item}
+          </li>
         ))}
       </ul>
     );

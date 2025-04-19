@@ -7,6 +7,10 @@ import { CommonMenuListProps } from '@core/types';
 
 import { themes } from '@styles/themes';
 
+interface MenuListProps {
+  className?: string;
+}
+
 const wrapperStyle = () => css`
   display: flex;
   flex-direction: row;
@@ -23,7 +27,7 @@ const itemStyle = (isActive: boolean) => css`
   cursor: pointer;
 `;
 
-const MenuList = () => {
+const MenuList = ({ className }: MenuListProps) => {
   const { push, pathname } = useRouter();
 
   const onClickMenuItem = (item: CommonMenuListProps) => {
@@ -32,7 +36,7 @@ const MenuList = () => {
   };
 
   return (
-    <div css={wrapperStyle()}>
+    <div css={wrapperStyle()} className={className}>
       {CONSTANTS_MENU_LIST.map((item) => {
         const { name, path } = item;
 
