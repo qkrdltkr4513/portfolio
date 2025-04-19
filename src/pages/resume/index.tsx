@@ -12,6 +12,8 @@ import { COMMON_POSITION_TYPES, EXTERNAL_LINK_LIST } from '@core/constants';
 
 import { imgMyProfile } from '@assets/images';
 import { themes } from '@styles/themes';
+import { useEffect } from 'react';
+import useCommon from '@src/hooks/useCommon';
 
 const { LEFT_TOP } = COMMON_POSITION_TYPES;
 
@@ -21,6 +23,15 @@ const wrapperStyle = () => css`
   flex-direction: row;
   justify-content: flex-start;
   gap: 50px 70px;
+  padding: 20px;
+
+  // @media (min-width: 551px) and (max-width: 800px) {
+  //   flex-direction: column;
+  // }
+
+  @media (max-width: 1080px) {
+    flex-direction: column;
+  }
 `;
 
 const leftBoxStyle = () => css`
@@ -33,6 +44,12 @@ const cardListStyle = () => css`
   flex-wrap: nowrap;
   align-items: center;
   gap: 24px 0;
+
+  @media (min-width: 601px) and (max-width: 1080px) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0 24px;
+  }
 `;
 
 const rightBoxStyle = () => css`
@@ -63,6 +80,8 @@ const contactMeStyle = () => css`
 `;
 
 const Resume = () => {
+  //
+  const { getWindowWidth } = useCommon();
   // contact me 버튼 클릭시 호출한다.
   const onClickContactMe = () => {};
 
@@ -73,12 +92,38 @@ const Resume = () => {
     // TODO: 삭제 필요
     console.log(type, url);
   };
+  // width={(getWindowWidth() as number) > 800 ? '100%' : '400px'}
+  const ExternalLinkList = () => (
+    <Card motionType="FADE_IN_RIGHT">
+      <div css={cardContentsStyle()}>
+        {EXTERNAL_LINK_LIST.map((item, index) => {
+          const { name, type } = item;
+          const isLast = EXTERNAL_LINK_LIST.length - 1 === index;
+          return (
+            <ExternalLink
+              key={`link-${name}`}
+              isFirst={index === 0}
+              isLast={isLast}
+              name={name}
+              type={type}
+              onClick={() => onClickExternalLink(item)}
+            />
+          );
+        })}
+      </div>
+    </Card>
+  );
+
+  useEffect(() => {
+    console.log(window && window.outerWidth);
+  }, []);
 
   return (
     <div css={wrapperStyle()}>
       <div css={leftBoxStyle()}>
         <div css={cardListStyle()}>
           <Card
+            // width={(getWindowWidth() as number) > 800 ? '100%' : '400px'}
             imageName={imgMyProfile}
             imagePosition={LEFT_TOP}
             motionType="FADE_IN_RIGHT"
@@ -119,23 +164,7 @@ const Resume = () => {
             </div>
             <Button css={contactMeStyle()} text="Contact Me" onClick={onClickContactMe} />
           </Card>
-          <Card motionType="FADE_IN_RIGHT">
-            <div css={cardContentsStyle()}>
-              {EXTERNAL_LINK_LIST.map((item, index) => {
-                const { name, type } = item;
-                const isLast = EXTERNAL_LINK_LIST.length - 1 === index;
-                return (
-                  <ExternalLink
-                    isFirst={index === 0}
-                    isLast={isLast}
-                    name={name}
-                    type={type}
-                    onClick={() => onClickExternalLink(item)}
-                  />
-                );
-              })}
-            </div>
-          </Card>
+          <ExternalLinkList />
         </div>
       </div>
       <MotionBox css={rightBoxStyle()} motionType="FADE_IN_RIGHT">
@@ -211,6 +240,9 @@ const Resume = () => {
           <Article main="S.I.S" sub="2011.02 - 현재" />
         </div>
       </MotionBox>
+      {/* <div className="display-size-medium">
+        <ExternalLinkList />
+      </div> */}
     </div>
   );
 };

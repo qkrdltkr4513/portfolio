@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { css } from '@emotion/react';
 
@@ -12,6 +12,7 @@ import ThumbnailContent from '@components/ThumbnailContent';
 import Icon from '@components/common/Icon';
 
 import { themes } from '@styles/themes';
+import useCommon from '@src/hooks/useCommon';
 
 const wrapperStyle = () => css`
   display: flex;
@@ -24,6 +25,7 @@ const headerStyle = () => css`
   display: flex;
   flex: 1;
   flex-direction: column;
+  padding: 0 20px;
 `;
 
 const titleStyle = () => css`
@@ -31,7 +33,7 @@ const titleStyle = () => css`
 `;
 
 const contentsBoxStyle = () => css`
-  max-width: 1600px;
+  // max-width: 1600px;
   display: flex;
   flex: 4;
   flex-direction: column;
@@ -100,6 +102,8 @@ const experienceBoxStyle = () => css`
 
 const experienceStyle = () => css`
   display: flex;
+  width: 100%;
+  gap: 0 10px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -108,26 +112,31 @@ const experienceStyle = () => css`
 
 const companyNameStyle = () => css`
   display: flex;
-  padding-right: 10px;
+  width: 100%;
+  max-width: fit-content;
   flex-direction: row;
   justify-content: flex-start;
 `;
 
 const experienceInfoStyle = () => css`
   display: flex;
-  width: 260px;
+  width: 100%;
   flex-direction: row;
-  padding-left: 10px;
-  justify-content: flex-start;
-  > p:first-child {
+  justify-content: flex-end;
+  max-width: fit-content;
+  > p:first-of-type {
     padding-right: 10px;
   }
 `;
 
 const lineStyle = () => css`
-  flex: 1;
+  display: block;
+  width: calc(100% - 140px);
   height: 1px;
   background-color: ${themes.colors.White};
+  @media (max-width: 380px) {
+    display: none;
+  }
 `;
 
 // 인적사항 스타일
@@ -177,13 +186,18 @@ const iconProfileBoxStyle = () => css`
 `;
 
 const EXPERIENCE_LIST = [
-  { companyName: 'NC ITS', workType: 'Front-End', period: '2022.07 - 현재' },
-  { companyName: '스테이지파이브', workType: 'Front-End', period: '2021.01 - 2022.06' },
-  { companyName: '빌드잇', workType: 'Front-End', period: '2019.04 - 2020.12' },
+  { companyName: 'NC ITS', workType: 'Front-End', period: '22.07 - 현재' },
+  { companyName: '스테이지파이브', workType: 'Front-End', period: '21.01 - 22.06' },
+  { companyName: '빌드잇', workType: 'Front-End', period: '19.04 - 20.12' },
   // { companyName: '아토스', workType: 'SI / SM', period: '2017.01 - 2018.12' },
 ];
 
 const About = () => {
+  const { getWindowWidth } = useCommon();
+  const outerWidth = getWindowWidth();
+
+  const [isMediumSize, setIsMediumSize] = useState<boolean>();
+
   // 본인 소개 리스트
   const IntroduceYourselfList = useCallback(() => {
     return (
@@ -213,7 +227,7 @@ const About = () => {
     return EXPERIENCE_LIST.map((item) => {
       const { companyName, workType, period } = item;
       return (
-        <div css={experienceStyle()}>
+        <div key={`experiencd-${companyName}`} css={experienceStyle()}>
           <div css={companyNameStyle()}>
             <Text
               size={themes.fontSize.ClampBody3}
@@ -321,6 +335,23 @@ const About = () => {
     );
   }, []);
 
+  useEffect(() => {
+    if (!typeof window) return;
+
+    const windowOuterWidth = window.outerWidth;
+
+    if (outerWidth > 1080) {
+      setIsMediumSize(false);
+    } else if (
+      (outerWidth <= 1080 && outerWidth > 550) ||
+      (windowOuterWidth <= 1080 && windowOuterWidth > 550)
+    ) {
+      setIsMediumSize(true);
+    } else if (!outerWidth) {
+      setIsMediumSize(false);
+    }
+  }, [outerWidth, typeof window]);
+
   return (
     <div css={wrapperStyle()}>
       <motion.div
@@ -344,7 +375,7 @@ const About = () => {
           <GridCard css={imageBoxStyle()} columnSize={'1 / 4'} height={280} isResizeHeight>
             <div css={imageStyle()} />
           </GridCard>
-          <GridCard columnSize={'4 / 5'} height={280} isResizeHeight>
+          <GridCard columnSize={isMediumSize ? '1 / 3' : '4 / 5'} height={280} isResizeHeight>
             <div css={welcomeBoxStyle()}>
               <Text
                 size={themes.fontSize.ClampH2}

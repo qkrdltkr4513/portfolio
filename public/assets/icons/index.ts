@@ -9,6 +9,8 @@ import icLocation from './ic-location.svg';
 import icMail from './ic-mail.svg';
 import icProfile from './ic-profile.svg';
 import icShare from './ic-share.svg';
+import icHamberger from './ic-hamberger.svg';
+import icClose from './ic-close.svg';
 
 export {
   icTest,
@@ -22,4 +24,6 @@ export {
   icMail,
   icProfile,
   icShare,
+  icHamberger,
+  icClose,
 };

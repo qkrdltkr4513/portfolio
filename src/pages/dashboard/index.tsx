@@ -69,7 +69,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <GridBox css={styles.wrapperStyle()}>
+    <GridBox css={styles.wrapperStyle()} className="wrapper-dashboard">
       <GridCard columnSize={'1 / 3'} height={400}>
         {/* 연도별 프로젝트 사용기술 기간 */}
         {rangeBarChartConfig && (

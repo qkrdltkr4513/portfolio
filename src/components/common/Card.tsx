@@ -7,14 +7,34 @@ import { themes } from '@styles/themes';
 
 const { LEFT_TOP, RIGHT_TOP, LEFT_BOTTOM, RIGHT_BOTTOM } = COMMON_POSITION_TYPES;
 
-const wrapperStyle = (width: number, height?: number, isHoverAction?: boolean) => css`
-  width: ${width}px;
+const motionBoxStyle = () => {
+  // ${window.outerWidth <= 1080 &&
+  //   window.outerWidth > 550 &&
+  //   css`
+  //     max-width: 400px;
+  //   `}
+
+  return css`
+    @media (max-width: 1080px) {
+      width: 100%;
+      // max-width: 400px;
+    }
+  `;
+};
+
+const wrapperStyle = (width: string, height?: string, isHoverAction?: boolean) => css`
+  width: ${width};
+  // max-width: ${width}px;
   ${height &&
   css`
-    height: ${height}px;
+    height: ${height};
   `};
   background-color: ${!isHoverAction && themes.colors.CardBackGround};
   border-radius: 16px;
+
+  @media (max-width: 1080px) {
+    width: 100%;
+  }
 `;
 
 const innerStyle = (isFullCard: boolean) => css`
@@ -48,7 +68,7 @@ const Card = ({
   isHoverAction = false,
   motionType,
   useMotion = true,
-  width = 400,
+  width = '400px',
   height,
   imageName,
   imagePosition,
@@ -58,7 +78,7 @@ const Card = ({
 }: CommonCardProps) => {
   // console.log(isCircleImage);
   return (
-    <MotionBox motionType={motionType} useMotion={useMotion}>
+    <MotionBox motionType={motionType} useMotion={useMotion} css={motionBoxStyle()}>
       <div css={wrapperStyle(width, height, isHoverAction)} className={className}>
         <div css={innerStyle(isFullCard)}>
           {imageName && (imagePosition === LEFT_TOP || imagePosition === RIGHT_TOP) && (

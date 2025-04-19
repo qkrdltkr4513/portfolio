@@ -18,8 +18,8 @@ const ColumnChart = ({ width, height, series, options, ...restProps }: ChartProp
         height={height}
         series={series}
         options={(options as ChartProps['options']) || {}}
-        stacked={true}
-        stackType={'100%'}
+        // stacked={true}
+        // stackType={'100%'}
         {...restProps}
       />
     </div>

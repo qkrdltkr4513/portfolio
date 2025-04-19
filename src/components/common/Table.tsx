@@ -1,5 +1,6 @@
 import { Table as AntdTable, Tag, ConfigProvider, TableProps } from 'antd';
 import { themes } from '@styles/themes';
+import { css } from '@emotion/react';
 
 const Table = ({
   title,
