@@ -157,7 +157,7 @@ export const LINE_CHART_CONFIG = {
     },
     chart: {
       type: 'line',
-      stacked: true,
+      // stacked: true,
       // stackType: '100%',
       toolbar: {
         show: false,
@@ -738,7 +738,8 @@ export const TABLE_CONFIG = {
       title: '담당 업무',
       dataIndex: 'myTask',
       key: 'myTask',
-      width: 100,
+      width: 90,
+      className: 'my-work',
     },
     {
       title: '사용기술',
@@ -801,7 +802,7 @@ export const TABLE_CONFIG = {
     {
       title: '상세보기',
       key: 'action',
-      width: 50,
+      width: 60,
       render: (_: any, item: any) => {
         const workId = item.projectId;
         const pathName = `/works/detail/${workId}`;

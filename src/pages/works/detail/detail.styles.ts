@@ -5,6 +5,7 @@ export const wrapperStyle = () => css`
   display: flex;
   width: 100%;
   justify-content: center;
+  padding: 20px;
 `;
 
 export const innerStyle = () => css`
