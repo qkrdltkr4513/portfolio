@@ -62,6 +62,7 @@ export interface CommonCardProps {
   motionType?: CommonMotionType;
   useMotion?: boolean;
   width?: string;
+  maxWidth?: string;
   height?: string;
   imageName?: ImageProps['src'];
   imagePosition?: CommonPositionType;

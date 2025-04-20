@@ -215,6 +215,7 @@ const Works = () => {
               isHoverAction
               key={`${uniqueId()}`}
               // width={isMediumSize ? '400px' : ''}
+              maxWidth={'400px'}
             >
               <WorkThumbnail
                 imageName={imageName}

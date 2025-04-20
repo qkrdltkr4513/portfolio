@@ -7,20 +7,15 @@ import { themes } from '@styles/themes';
 
 const { LEFT_TOP, RIGHT_TOP, LEFT_BOTTOM, RIGHT_BOTTOM } = COMMON_POSITION_TYPES;
 
-const motionBoxStyle = () => {
-  // ${window.outerWidth <= 1080 &&
-  //   window.outerWidth > 550 &&
-  //   css`
-  //     max-width: 400px;
-  //   `}
-
-  return css`
-    @media (max-width: 1080px) {
-      width: 100%;
-      // max-width: 400px;
-    }
-  `;
-};
+const motionBoxStyle = (maxWidth?: string) => css`
+  @media (max-width: 1080px) {
+    width: 100%;
+    ${maxWidth &&
+    css`
+      max-width: ${maxWidth};
+    `}
+  }
+`;
 
 const wrapperStyle = (width: string, height?: string, isHoverAction?: boolean) => css`
   width: ${width};
@@ -69,6 +64,7 @@ const Card = ({
   motionType,
   useMotion = true,
   width = '400px',
+  maxWidth,
   height,
   imageName,
   imagePosition,
@@ -78,7 +74,7 @@ const Card = ({
 }: CommonCardProps) => {
   // console.log(isCircleImage);
   return (
-    <MotionBox motionType={motionType} useMotion={useMotion} css={motionBoxStyle()}>
+    <MotionBox motionType={motionType} useMotion={useMotion} css={motionBoxStyle(maxWidth)}>
       <div css={wrapperStyle(width, height, isHoverAction)} className={className}>
         <div css={innerStyle(isFullCard)}>
           {imageName && (imagePosition === LEFT_TOP || imagePosition === RIGHT_TOP) && (

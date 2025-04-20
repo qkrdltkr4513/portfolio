@@ -72,6 +72,10 @@ const welcomeBoxStyle = () => css`
   justify-content: center;
   margin-top: 20px;
   gap: 20px 0;
+
+  @media (max-width: 500px) {
+    margin-top: 10px;
+  }
 `;
 
 // 본인소개 스타일
@@ -82,6 +86,15 @@ const introduceYourselfBoxStyle = () => css`
   justify-content: flex-start;
   margin-top: 20px;
   gap: 20px 0;
+
+  @media (max-width: 800px) {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 500px) {
+    margin-top: 0;
+  }
 `;
 
 const introduceYourselfStyle = () => css`
@@ -108,6 +121,10 @@ const experienceStyle = () => css`
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
+
+  @media (max-width: 500px) {
+    margin-top: 10px;
+  }
 `;
 
 const companyNameStyle = () => css`
@@ -125,7 +142,7 @@ const experienceInfoStyle = () => css`
   justify-content: flex-end;
   max-width: fit-content;
   > p:first-of-type {
-    padding-right: 10px;
+    padding-right: 8px;
   }
 `;
 
@@ -212,9 +229,9 @@ const About = () => {
           <br />
           <br />
           B2B에서는 ITSM과 같은 사내에서만 사용하는 백오피스, 데이터 시각화를 중점적으로 담당하였고,{' '}
-          <br />
+          {/* <br /> */}
           B2C에서는 eCommerce 서비스의 프로모션, 주문, 결재, 개인화 페이지를 중점적으로
-          담당하였으며, <br />
+          담당하였으며, {/*  <br /> */}
           IOT에서는 클라우드 서비스와 하이브리드 앱 그리고 데이터 시각화를 담당하여 진행한 경험이
           있습니다.
         </Text>
