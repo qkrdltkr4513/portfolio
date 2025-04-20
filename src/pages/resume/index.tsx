@@ -12,7 +12,7 @@ import { COMMON_POSITION_TYPES, EXTERNAL_LINK_LIST } from '@core/constants';
 
 import { imgMyProfile } from '@assets/images';
 import { themes } from '@styles/themes';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import useCommon from '@src/hooks/useCommon';
 
 const { LEFT_TOP } = COMMON_POSITION_TYPES;
@@ -93,37 +93,35 @@ const Resume = () => {
     console.log(type, url);
   };
   // width={(getWindowWidth() as number) > 800 ? '100%' : '400px'}
-  const ExternalLinkList = () => (
-    <Card motionType="FADE_IN_RIGHT">
-      <div css={cardContentsStyle()}>
-        {EXTERNAL_LINK_LIST.map((item, index) => {
-          const { name, type } = item;
-          const isLast = EXTERNAL_LINK_LIST.length - 1 === index;
-          return (
-            <ExternalLink
-              key={`link-${name}`}
-              isFirst={index === 0}
-              isLast={isLast}
-              name={name}
-              type={type}
-              onClick={() => onClickExternalLink(item)}
-            />
-          );
-        })}
-      </div>
-    </Card>
+  const ExternalLinkList = useCallback(
+    () => (
+      <Card motionType="FADE_IN_RIGHT">
+        <div css={cardContentsStyle()}>
+          {EXTERNAL_LINK_LIST.map((item, index) => {
+            const { name, type } = item;
+            const isLast = EXTERNAL_LINK_LIST.length - 1 === index;
+            return (
+              <ExternalLink
+                key={`link-${name}`}
+                isFirst={index === 0}
+                isLast={isLast}
+                name={name}
+                type={type}
+                onClick={() => onClickExternalLink(item)}
+              />
+            );
+          })}
+        </div>
+      </Card>
+    ),
+    [],
   );
-
-  useEffect(() => {
-    console.log(window && window.outerWidth);
-  }, []);
 
   return (
     <div css={wrapperStyle()}>
       <div css={leftBoxStyle()}>
         <div css={cardListStyle()}>
           <Card
-            // width={(getWindowWidth() as number) > 800 ? '100%' : '400px'}
             imageName={imgMyProfile}
             imagePosition={LEFT_TOP}
             motionType="FADE_IN_RIGHT"
