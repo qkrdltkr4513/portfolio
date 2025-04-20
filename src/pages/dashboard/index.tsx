@@ -15,14 +15,14 @@ import {
   RANGE_BAR_CHART_CONFIG,
   TREEMAP_CHART_CONFIG,
   TABLE_CONFIG,
-  COLUMN_CHART_CONFIG,
+  LINE_CHART_CONFIG,
 } from '@core/config';
 
 const DonutChart = dynamic(() => import('@components/common/DonutChart'), { ssr: false });
 const PieChart = dynamic(() => import('@components/common/PieChart'), { ssr: false });
 const RangeBarChart = dynamic(() => import('@components/common/RangeBarChart'), { ssr: false });
 const TreeMapChart = dynamic(() => import('@components/common/TreeMapChart'), { ssr: false });
-const ColumnChart = dynamic(() => import('@components/common/ColumnChart'), { ssr: false });
+const LineChart = dynamic(() => import('@components/common/LineChart'), { ssr: false });
 
 const Dashboard = () => {
   // donut chart
@@ -38,7 +38,7 @@ const Dashboard = () => {
   const [rangeBarChartConfig, setRangeBarChartConfig] = useState<ChartProps>();
 
   //
-  const [columChartConfig, setColumnChartConfig] = useState<ChartProps>();
+  const [lineChartConfig, setLineChartConfig] = useState<ChartProps>();
 
   // table
   const [tableConfig, setTableConfig] = useState<TableProps>();
@@ -61,15 +61,15 @@ const Dashboard = () => {
     // setRangeBarChartConfig(RANGE_BAR_CHART_CONFIG as unknown as ChartProps);
     setTimeout(() => {
       setRangeBarChartConfig(RANGE_BAR_CHART_CONFIG as unknown as ChartProps);
+      setLineChartConfig(LINE_CHART_CONFIG as ChartProps);
     }, 300);
-    setColumnChartConfig(COLUMN_CHART_CONFIG as ChartProps);
     setDonutChartConfig(DONUT_CHART_CONFIG as ChartProps);
     setPieChartConfig(PIE_CHART_CONFIG as ChartProps);
     setTableConfig(TABLE_CONFIG as unknown as TableProps);
   }, []);
 
   return (
-    <GridBox css={styles.wrapperStyle()}>
+    <GridBox css={styles.wrapperStyle()} className="wrapper-dashboard">
       <GridCard columnSize={'1 / 3'} height={400}>
         {/* 연도별 프로젝트 사용기술 기간 */}
         {rangeBarChartConfig && (
@@ -83,12 +83,12 @@ const Dashboard = () => {
       </GridCard>
       <GridCard columnSize={'3 / 5'} height={400}>
         {/* 연도별 프로젝트 사용기술 기간 */}
-        {columChartConfig && (
-          <ColumnChart
-            width={columChartConfig?.width}
-            height={columChartConfig?.height}
-            series={columChartConfig.series}
-            options={columChartConfig.options}
+        {lineChartConfig && (
+          <LineChart
+            width={lineChartConfig?.width}
+            height={lineChartConfig?.height}
+            series={lineChartConfig.series}
+            options={lineChartConfig.options}
           />
         )}
       </GridCard>

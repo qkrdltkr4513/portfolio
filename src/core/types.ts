@@ -39,8 +39,10 @@ export interface CommonGridCardProps {
   useMotion?: boolean;
   height?: number;
   columnSize: string;
+  rowSize?: string;
   children: React.ReactNode;
   className?: string;
+  type?: string;
   onClick?: () => void;
 }
 
@@ -59,8 +61,9 @@ export interface CommonCardProps {
   isFullCard?: boolean;
   motionType?: CommonMotionType;
   useMotion?: boolean;
-  width?: number;
-  height?: number;
+  width?: string;
+  maxWidth?: string;
+  height?: string;
   imageName?: ImageProps['src'];
   imagePosition?: CommonPositionType;
   isCircleImage?: boolean;
@@ -130,7 +133,7 @@ export interface CommonPositionProps {
 
 export interface CommonCardProps {
   useMotion?: boolean;
-  width?: number;
+  width?: string;
   // imageName?: string;
   imageName?: ImageProps['src'];
   imagePosition?: CommonPositionType;

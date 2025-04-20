@@ -23,6 +23,7 @@ const wrapperStyle = () => css`
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
+  padding: 20px;
 `;
 
 const headerStyle = () => css`
@@ -46,12 +47,17 @@ const chipsBoxStyle = () => css`
   flex-direction: row;
   justify-content: flex-start;
   gap: 20px;
+
+  @media (max-width: 550px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 const workListBoxStyle = () => css`
   display: inline-flex;
   flex-direction: row;
-  max-width: 1600px;
+  // max-width: 1600px;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -87,6 +93,7 @@ const FILTER_LIST = [
 const Works = () => {
   // hooks
   const router = useRouter();
+  const [isMediumSize, setIsMediumSize] = useState<boolean>();
 
   // inner state
   const [filterList, setFilterList] = useState(FILTER_LIST);
@@ -155,6 +162,20 @@ const Works = () => {
     router.push(`works/detail/${workId}`);
   };
 
+  useEffect(() => {
+    if (!typeof window) return;
+
+    const windowOuterWidth = window.outerWidth;
+
+    if (windowOuterWidth > 1080) {
+      setIsMediumSize(false);
+    } else if (windowOuterWidth <= 1080 && windowOuterWidth > 550) {
+      setIsMediumSize(true);
+    } else {
+      setIsMediumSize(false);
+    }
+  }, [typeof window]);
+
   return (
     <div css={wrapperStyle()}>
       <MotionBox css={headerStyle()} motionType={'FADE_IN_UP'}>
@@ -188,7 +209,14 @@ const Works = () => {
         {workList.map((item) => {
           const { imageName, workId, tagNames, workName } = item;
           return (
-            <Card motionType={'FADE_IN_UP'} isFullCard isHoverAction key={`${uniqueId()}`}>
+            <Card
+              motionType={'FADE_IN_UP'}
+              isFullCard
+              isHoverAction
+              key={`${uniqueId()}`}
+              // width={isMediumSize ? '400px' : ''}
+              maxWidth={'400px'}
+            >
               <WorkThumbnail
                 imageName={imageName}
                 workId={workId}

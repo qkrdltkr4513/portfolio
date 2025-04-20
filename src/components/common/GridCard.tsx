@@ -4,7 +4,13 @@ import MotionBox from '@components/motion/MotionBox';
 import { CommonGridCardProps } from '@core/types';
 import { themes } from '@styles/themes';
 
-const wrapperStyle = (columnSize: string, height?: number, isResizeHeight?: boolean) => css`
+const wrapperStyle = (
+  columnSize: string,
+  rowSize?: string,
+  height?: number,
+  isResizeHeight?: boolean,
+  type?: string,
+) => css`
   display: flex;
   ${height &&
   css`
@@ -16,28 +22,55 @@ const wrapperStyle = (columnSize: string, height?: number, isResizeHeight?: bool
   cursor: pointer;
 
   grid-column: ${columnSize};
+  grid-row: ${rowSize};
 
-  @media (max-width: 1080px) {
-    ${columnSize === '1 / 2' && 'grid-column: 1 / 3'};
-    ${columnSize === '1 / 3' && 'grid-column: 1 / 5'};
-    ${columnSize === '1 / 4' && 'grid-column: 1 / 5'};
-    ${columnSize === '2 / 3' && 'grid-column: 3 / 5'};
-    ${columnSize === '3 / 4' && 'grid-column: 1 / 3'};
-    ${columnSize === '3 / 5' && 'grid-column: 1 / 5'};
-    ${columnSize === '4 / 5' && 'grid-column: 3 / 5'};
+  ${type === 'dashboard'
+    ? css`
+        @media (max-width: 1080px) {
+          ${columnSize === '1 / 2' && 'grid-column: 1 / 3'};
+          ${columnSize === '1 / 3' && 'grid-column: 1 / 5'};
+          ${columnSize === '1 / 4' && 'grid-column: 1 / 5'};
+          ${columnSize === '2 / 3' && 'grid-column: 3 / 5'};
+          ${columnSize === '3 / 4' && 'grid-column: 1 / 3'};
+          ${columnSize === '3 / 5' && 'grid-column: 1 / 5'};
+          ${columnSize === '4 / 5' && 'grid-column: 3 / 5'};
+        }
 
-    ${isResizeHeight && 'height: 180px;'}
-  }
+        @media (max-width: 550px) {
+          ${columnSize === '1 / 2' && 'grid-column: 1 / 5'};
+          ${columnSize === '1 / 3' && 'grid-column: 1 / 5'};
+          ${columnSize === '1 / 4' && 'grid-column: 1 / 5'};
+          ${columnSize === '2 / 3' && 'grid-column: 1 / 5'};
+          ${columnSize === '3 / 4' && 'grid-column: 1 / 5'};
+          ${columnSize === '3 / 5' && 'grid-column: 1 / 5'};
+          ${columnSize === '4 / 5' && 'grid-column: 1 / 5'};
 
-  @media (max-width: 550px) {
-    ${columnSize === '1 / 2' && 'grid-column: 1 / 5'};
-    ${columnSize === '1 / 3' && 'grid-column: 1 / 5'};
-    ${columnSize === '1 / 4' && 'grid-column: 1 / 5'};
-    ${columnSize === '2 / 3' && 'grid-column: 1 / 5'};
-    ${columnSize === '3 / 4' && 'grid-column: 1 / 5'};
-    ${columnSize === '3 / 5' && 'grid-column: 1 / 5'};
-    ${columnSize === '4 / 5' && 'grid-column: 1 / 5'};
-  }
+          ${isResizeHeight && 'height: 200px;'}
+        }
+      `
+    : css`
+        @media (max-width: 1080px) {
+          ${columnSize === '1 / 2' && 'grid-column: 1 / 3'};
+          ${columnSize === '1 / 3' && 'grid-column: 1 / 5'};
+          ${columnSize === '1 / 4' && 'grid-column: 1 / 5'};
+          ${columnSize === '2 / 3' && 'grid-column: 3 / 5'};
+          ${columnSize === '3 / 4' && 'grid-column: 1 / 3'};
+          ${columnSize === '3 / 5' && 'grid-column: 1 / 5'};
+          ${columnSize === '4 / 5' && 'grid-column: 3 / 5'};
+        }
+
+        @media (max-width: 550px) {
+          ${columnSize === '1 / 2' && 'grid-column: 1 / 5'};
+          ${columnSize === '1 / 3' && 'grid-column: 1 / 5'};
+          ${columnSize === '1 / 4' && 'grid-column: 1 / 5'};
+          ${columnSize === '2 / 3' && 'grid-column: 1 / 5'};
+          ${columnSize === '3 / 4' && 'grid-column: 1 / 5'};
+          ${columnSize === '3 / 5' && 'grid-column: 1 / 5'};
+          ${columnSize === '4 / 5' && 'grid-column: 1 / 5'};
+
+          ${isResizeHeight && 'height: 200px;'}
+        }
+      `}
 `;
 
 const imageBackgroundStyle = (imageName: string) => css`
@@ -59,7 +92,8 @@ const innerStyle = () => css`
   height: 100%;
   padding: 20px;
   @media (max-width: 550px) {
-    padding: 4px;
+    // padding: 4px;
+    padding: 10px 20px;
   }
 `;
 
@@ -67,10 +101,12 @@ const GridCard = ({
   height,
   imageName,
   columnSize,
+  rowSize,
   isResizeHeight,
   children,
   className,
   motionType,
+  type,
   onClick,
 }: CommonGridCardProps) => {
   const ImageBackground = useCallback((props: { imageName: string }) => {
@@ -84,7 +120,7 @@ const GridCard = ({
 
   return (
     <MotionBox
-      css={wrapperStyle(columnSize, height, isResizeHeight)}
+      css={wrapperStyle(columnSize, rowSize, height, isResizeHeight, type)}
       className={className}
       motionType={motionType}
     >
