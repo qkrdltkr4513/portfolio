@@ -754,9 +754,43 @@ export const COMMON_LEVEL_TYPES: CommonLevelTypeProps = {
 
 // External Link
 export const EXTERNAL_LINK_LIST: ExternalTypeProps[] = [
-  { name: 'NC ITS', type: 'link', url: 'https://www.ncsoft.com' },
+  { name: 'NC ITS', type: 'link', url: 'https://www.ncits.co.kr' },
   { name: 'StageFive', type: 'link', url: 'https://www.stagefive.com' },
   { name: 'Buildit', type: 'link', url: 'https://buildit.kr' },
-  { name: 'Atos', type: 'link', url: 'https://www.atos.co.kr' },
-  { name: 'File', type: 'file', url: '' },
+  { name: 'Atos', type: 'link', url: 'http://www.atos.co.kr' },
+  // { name: 'File', type: 'file', url: '' },
 ];
+
+// SEO
+export const SEO_STATIC_INFO = {
+  home: {
+    title: '[포트폴리오] - Home',
+    description: '포트폴리오 Home',
+    url: '/',
+    imageName: `/assets/images/img-main-about-me2.png`,
+  },
+  about: {
+    title: '[포트폴리오] - About',
+    description: '포트폴리오 About',
+    url: '/about',
+    imageName: `/assets/images/img-main-contact.png`,
+  },
+  resume: {
+    title: '[포트폴리오] - Resume',
+    description: '포트폴리오 Resume',
+    url: '/resume',
+    imageName: `/assets/images/img-main-resume.png`,
+  },
+  works: {
+    title: '[포트폴리오] - Works',
+    description: '포트폴리오 Works',
+    url: '/works',
+    imageName: `/assets/images/img-main-all-project.png`,
+  },
+  dashboard: {
+    title: '[포트폴리오] - Dashboard',
+    description: '포트폴리오 Dashboard',
+    url: '/dashboard',
+    imageName: `/assets/images/img-main-dashboard.png`,
+  },
+};
