@@ -760,3 +760,37 @@ export const EXTERNAL_LINK_LIST: ExternalTypeProps[] = [
   { name: 'Atos', type: 'link', url: 'https://www.atos.co.kr' },
   { name: 'File', type: 'file', url: '' },
 ];
+
+// SEO
+export const SEO_STATIC_INFO = {
+  home: {
+    title: '[포트폴리오] - Home',
+    description: '포트폴리오 Home',
+    url: '/',
+    imageName: '',
+  },
+  about: {
+    title: '[포트폴리오] - About',
+    description: '포트폴리오 About',
+    url: '/about',
+    imageName: '',
+  },
+  resume: {
+    title: '[포트폴리오] - Resume',
+    description: '포트폴리오 Resume',
+    url: '/resume',
+    imageName: '',
+  },
+  works: {
+    title: '[포트폴리오] - Works',
+    description: '포트폴리오 Works',
+    url: '/works',
+    imageName: '',
+  },
+  dashboard: {
+    title: '[포트폴리오] - Dashboard',
+    description: '포트폴리오 Dashboard',
+    url: '/dashboard',
+    imageName: '',
+  },
+};

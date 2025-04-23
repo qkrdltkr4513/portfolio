@@ -12,10 +12,12 @@ import { themes } from '@styles/themes';
 import { uniqueId } from 'lodash';
 // import Thumbnail from '@src/components/Thumbnail';
 // import ThumbnailContent from '@src/components/ThumbnailContent';
-import { PROJECT_THUMNAIL_LIST } from '@core/constants';
+import { PROJECT_THUMNAIL_LIST, SEO_STATIC_INFO } from '@core/constants';
 import { WorkListItemProps } from '@core/types';
 // import { imgAustin } from '@assets/images';
 import WorkThumbnail from '@src/components/WorkThumbnail';
+import Head from 'next/head';
+import Seo from '@src/components/common/Seo';
 
 const wrapperStyle = () => css`
   display: flex;
@@ -177,58 +179,66 @@ const Works = () => {
   }, [typeof window]);
 
   return (
-    <div css={wrapperStyle()}>
-      <MotionBox css={headerStyle()} motionType={'FADE_IN_UP'}>
-        <Text
-          size={themes.fontSize.ClampTitle}
-          weight={themes.fontWeight.Bold}
-          color={themes.colors['Gray/12']}
-          textAlign="center"
-          css={titleStyle()}
-        >
-          All Works
-        </Text>
-      </MotionBox>
-      <MotionBox css={filterBoxStyle()} motionType={'FADE_IN_UP'}>
-        <div css={chipsBoxStyle()}>
-          {filterList.map((item) => {
-            const { name, tag, active } = item;
+    <>
+      <Seo
+        title={SEO_STATIC_INFO.works.title}
+        description={SEO_STATIC_INFO.works.description}
+        url={SEO_STATIC_INFO.works.url}
+        imageName={SEO_STATIC_INFO.works.imageName}
+      />
+      <div css={wrapperStyle()}>
+        <MotionBox css={headerStyle()} motionType={'FADE_IN_UP'}>
+          <Text
+            size={themes.fontSize.ClampTitle}
+            weight={themes.fontWeight.Bold}
+            color={themes.colors['Gray/12']}
+            textAlign="center"
+            css={titleStyle()}
+          >
+            All Works
+          </Text>
+        </MotionBox>
+        <MotionBox css={filterBoxStyle()} motionType={'FADE_IN_UP'}>
+          <div css={chipsBoxStyle()}>
+            {filterList.map((item) => {
+              const { name, tag, active } = item;
+              return (
+                <Chip
+                  key={`chip-item-${uniqueId()}`}
+                  name={name}
+                  tag={tag}
+                  active={active}
+                  onToggle={onToggleChip}
+                />
+              );
+            })}
+          </div>
+        </MotionBox>
+        <div css={workListBoxStyle()}>
+          {workList.map((item) => {
+            const { imageName, workId, tagNames, workName } = item;
             return (
-              <Chip
-                key={`chip-item-${uniqueId()}`}
-                name={name}
-                tag={tag}
-                active={active}
-                onToggle={onToggleChip}
-              />
+              <Card
+                motionType={'FADE_IN_UP'}
+                isFullCard
+                isHoverAction
+                key={`${uniqueId()}`}
+                // width={isMediumSize ? '400px' : ''}
+                maxWidth={'400px'}
+              >
+                <WorkThumbnail
+                  imageName={imageName}
+                  workId={workId}
+                  tagNames={tagNames}
+                  workName={workName}
+                  onClick={moveToDetail}
+                />
+              </Card>
             );
           })}
         </div>
-      </MotionBox>
-      <div css={workListBoxStyle()}>
-        {workList.map((item) => {
-          const { imageName, workId, tagNames, workName } = item;
-          return (
-            <Card
-              motionType={'FADE_IN_UP'}
-              isFullCard
-              isHoverAction
-              key={`${uniqueId()}`}
-              // width={isMediumSize ? '400px' : ''}
-              maxWidth={'400px'}
-            >
-              <WorkThumbnail
-                imageName={imageName}
-                workId={workId}
-                tagNames={tagNames}
-                workName={workName}
-                onClick={moveToDetail}
-              />
-            </Card>
-          );
-        })}
       </div>
-    </div>
+    </>
   );
 };
 
