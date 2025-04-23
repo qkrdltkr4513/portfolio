@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { css } from '@emotion/react';
 
 import Image from 'next/image';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { themes } from '@styles/themes';
-
-import * as styles from '@pages/works/detail/detail.styles';
 
 import GridBox from '@components/common/GridBox';
 import GridCard from '@components/common/GridCard';
@@ -18,6 +17,55 @@ import { WorkListItemProps, WorkDetailItemProps } from '@core/types';
 import { PROJECT_THUMNAIL_LIST } from '@core/constants';
 import Seo from '@src/components/common/Seo';
 
+export const wrapperStyle = () => css`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 20px;
+`;
+
+export const innerStyle = () => css`
+  width: 100%;
+  // TODO
+  @media (min-width: 1280px) {
+    max-width: 800px;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1000px;
+  }
+`;
+
+export const contentBoxStyle = () => css`
+  display: flex;
+  flex-direction: column;
+  gap: 40px; 0
+`;
+
+export const imageBoxStyle = () => css`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const textWithContentStyle = () => css`
+  display: flex;
+  flex-direction: column;
+  gap: 16px 0;
+`;
+
+export const contentStyle = () => css`
+  ${themes.fontSize.ClampBody4};
+`;
+
+export const assingedTaskStyle = () => css`
+  list-style: outside;
+  margin-left: 20px;
+  line-height: 1.4;
+`;
+
 const WorkDetail = () => {
   const router = useRouter();
 
@@ -25,7 +73,7 @@ const WorkDetail = () => {
 
   const TextWithContent = useCallback(({ title, content }: WorkDetailItemProps) => {
     return (
-      <div css={styles.textWithContentStyle()}>
+      <div css={textWithContentStyle()}>
         <Text
           size={themes.fontSize.ClampBody1}
           weight={themes.fontWeight.Medium}
@@ -33,7 +81,7 @@ const WorkDetail = () => {
         >
           {title}
         </Text>
-        <Content css={styles.contentStyle()} content={content} />
+        <Content css={contentStyle()} content={content} />
       </div>
     );
   }, []);
@@ -43,7 +91,7 @@ const WorkDetail = () => {
     return (
       <ul>
         {list.map((item) => (
-          <li key={`list-${item}`} css={styles.assingedTaskStyle()}>
+          <li key={`list-${item}`} css={assingedTaskStyle()}>
             {item}
           </li>
         ))}
@@ -70,11 +118,11 @@ const WorkDetail = () => {
         url={`/works/detail/${detailInfo?.workId}`}
         imageName={`/assets/images/${detailInfo?.imageName}.png`}
       />
-      <div css={styles.wrapperStyle()}>
-        <div css={styles.innerStyle()}>
+      <div css={wrapperStyle()}>
+        <div css={innerStyle()}>
           {detailInfo && (
-            <MotionBox css={styles.contentBoxStyle()} motionType="FADE_IN_UP">
-              <div css={styles.imageBoxStyle()}>
+            <MotionBox css={contentBoxStyle()} motionType="FADE_IN_UP">
+              <div css={imageBoxStyle()}>
                 <Image
                   src={`/assets/images/${detailInfo.imageName}.png`}
                   width="700px"

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { css } from '@emotion/react';
 import { themes } from '@styles/themes';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
@@ -8,7 +9,7 @@ import GridBox from '@components/common/GridBox';
 import GridCard from '@components/common/GridCard';
 import Table from '@components/common/Table';
 
-import * as styles from './index.styles';
+// import * as styles from './index.styles';
 
 import {
   DONUT_CHART_CONFIG,
@@ -20,6 +21,135 @@ import {
 } from '@core/config';
 import Seo from '@src/components/common/Seo';
 import { SEO_STATIC_INFO } from '@src/core/constants';
+
+const wrapperStyle = () => css`
+  .tooltip-box {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 0 10px;
+    padding: 6px 10px 8px;
+    border-radius: 5px;
+    background-color: ${themes.colors.White};
+    color: ${themes.colors.Black};
+  }
+
+  .tooltip-circle-0,
+  .tooltip-circle-1,
+  .tooltip-circle-2,
+  .tooltip-circle-3,
+  .tooltip-circle-4 {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+  }
+
+  .tooltip-circle-0 {
+    background-color: ${themes.colors.Next};
+  }
+  .tooltip-circle-1 {
+    background-color: ${themes.colors.React};
+  }
+  .tooltip-circle-2 {
+    background-color: ${themes.colors.ReactNative};
+  }
+  .tooltip-circle-3 {
+    background-color: ${themes.colors.Vue};
+  }
+  .tooltip-circle-4 {
+    background-color: ${themes.colors.Typescript};
+  }
+
+  .tooltip-history-circle-0,
+  .tooltip-history-circle-1,
+  .tooltip-history-circle-2,
+  .tooltip-history-circle-3 {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+  }
+
+  .tooltip-history-circle-0 {
+    background-color: ${themes.colors.ChartBlue};
+  }
+  .tooltip-history-circle-1 {
+    background-color: ${themes.colors.ChartGreen};
+  }
+  .tooltip-history-circle-2 {
+    background-color: ${themes.colors.ChartYellow};
+  }
+  .tooltip-history-circle-3 {
+    background-color: ${themes.colors.ChartRed};
+  }
+
+  .tooptip-title {
+    ${themes.fontSize.Body2};
+    ${themes.fontWeight.Normal};
+    color: ${themes.colors.Black};
+  }
+  .tooltip-value {
+    ${themes.fontSize.Body2};
+    ${themes.fontWeight.Bold};
+    color: ${themes.colors.Black};
+  }
+`;
+
+const linkStyle = () => css`
+  color: ${themes.colors.White};
+  cursor: pointer;
+`;
+
+const treemapChartBoxStyle = () => css`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  gap: 14px 0;
+
+  .apexcharts-datalabel {
+    writing-mode: horizontal-tb !important;
+  }
+`;
+
+const treemapLegendBoxStyle = () => css`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 10px;
+
+  > div {
+    display: flex;
+    width: fit-content;
+    gap: 0 4px;
+    cursor: pointer;
+  }
+`;
+
+const treemapLegendTextStyle = () => css`
+  display: block;
+  color: ${themes.colors.White};
+  ${themes.fontSize.Body2};
+  ${themes.fontWeight.Normal};
+`;
+
+const legendCircleStyle = (color: string) => css`
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  border: 1px solid ${themes.colors.White};
+  background-color: ${color};
+`;
+
+const customTooltipBoxStyle = () => css`
+  width: 100%;
+  height: 100%;
+`;
 
 const DonutChart = dynamic(() => import('@components/common/DonutChart'), { ssr: false });
 const PieChart = dynamic(() => import('@components/common/PieChart'), { ssr: false });
@@ -79,7 +209,7 @@ const Dashboard = () => {
         url={SEO_STATIC_INFO.dashboard.url}
         imageName={SEO_STATIC_INFO.dashboard.imageName}
       />
-      <GridBox css={styles.wrapperStyle()} className="wrapper-dashboard">
+      <GridBox css={wrapperStyle()} className="wrapper-dashboard">
         <GridCard columnSize={'1 / 3'} height={400}>
           {/* 연도별 프로젝트 사용기술 기간 */}
           {rangeBarChartConfig && (
@@ -104,25 +234,25 @@ const Dashboard = () => {
         </GridCard>
         <GridCard columnSize={'1 / 3'} height={400}>
           {treemapChartConfig && (
-            <div css={styles.treemapChartBoxStyle()}>
+            <div css={treemapChartBoxStyle()}>
               <TreeMapChart
                 width={treemapChartConfig.width}
                 height={treemapChartConfig.height}
                 series={treemapChartConfig.series}
                 options={treemapChartConfig.options}
               />
-              <div css={styles.treemapLegendBoxStyle()}>
+              <div css={treemapLegendBoxStyle()}>
                 <div key={`legend-item-all`} onClick={() => onClickTreemapLegend('ALL')}>
-                  <span css={styles.legendCircleStyle(themes.colors.ChartPupple)} />
-                  <span css={styles.treemapLegendTextStyle()}>전체</span>
+                  <span css={legendCircleStyle(themes.colors.ChartPupple)} />
+                  <span css={treemapLegendTextStyle()}>전체</span>
                 </div>
                 {treemapChartConfig.customLegends.map(
                   (legend: { color: string; name: string }, index: number) => {
                     const { color, name } = legend;
                     return (
                       <div key={`legend-item-${color}`} onClick={() => onClickTreemapLegend(index)}>
-                        <span css={styles.legendCircleStyle(color)} />
-                        <span css={styles.treemapLegendTextStyle()}>{name}</span>
+                        <span css={legendCircleStyle(color)} />
+                        <span css={treemapLegendTextStyle()}>{name}</span>
                       </div>
                     );
                   },
@@ -134,7 +264,7 @@ const Dashboard = () => {
         <GridCard columnSize={'3 / 4'} height={400}>
           {/* 서비스별(웹, 모바일, 데스크탑) 경험 횟수 (파이 차트) */}
           {pieChartConfig && (
-            <div css={styles.customTooltipBoxStyle()}>
+            <div css={customTooltipBoxStyle()}>
               <PieChart
                 width={pieChartConfig?.width}
                 height={pieChartConfig?.height}

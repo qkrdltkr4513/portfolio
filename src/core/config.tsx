@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import { Tag } from 'antd';
 import { themes } from '@styles/themes';
-import { linkStyle } from '@pages/dashboard/index.styles';
+import { css } from '@emotion/react';
+
+const linkStyle = () => css`
+  color: ${themes.colors.White};
+  cursor: pointer;
+`;
 
 // 총 경력
 export const DONUT_CHART_CONFIG = {
