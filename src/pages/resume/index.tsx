@@ -91,6 +91,7 @@ const Resume = () => {
   const onClickExternalLink = (item: ExternalTypeProps) => {
     const { type, url } = item;
 
+    if (type === 'link') window.open(url);
     // TODO: 삭제 필요
     console.log(type, url);
   };
@@ -169,7 +170,7 @@ const Resume = () => {
                   Phone : 010.5629.0727
                 </Text>
               </div>
-              <Button css={contactMeStyle()} text="Contact Me" onClick={onClickContactMe} />
+              {/* <Button css={contactMeStyle()} text="Contact Me" onClick={onClickContactMe} /> */}
             </Card>
             <ExternalLinkList />
           </div>
