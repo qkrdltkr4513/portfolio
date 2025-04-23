@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 import { css } from '@emotion/react';
 
-import { THUMBNAIL_TYPES } from '@core/constants';
+import { SEO_STATIC_INFO, THUMBNAIL_TYPES } from '@core/constants';
 
 import Text from '@components/common/Text';
 import GridBox from '@components/common/GridBox';
@@ -13,6 +14,7 @@ import Icon from '@components/common/Icon';
 
 import { themes } from '@styles/themes';
 import useCommon from '@src/hooks/useCommon';
+import Seo from '@src/components/common/Seo';
 
 const wrapperStyle = () => css`
   display: flex;
@@ -370,136 +372,144 @@ const About = () => {
   }, [outerWidth, typeof window]);
 
   return (
-    <div css={wrapperStyle()}>
-      <motion.div
-        css={headerStyle()}
-        initial={{ y: 40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-      >
-        <Text
-          size={themes.fontSize.ClampTitle}
-          weight={themes.fontWeight.Bold}
-          color={themes.colors['Gray/12']}
-          textAlign="center"
-          css={titleStyle()}
+    <>
+      <Seo
+        title={SEO_STATIC_INFO.about.title}
+        description={SEO_STATIC_INFO.about.description}
+        url={SEO_STATIC_INFO.about.url}
+        imageName={SEO_STATIC_INFO.about.imageName}
+      />
+      <div css={wrapperStyle()}>
+        <motion.div
+          css={headerStyle()}
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
         >
-          About Me
-        </Text>
-      </motion.div>
-      <div css={contentsBoxStyle()}>
-        <GridBox>
-          <GridCard css={imageBoxStyle()} columnSize={'1 / 4'} height={280} isResizeHeight>
-            <div css={imageStyle()} />
-          </GridCard>
-          <GridCard columnSize={isMediumSize ? '1 / 3' : '4 / 5'} height={280} isResizeHeight>
-            <div css={welcomeBoxStyle()}>
-              <Text
-                size={themes.fontSize.ClampH2}
-                weight={themes.fontWeight.Medium}
-                color={themes.colors['White/09']}
-              >
-                안녕하세요 👋
-              </Text>
-              <Text
-                size={themes.fontSize.ClampBody3}
-                weight={themes.fontWeight.Medium}
-                color={themes.colors['White/07']}
-              >
-                Front-End 개발을 즐거워하고 성장 욕구와 긍정적인 사고를 가진 개발자입니다.
-              </Text>
-            </div>
-          </GridCard>
-          <GridCard columnSize={'1 / 3'} height={280} isResizeHeight>
-            <div css={introduceYourselfBoxStyle()}>
-              <Text
-                size={themes.fontSize.ClampH2}
-                weight={themes.fontWeight.Medium}
-                color={themes.colors['White/09']}
-              >
-                본인소개 😃
-              </Text>
-              <IntroduceYourselfList />
-            </div>
-          </GridCard>
-          <GridCard columnSize={'3 / 5'} height={280} isResizeHeight>
-            <div css={experienceBoxStyle()}>
-              <Text
-                size={themes.fontSize.ClampH2}
-                weight={themes.fontWeight.Medium}
-                color={themes.colors['White/09']}
-              >
-                경력사항 👨‍💻
-              </Text>
-              <div>{ExperienceList()}</div>
-            </div>
-          </GridCard>
-          <GridCard columnSize={'1 / 2'} height={280} isResizeHeight>
-            <div css={personalInfomationBoxStyle()}>
-              <Text
-                size={themes.fontSize.ClampH2}
-                weight={themes.fontWeight.Medium}
-                color={themes.colors['White/09']}
-              >
-                인적사항 🤔
-              </Text>
-              <PersonalInfomationList />
-            </div>
-          </GridCard>
-          <GridCard columnSize={'2 / 3'} height={280} isResizeHeight>
-            <div css={academicBackgroundBoxStyle()}>
-              <Text
-                size={themes.fontSize.ClampH2}
-                weight={themes.fontWeight.Medium}
-                color={themes.colors['White/09']}
-              >
-                학력사항 🧑‍🎓
-              </Text>
-              <AcademicBackgroundList />
-            </div>
-          </GridCard>
-          <GridCard columnSize={'3 / 4'} height={280} isResizeHeight>
-            <div css={hobbyBoxStyle()}>
-              <Text
-                size={themes.fontSize.ClampH2}
-                weight={themes.fontWeight.Medium}
-                color={themes.colors['White/09']}
-              >
-                취미활동 😙
-              </Text>
-              <HobbyList />
-            </div>
-          </GridCard>
-          {/*  */}
-          <GridCard columnSize={'4 / 5'} height={280} isResizeHeight>
-            <Thumbnail
-              css={learnMoreAboutBoxStyle()}
-              hasIcon={true}
-              textContent={
-                <>
-                  <div css={iconProfileBoxStyle()}>
-                    <Icon
-                      name="icProfile"
-                      width={90}
-                      height={100}
-                      rotate={0}
-                      color={themes.colors.White}
-                      isFixStroke
+          <Text
+            size={themes.fontSize.ClampTitle}
+            weight={themes.fontWeight.Bold}
+            color={themes.colors['Gray/12']}
+            textAlign="center"
+            css={titleStyle()}
+          >
+            About Me
+          </Text>
+        </motion.div>
+        <div css={contentsBoxStyle()}>
+          <GridBox>
+            <GridCard css={imageBoxStyle()} columnSize={'1 / 4'} height={280} isResizeHeight>
+              <div css={imageStyle()} />
+            </GridCard>
+            <GridCard columnSize={isMediumSize ? '1 / 3' : '4 / 5'} height={280} isResizeHeight>
+              <div css={welcomeBoxStyle()}>
+                <Text
+                  size={themes.fontSize.ClampH2}
+                  weight={themes.fontWeight.Medium}
+                  color={themes.colors['White/09']}
+                >
+                  안녕하세요 👋
+                </Text>
+                <Text
+                  size={themes.fontSize.ClampBody3}
+                  weight={themes.fontWeight.Medium}
+                  color={themes.colors['White/07']}
+                >
+                  Front-End 개발을 즐거워하고 성장 욕구와 긍정적인 사고를 가진 개발자입니다.
+                </Text>
+              </div>
+            </GridCard>
+            <GridCard columnSize={'1 / 3'} height={280} isResizeHeight>
+              <div css={introduceYourselfBoxStyle()}>
+                <Text
+                  size={themes.fontSize.ClampH2}
+                  weight={themes.fontWeight.Medium}
+                  color={themes.colors['White/09']}
+                >
+                  본인소개 😃
+                </Text>
+                <IntroduceYourselfList />
+              </div>
+            </GridCard>
+            <GridCard columnSize={'3 / 5'} height={280} isResizeHeight>
+              <div css={experienceBoxStyle()}>
+                <Text
+                  size={themes.fontSize.ClampH2}
+                  weight={themes.fontWeight.Medium}
+                  color={themes.colors['White/09']}
+                >
+                  경력사항 👨‍💻
+                </Text>
+                <div>{ExperienceList()}</div>
+              </div>
+            </GridCard>
+            <GridCard columnSize={'1 / 2'} height={280} isResizeHeight>
+              <div css={personalInfomationBoxStyle()}>
+                <Text
+                  size={themes.fontSize.ClampH2}
+                  weight={themes.fontWeight.Medium}
+                  color={themes.colors['White/09']}
+                >
+                  인적사항 🤔
+                </Text>
+                <PersonalInfomationList />
+              </div>
+            </GridCard>
+            <GridCard columnSize={'2 / 3'} height={280} isResizeHeight>
+              <div css={academicBackgroundBoxStyle()}>
+                <Text
+                  size={themes.fontSize.ClampH2}
+                  weight={themes.fontWeight.Medium}
+                  color={themes.colors['White/09']}
+                >
+                  학력사항 🧑‍🎓
+                </Text>
+                <AcademicBackgroundList />
+              </div>
+            </GridCard>
+            <GridCard columnSize={'3 / 4'} height={280} isResizeHeight>
+              <div css={hobbyBoxStyle()}>
+                <Text
+                  size={themes.fontSize.ClampH2}
+                  weight={themes.fontWeight.Medium}
+                  color={themes.colors['White/09']}
+                >
+                  취미활동 😙
+                </Text>
+                <HobbyList />
+              </div>
+            </GridCard>
+            {/*  */}
+            <GridCard columnSize={'4 / 5'} height={280} isResizeHeight>
+              <Thumbnail
+                css={learnMoreAboutBoxStyle()}
+                hasIcon={true}
+                textContent={
+                  <>
+                    <div css={iconProfileBoxStyle()}>
+                      <Icon
+                        name="icProfile"
+                        width={90}
+                        height={100}
+                        rotate={0}
+                        color={themes.colors.White}
+                        isFixStroke
+                      />
+                    </div>
+                    <ThumbnailContent
+                      type={THUMBNAIL_TYPES.RESUME}
+                      main="LEARN MORE ABOUT ME"
+                      sub="See my resume 👀"
                     />
-                  </div>
-                  <ThumbnailContent
-                    type={THUMBNAIL_TYPES.RESUME}
-                    main="LEARN MORE ABOUT ME"
-                    sub="See my resume 👀"
-                  />
-                </>
-              }
-              onClick={() => console.log(112313)}
-            />
-          </GridCard>
-        </GridBox>
+                  </>
+                }
+                onClick={() => console.log(112313)}
+              />
+            </GridCard>
+          </GridBox>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

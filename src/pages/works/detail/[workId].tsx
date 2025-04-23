@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 
 import Image from 'next/image';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { themes } from '@styles/themes';
 
@@ -15,6 +16,7 @@ import Article from '@components/Article';
 
 import { WorkListItemProps, WorkDetailItemProps } from '@core/types';
 import { PROJECT_THUMNAIL_LIST } from '@core/constants';
+import Seo from '@src/components/common/Seo';
 
 const WorkDetail = () => {
   const router = useRouter();
@@ -51,7 +53,6 @@ const WorkDetail = () => {
 
   useEffect(() => {
     const id = router.query.workId || window.history.state.as.split('/works/detail/')[1];
-    console.log(id);
 
     PROJECT_THUMNAIL_LIST.forEach((item) => {
       if (item.workId === id) setDetailInfo(item);
@@ -59,36 +60,47 @@ const WorkDetail = () => {
   }, []);
 
   return (
-    <div css={styles.wrapperStyle()}>
-      <div css={styles.innerStyle()}>
-        {detailInfo && (
-          <MotionBox css={styles.contentBoxStyle()} motionType="FADE_IN_UP">
-            <div css={styles.imageBoxStyle()}>
-              <Image
-                src={`/assets/images/${detailInfo.imageName}.png`}
-                width="700px"
-                height="525px"
+    <>
+      {/* <Head>
+        <title>[포트폴리오] - {detailInfo?.workName}</title>
+      </Head> */}
+      <Seo
+        title={detailInfo?.workName as string}
+        description={detailInfo?.introduction as string}
+        url={`/works/detail/${detailInfo?.workId}`}
+        imageName={`/assets/images/${detailInfo?.imageName}.png`}
+      />
+      <div css={styles.wrapperStyle()}>
+        <div css={styles.innerStyle()}>
+          {detailInfo && (
+            <MotionBox css={styles.contentBoxStyle()} motionType="FADE_IN_UP">
+              <div css={styles.imageBoxStyle()}>
+                <Image
+                  src={`/assets/images/${detailInfo.imageName}.png`}
+                  width="700px"
+                  height="525px"
+                />
+              </div>
+              <Text
+                size={themes.fontSize.ClampBody1}
+                weight={themes.fontWeight.Medium}
+                color={themes.colors['White/09']}
+              >
+                {detailInfo?.workName}
+              </Text>
+              <TextWithContent title="프로젝트 목적" content={detailInfo.introduction} />
+              <TextWithContent title="사용 기술" content={detailInfo.skill} />
+              <TextWithContent
+                title="담당 업무"
+                content={<AssingedTask list={detailInfo.taskList} />}
               />
-            </div>
-            <Text
-              size={themes.fontSize.ClampBody1}
-              weight={themes.fontWeight.Medium}
-              color={themes.colors['White/09']}
-            >
-              {detailInfo?.workName}
-            </Text>
-            <TextWithContent title="프로젝트 목적" content={detailInfo.introduction} />
-            <TextWithContent title="사용 기술" content={detailInfo.skill} />
-            <TextWithContent
-              title="담당 업무"
-              content={<AssingedTask list={detailInfo.taskList} />}
-            />
-            <TextWithContent title="형상 관리" content={detailInfo.versionManage} />
-            <TextWithContent title="프로젝트 기간" content={detailInfo.period} />
-          </MotionBox>
-        )}
+              <TextWithContent title="형상 관리" content={detailInfo.versionManage} />
+              <TextWithContent title="프로젝트 기간" content={detailInfo.period} />
+            </MotionBox>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
