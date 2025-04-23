@@ -125,8 +125,9 @@ const WorkDetail = () => {
               <div css={imageBoxStyle()}>
                 <Image
                   src={`/assets/images/${detailInfo.imageName}.png`}
-                  width="700px"
-                  height="525px"
+                  width="700"
+                  height="525"
+                  alt=""
                 />
               </div>
               <Text

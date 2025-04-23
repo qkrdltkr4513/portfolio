@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export",
+    "predeploy": "yarn run build && yarn run export && echo '' > out/.nojekyll",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.9.5",
@@ -26,8 +29,9 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "framer-motion": "^10.11.2",
+    "gh-pages": "^6.3.0",
     "lodash": "^4.17.21",
-    "next": "12.2.3",
+    "next": "13.4",
     "prettier": "^2.7.1",
     "react": "18.2.0",
     "react-apexcharts": "^1.7.0",

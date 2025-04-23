@@ -79,13 +79,13 @@ const Card = ({
         <div css={innerStyle(isFullCard)}>
           {imageName && (imagePosition === LEFT_TOP || imagePosition === RIGHT_TOP) && (
             <div css={ImagePositionStyle(imagePosition, isCircleImage)}>
-              <Image src={imageName} width="80" height="80" css={circleBoxStyle()} />
+              <Image src={imageName} width="80" height="80" css={circleBoxStyle()} alt="" />
             </div>
           )}
           {children}
           {imageName && (imagePosition === LEFT_BOTTOM || imagePosition === RIGHT_BOTTOM) && (
             <div css={ImagePositionStyle(imagePosition, isCircleImage)}>
-              <Image src={imageName} width="80" height="80" css={circleBoxStyle()} />
+              <Image src={imageName} width="80" height="80" css={circleBoxStyle()} alt="" />
             </div>
           )}
         </div>

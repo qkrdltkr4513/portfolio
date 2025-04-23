@@ -49,9 +49,15 @@ const Thumbnail = ({ image, hasIcon = false, textContent, className, onClick }: 
     return (
       <div css={imageBoxStyle(width, height)}>
         {isCircle ? (
-          <Image css={circleImageStyle(width, height)} src={name} width={width} height={height} />
+          <Image
+            css={circleImageStyle(width, height)}
+            src={name}
+            width={width}
+            height={height}
+            alt=""
+          />
         ) : (
-          <Image src={name} width={width} height={height} />
+          <Image src={name} width={width} height={height} alt="" />
         )}
       </div>
     );
