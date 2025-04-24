@@ -1,0 +1,37 @@
+{
+  "dashboard/index.tsx -> @components/common/DonutChart": {
+    "id": 32415,
+    "files": [
+      "static/chunks/6c44d60f.0b6939a8f7c68a39.js",
+      "static/chunks/415.78bb007aa25b6f6f.js"
+    ]
+  },
+  "dashboard/index.tsx -> @components/common/LineChart": {
+    "id": 27427,
+    "files": [
+      "static/chunks/6c44d60f.0b6939a8f7c68a39.js",
+      "static/chunks/427.1a1bdd047c536415.js"
+    ]
+  },
+  "dashboard/index.tsx -> @components/common/PieChart": {
+    "id": 1280,
+    "files": [
+      "static/chunks/6c44d60f.0b6939a8f7c68a39.js",
+      "static/chunks/280.99be78fd1bd071c6.js"
+    ]
+  },
+  "dashboard/index.tsx -> @components/common/RangeBarChart": {
+    "id": 15213,
+    "files": [
+      "static/chunks/6c44d60f.0b6939a8f7c68a39.js",
+      "static/chunks/213.4899d87a4abca0f9.js"
+    ]
+  },
+  "dashboard/index.tsx -> @components/common/TreeMapChart": {
+    "id": 77122,
+    "files": [
+      "static/chunks/6c44d60f.0b6939a8f7c68a39.js",
+      "static/chunks/122.cd60a50cec8160a6.js"
+    ]
+  }
+}

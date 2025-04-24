@@ -1,0 +1,14 @@
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/about": "pages/about.html",
+  "/api/hello": "pages/api/hello.js",
+  "/dashboard": "pages/dashboard.html",
+  "/home": "pages/home.html",
+  "/": "pages/index.html",
+  "/resume": "pages/resume.html",
+  "/works": "pages/works.html",
+  "/_error": "pages/_error.js",
+  "/works/detail/[workId]": "pages/works/detail/[workId].html",
+  "/404": "pages/404.html"
+}
