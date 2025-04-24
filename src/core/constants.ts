@@ -763,33 +763,39 @@ export const EXTERNAL_LINK_LIST: ExternalTypeProps[] = [
 
 // SEO
 export const SEO_STATIC_INFO = {
+  main: {
+    title: '[포트폴리오] Front-End 박이삭',
+    description: 'Front-End 개발을 즐거워하고 성장 욕구와 긍정적인 사고를 가진 개발자입니다.',
+    url: '/',
+    imageName: `/portfolio/assets/images/main/img-main-about-me2.png`,
+  },
   home: {
     title: '[포트폴리오] - Home',
     description: '포트폴리오 Home',
-    url: '/',
+    url: '/home',
     imageName: `/portfolio/assets/images/main/img-main-about-me2.png`,
   },
   about: {
     title: '[포트폴리오] - About',
-    description: '포트폴리오 About',
+    description: '안녕하세요. 간략하게 저에 대해 소개할게요 !',
     url: '/about',
     imageName: `/portfolio/assets/images/main/img-main-contact.png`,
   },
   resume: {
     title: '[포트폴리오] - Resume',
-    description: '포트폴리오 Resume',
+    description: '저의 상세 이력 내용입니다.',
     url: '/resume',
     imageName: `/portfolio/assets/images/main/img-main-resume.png`,
   },
   works: {
     title: '[포트폴리오] - Works',
-    description: '포트폴리오 Works',
+    description: '현재까지 진행한 프로젝트를 정리해보았어요 !',
     url: '/works',
     imageName: `/portfolio/assets/images/main/img-main-all-project.png`,
   },
   dashboard: {
     title: '[포트폴리오] - Dashboard',
-    description: '포트폴리오 Dashboard',
+    description: '제가 현재까지 경험한 것을 기준으로 시각화 해보았어요 !',
     url: '/dashboard',
     imageName: `/portfolio/assets/images/main/img-main-dashboard.png`,
   },

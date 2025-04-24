@@ -161,7 +161,7 @@ const Works = () => {
   //
   const moveToDetail = (_: string, id: string) => {
     const workId = id;
-    router.push(`works/detail/${workId}`);
+    router.push({ pathname: `works/detail`, query: { workId } });
   };
 
   useEffect(() => {
