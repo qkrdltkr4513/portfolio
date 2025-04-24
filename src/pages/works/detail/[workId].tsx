@@ -103,6 +103,7 @@ const WorkDetail = () => {
     const id =
       router.query.workId || window.history.state.as.split('/works/detail/')[1].replace('/', '');
 
+    console.log('id', id);
     PROJECT_THUMNAIL_LIST.forEach((item) => {
       if (item.workId === id) setDetailInfo(item);
     });
