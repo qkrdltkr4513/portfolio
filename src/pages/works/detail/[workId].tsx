@@ -124,7 +124,7 @@ const WorkDetail = () => {
             <MotionBox css={contentBoxStyle()} motionType="FADE_IN_UP">
               <div css={imageBoxStyle()}>
                 <Image
-                  src={`assets/images/${detailInfo.imageName}.png`}
+                  src={`/portfolio/assets/images/${detailInfo.imageName}.png`}
                   width="700"
                   height="525"
                   alt=""
