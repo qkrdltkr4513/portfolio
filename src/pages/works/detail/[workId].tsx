@@ -100,7 +100,8 @@ const WorkDetail = () => {
   }, []);
 
   useEffect(() => {
-    const id = router.query.workId || window.history.state.as.split('/works/detail/')[1];
+    const id =
+      router.query.workId || window.history.state.as.split('/works/detail/')[1].replace('/', '');
 
     PROJECT_THUMNAIL_LIST.forEach((item) => {
       if (item.workId === id) setDetailInfo(item);
