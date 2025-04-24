@@ -53,7 +53,7 @@ const imageStyle = () => css`
   width: 100%;
   height: 100%;
 
-  background-image: url(/assets/images/img-about-background.png);
+  background-image: url(/portfolio/assets/images/img-about-background.png);
   background-size: cover;
   background-position: center bottom;
   border-radius: 18px;

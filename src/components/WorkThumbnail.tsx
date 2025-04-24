@@ -29,7 +29,7 @@ const imageBackgroundStyle = (imageName: string) => css`
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(/assets/images/${imageName}.png);
+  background-image: url(/portfolio/assets/images/${imageName}.png);
   background-size: cover;
   background-position: center;
   border-radius: 16px;
