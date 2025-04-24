@@ -116,7 +116,7 @@ const WorkDetail = () => {
         title={detailInfo?.workName as string}
         description={detailInfo?.introduction as string}
         url={`/works/detail/${detailInfo?.workId}`}
-        imageName={`/portfolio/assets/images/${detailInfo?.imageName}.png`}
+        imageName={`assets/images/${detailInfo?.imageName}.png`}
       />
       <div css={wrapperStyle()}>
         <div css={innerStyle()}>
@@ -124,7 +124,7 @@ const WorkDetail = () => {
             <MotionBox css={contentBoxStyle()} motionType="FADE_IN_UP">
               <div css={imageBoxStyle()}>
                 <Image
-                  src={`/portfolio/assets/images/${detailInfo.imageName}.png`}
+                  src={`assets/images/${detailInfo.imageName}.png`}
                   width="700"
                   height="525"
                   alt=""

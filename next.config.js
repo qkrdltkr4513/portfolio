@@ -5,7 +5,7 @@ console.log(isProd);
 const nextConfig = {
   output: 'export',
   basePath: isProd ? '/portfolio' : '',
-  // assetPrefix: isProd ? '/portfolio/' : '',
+  assetPrefix: isProd ? '/portfolio/' : '',
   trailingSlash: true,
   images: {
     unoptimized: true,
