@@ -4,6 +4,10 @@
 
 /coverage
 
+/.next/
+/out/
+/.next
+
 /build
 /dist
 
