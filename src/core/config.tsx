@@ -810,9 +810,10 @@ export const TABLE_CONFIG = {
       width: 60,
       render: (_: any, item: any) => {
         const workId = item.projectId;
-        const pathName = `/works/detail/${workId}`;
+        const pathName = `/works/detail/`;
+        console.log(pathName);
         return (
-          <Link href={{ pathname: pathName }}>
+          <Link href={{ pathname: pathName, query: { workId } }}>
             <span css={linkStyle()}>상세보기</span>
           </Link>
         );

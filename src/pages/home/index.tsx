@@ -68,7 +68,7 @@ const Home = () => {
           height={305}
           isResizeHeight
           imageName="img-main-commerce"
-          onClick={() => moveToPage(`${PAGE_INFOS.WORK.path}/detail/23`)}
+          onClick={() => moveToPage(`${PAGE_INFOS.WORK.path}/detail/?workId=23`)}
         >
           <Thumbnail
             textContent={
@@ -85,7 +85,7 @@ const Home = () => {
           height={305}
           isResizeHeight
           imageName="img-main-mobile-app"
-          onClick={() => moveToPage(`${PAGE_INFOS.WORK.path}/detail/26`)}
+          onClick={() => moveToPage(`${PAGE_INFOS.WORK.path}/detail/?workId=26`)}
         >
           <Thumbnail
             textContent={
@@ -102,7 +102,7 @@ const Home = () => {
           height={305}
           isResizeHeight
           imageName="img-main-smart-building"
-          onClick={() => moveToPage(`${PAGE_INFOS.WORK.path}/detail/10`)}
+          onClick={() => moveToPage(`${PAGE_INFOS.WORK.path}/detail/?workId=10`)}
         >
           <Thumbnail
             textContent={

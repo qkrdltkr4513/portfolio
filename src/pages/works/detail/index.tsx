@@ -26,12 +26,7 @@ export const wrapperStyle = () => css`
 
 export const innerStyle = () => css`
   width: 100%;
-  // TODO
-  @media (min-width: 1280px) {
-    max-width: 800px;
-  }
-
-  @media (min-width: 1440px) {
+  @media (min-width: 1200px) {
     max-width: 1000px;
   }
 `;
@@ -115,8 +110,8 @@ const WorkDetail = () => {
       <Seo
         title={detailInfo?.workName as string}
         description={detailInfo?.introduction as string}
-        url={`/works/detail/${detailInfo?.workId}`}
-        imageName={`assets/images/${detailInfo?.imageName}.png`}
+        url={`/works/detail/?workId=${detailInfo?.workId}`}
+        imageName={`/portfolio/assets/images/${detailInfo?.imageName}.png`}
       />
       <div css={wrapperStyle()}>
         <div css={innerStyle()}>
@@ -124,9 +119,11 @@ const WorkDetail = () => {
             <MotionBox css={contentBoxStyle()} motionType="FADE_IN_UP">
               <div css={imageBoxStyle()}>
                 <Image
+                  css={{ width: '100%', height: 'auto' }}
                   src={`/portfolio/assets/images/${detailInfo.imageName}.png`}
-                  width="700"
-                  height="525"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   alt=""
                 />
               </div>
