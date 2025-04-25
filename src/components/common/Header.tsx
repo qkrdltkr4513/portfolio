@@ -74,6 +74,7 @@ const titleStyle = () => css`
   color: ${themes.colors.White};
   ${themes.fontSize.Title};
   ${themes.fontWeight.SemiBold};
+  cursor: pointer;
 `;
 
 const menuListStyle = () => css`
