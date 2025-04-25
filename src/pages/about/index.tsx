@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import Head from 'next/head';
+import Image from 'next/image';
 import { css } from '@emotion/react';
 
 import { SEO_STATIC_INFO, THUMBNAIL_TYPES } from '@core/constants';
@@ -15,6 +15,7 @@ import Icon from '@components/common/Icon';
 import { themes } from '@styles/themes';
 import useCommon from '@src/hooks/useCommon';
 import Seo from '@src/components/common/Seo';
+import { useRouter } from 'next/router';
 
 const wrapperStyle = () => css`
   display: flex;
@@ -204,14 +205,28 @@ const iconProfileBoxStyle = () => css`
   align-item: center;
 `;
 
+const imageBackgroundStyle = (imageName: string) => css`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/portfolio/assets/images/${imageName}.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  opacity: 0.4;
+`;
+
 const EXPERIENCE_LIST = [
   { companyName: 'NC ITS', workType: 'Front-End', period: '22.07 - 현재' },
   { companyName: '스테이지파이브', workType: 'Front-End', period: '21.01 - 22.06' },
   { companyName: '빌드잇', workType: 'Front-End', period: '19.04 - 20.12' },
-  // { companyName: '아토스', workType: 'SI / SM', period: '2017.01 - 2018.12' },
+  { companyName: '아토스', workType: 'SI / SM', period: '2017.01 - 2018.12' },
 ];
 
 const About = () => {
+  const router = useRouter();
   const { getWindowWidth } = useCommon();
   const outerWidth = getWindowWidth();
 
@@ -298,7 +313,8 @@ const About = () => {
           <br />
           생년월일: 1992.07.27
           <br />
-          경력: 5년 4개월
+          {/* 경력: 5년 4개월 */}
+          경력: 8년
         </Text>
       </div>
     );
@@ -352,6 +368,11 @@ const About = () => {
         </Text>
       </div>
     );
+  }, []);
+
+  const ImageBackground = useCallback((props: { imageName: string }) => {
+    const { imageName } = props;
+    return <div css={imageBackgroundStyle(imageName)} />;
   }, []);
 
   useEffect(() => {
@@ -487,14 +508,7 @@ const About = () => {
                 textContent={
                   <>
                     <div css={iconProfileBoxStyle()}>
-                      <Icon
-                        name="icProfile"
-                        width={90}
-                        height={100}
-                        rotate={0}
-                        color={themes.colors.White}
-                        isFixStroke
-                      />
+                      <ImageBackground imageName="img-my-character" />
                     </div>
                     <ThumbnailContent
                       type={THUMBNAIL_TYPES.RESUME}
@@ -503,7 +517,7 @@ const About = () => {
                     />
                   </>
                 }
-                onClick={() => console.log(112313)}
+                onClick={() => router.push('/resume')}
               />
             </GridCard>
           </GridBox>
