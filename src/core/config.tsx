@@ -378,12 +378,10 @@ export const RANGE_BAR_CHART_CONFIG = {
       },
       y: {
         formatter: (value: string | number) => {
-          console.log(123);
           if (typeof value === 'string') return value;
         },
         title: {
           formatter: (name: string) => {
-            console.log(345);
             if (typeof name === 'string') return name;
           },
         },
@@ -811,7 +809,6 @@ export const TABLE_CONFIG = {
       render: (_: any, item: any) => {
         const workId = item.projectId;
         const pathName = `/works/detail/`;
-        console.log(pathName);
         return (
           <Link href={{ pathname: pathName, query: { workId } }}>
             <span css={linkStyle()}>상세보기</span>

@@ -9,7 +9,7 @@ import Chip, { ChipItemType } from '@components/common/Chip';
 import Card from '@components/common/Card';
 
 import { themes } from '@styles/themes';
-import { uniqueId } from 'lodash';
+import { filter, uniqueId } from 'lodash';
 // import Thumbnail from '@src/components/Thumbnail';
 // import ThumbnailContent from '@src/components/ThumbnailContent';
 import { PROJECT_THUMNAIL_LIST, SEO_STATIC_INFO } from '@core/constants';
@@ -100,6 +100,8 @@ const Works = () => {
   // inner state
   const [filterList, setFilterList] = useState(FILTER_LIST);
 
+  const [isUpdateFilterList, setIsUpdateFilterList] = useState<boolean>(false);
+
   const workList = useMemo(() => {
     let result: WorkListItemProps[] = [];
 
@@ -133,26 +135,15 @@ const Works = () => {
           });
         });
       } else {
-        setFilterList((prevState) => {
-          const activatedFilter = prevState.filter((item) => item.active === true);
-          const isActiveAll =
-            (filterList.length - 1 === activatedFilter.length && !currentActiveStatus) ||
-            activatedFilter.length === 0;
+        setFilterList(
+          filterList.map((item) => {
+            if (item.tag === tag) item.active = !currentActiveStatus;
+            if (item.tag === 'All') item.active = false;
+            return item;
+          }),
+        );
 
-          if (isActiveAll) {
-            return prevState.map((item) => {
-              if (item.tag === 'All') item.active = true;
-              else item.active = false;
-              return item;
-            });
-          } else {
-            return prevState.map((item) => {
-              if (item.tag === tag) item.active = !currentActiveStatus;
-              if (item.tag === 'All') item.active = false;
-              return item;
-            });
-          }
-        });
+        setIsUpdateFilterList(true);
       }
     },
     [filterList],
@@ -163,6 +154,31 @@ const Works = () => {
     const workId = id;
     router.push({ pathname: `works/detail`, query: { workId } });
   };
+
+  useEffect(() => {
+    if (!isUpdateFilterList) return;
+    const activatedFilter = filterList.filter((item) => item.tag !== 'All' && item.active);
+
+    const deActivatedFilter = filterList.filter((item) => item.tag !== 'All' && !item.active);
+
+    if (
+      activatedFilter.length === filterList.length - 1 ||
+      deActivatedFilter.length === filterList.length - 1
+    ) {
+      setFilterList((prevState) => {
+        return prevState.map((item) => {
+          const { tag, active } = item;
+
+          if (tag === 'All') item.active = true;
+          else if (tag !== 'All') item.active = false;
+
+          return item;
+        });
+      });
+    }
+
+    setIsUpdateFilterList(false);
+  }, [filterList, isUpdateFilterList]);
 
   useEffect(() => {
     if (!typeof window) return;

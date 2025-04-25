@@ -83,8 +83,6 @@ const MenuTreeList = () => {
   // hooks
   const { push, pathname, asPath } = useRouter();
 
-  console.log(pathname, asPath);
-
   // handler
   const goToPage = useCallback(
     (pageUrl: string | undefined) => {

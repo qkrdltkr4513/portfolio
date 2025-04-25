@@ -92,8 +92,6 @@ const Resume = () => {
     const { type, url } = item;
 
     if (type === 'link') window.open(url);
-    // TODO: 삭제 필요
-    console.log(type, url);
   };
   // width={(getWindowWidth() as number) > 800 ? '100%' : '400px'}
   const ExternalLinkList = useCallback(

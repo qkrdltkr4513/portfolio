@@ -114,10 +114,6 @@ const GridCard = ({
     return <div css={imageBackgroundStyle(imageName)} />;
   }, []);
 
-  useEffect(() => {
-    console.log('card item mounted');
-  }, []);
-
   return (
     <MotionBox
       css={wrapperStyle(columnSize, rowSize, height, isResizeHeight, type)}
